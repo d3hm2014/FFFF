@@ -1,710 +1,699 @@
 <!doctype html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>فيصل للدعاية والإعلان | السعودية</title>
-  <meta name="description" content="فيصل للدعاية والإعلان — حلول اتصالية وإعلانية للجهات الحكومية والشركات داخل المملكة العربية السعودية." />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>فيصل للدعاية والإعلان | السعودية</title>
+  <meta name="description" content="فيصل للدعاية والإعلان — حلول اتصالية وإعلانية للجهات الحكومية والشركات داخل المملكة العربية السعودية." />
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet">   <style>
+    :root{
+      /* White corporate system */
+      --bg:#ffffff;
+      --bg2:#f6f9ff;
+      --surface:#ffffff;
+      --surface2:#f3f7ff;
+      --text:#0b1220;
+      --muted:#4b5563;
+      --line:rgba(15,23,42,.12);
 
-  <style>
-    :root{
-      /* White corporate system */
-      --bg:#ffffff;
-      --bg2:#f6f9ff;
-      --surface:#ffffff;
-      --surface2:#f3f7ff;
-      --text:#0b1220;
-      --muted:#4b5563;
-      --line:rgba(15,23,42,.12);
+      /* Blue accents (government/corporate) */
+      --blue:#1d4ed8;     /* primary */
+      --sky:#0ea5e9;      /* accent */
+      --navy:#0b2c5a;     /* deep */
+      --glow:rgba(14,165,233,.12);
 
-      /* Blue accents (government/corporate) */
-      --blue:#1d4ed8;     /* primary */
-      --sky:#0ea5e9;      /* accent */
-      --navy:#0b2c5a;     /* deep */
-      --glow:rgba(14,165,233,.12);
+      --radius:18px;
+      --shadow:0 14px 40px rgba(2,6,23,.10);
+      --shadowSoft:0 10px 24px rgba(2,6,23,.08);
 
-      --radius:18px;
-      --shadow:0 14px 40px rgba(2,6,23,.10);
-      --shadowSoft:0 10px 24px rgba(2,6,23,.08);
+      --container:1120px;
 
-      --container:1120px;
+      /* spacing scale */
+      --s1:8px;
+      --s2:12px;
+      --s3:16px;
+      --s4:20px;
+      --s5:28px;
+      --s6:44px;
+      --s7:64px;
+    }
 
-      /* spacing scale */
-      --s1:8px;
-      --s2:12px;
-      --s3:16px;
-      --s4:20px;
-      --s5:28px;
-      --s6:44px;
-      --s7:64px;
-    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family:"Cairo",system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+      color:var(--text);
+      background:
+        radial-gradient(900px 520px at 85% 0%, var(--glow), transparent 55%),
+        radial-gradient(900px 520px at 10% 0%, rgba(29,78,216,.10), transparent 55%),
+        linear-gradient(180deg, var(--bg), var(--bg2));
+    }
 
-    *{box-sizing:border-box}
-    html{scroll-behavior:smooth}
-    body{
-      margin:0;
-      font-family:"Cairo",system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
-      color:var(--text);
-      background:
-        radial-gradient(900px 520px at 85% 0%, var(--glow), transparent 55%),
-        radial-gradient(900px 520px at 10% 0%, rgba(29,78,216,.10), transparent 55%),
-        linear-gradient(180deg, var(--bg), var(--bg2));
-    }
+    a{color:inherit;text-decoration:none}
+    .container{max-width:var(--container);margin:0 auto;padding:0 18px}
 
-    a{color:inherit;text-decoration:none}
-    .container{max-width:var(--container);margin:0 auto;padding:0 18px}
+    /* Header */
+    header{
+      position:sticky;top:0;z-index:50;
+      background: rgba(255,255,255,.82);
+      backdrop-filter: blur(10px);
+      border-bottom:1px solid var(--line);
+    }
+    .header-inner{
+      display:flex;align-items:center;justify-content:space-between;
+      gap:14px;padding:14px 0;
+    }
+    .brand{display:flex;align-items:center;gap:12px;min-width:220px}
+    .mark{
+      width:40px;height:40px;border-radius:14px;
+      background: linear-gradient(135deg, var(--blue), var(--sky));
+      box-shadow: var(--shadowSoft);
+      position:relative;overflow:hidden;
+    }
+    /* تم إضافة رمز تقريبي للشعار (حرف ف) */
+    .mark:after{
+      content:"ف";
+      position:absolute;inset:0;
+      display:flex;align-items:center;justify-content:center;
+      color:white;font-weight:900;font-size:1.4rem;
+      text-shadow: 0 1px 2px rgba(0,0,0,.15);
+    }
+    .brand h1{font-size:1.05rem;margin:0;line-height:1.1;font-weight:900}
+    .brand small{display:block;color:var(--muted);font-weight:700;margin-top:4px}
 
-    /* Header */
-    header{
-      position:sticky;top:0;z-index:50;
-      background: rgba(255,255,255,.82);
-      backdrop-filter: blur(10px);
-      border-bottom:1px solid var(--line);
-    }
-    .header-inner{
-      display:flex;align-items:center;justify-content:space-between;
-      gap:14px;padding:14px 0;
-    }
-    .brand{display:flex;align-items:center;gap:12px;min-width:220px}
-    .mark{
-      width:40px;height:40px;border-radius:14px;
-      background: linear-gradient(135deg, var(--blue), var(--sky));
-      box-shadow: var(--shadowSoft);
-      position:relative;overflow:hidden;
-    }
-    .mark:after{
-      content:"";
-      position:absolute;inset:-25%;
-      background: radial-gradient(circle at 30% 30%, rgba(255,255,255,.55), transparent 45%);
-      transform: rotate(18deg);
-    }
-    .brand h1{font-size:1.05rem;margin:0;line-height:1.1;font-weight:900}
-    .brand small{display:block;color:var(--muted);font-weight:700;margin-top:4px}
+    nav{display:flex;gap:10px;align-items:center}
+    nav a{
+      color:var(--muted);
+      font-weight:800;
+      padding:10px 12px;border-radius:14px;
+    }
+    nav a:hover{color:var(--text);background:rgba(2,6,23,.04)}
+    .btn{
+      display:inline-flex;align-items:center;justify-content:center;
+      border:0;cursor:pointer;
+      padding:12px 16px;border-radius:16px;
+      font-weight:900;
+      background: linear-gradient(135deg, var(--blue), var(--sky));
+      color:var(--surface); /* استخدام متغير اللون الأبيض */
+      box-shadow: 0 14px 32px rgba(29,78,216,.18);
+      white-space:nowrap;
+    }
+    .btn:hover{filter:brightness(1.02)}
+    .btn-ghost{
+      background: transparent;
+      border:1px solid rgba(29,78,216,.22);
+      color: var(--navy);
+      box-shadow:none;
+    }
+    .btn-ghost:hover{border-color:rgba(29,78,216,.38);background:rgba(29,78,216,.04)}
+    .toggle{
+      display:none;
+      background:transparent;border:1px solid var(--line);
+      border-radius:14px;padding:10px;cursor:pointer;
+    }
+    .toggle span{display:block;width:18px;height:2px;background:var(--text);margin:4px 0;border-radius:2px}
 
-    nav{display:flex;gap:10px;align-items:center}
-    nav a{
-      color:var(--muted);
-      font-weight:800;
-      padding:10px 12px;border-radius:14px;
-    }
-    nav a:hover{color:var(--text);background:rgba(2,6,23,.04)}
-    .btn{
-      display:inline-flex;align-items:center;justify-content:center;
-      border:0;cursor:pointer;
-      padding:12px 16px;border-radius:16px;
-      font-weight:900;
-      background: linear-gradient(135deg, var(--blue), var(--sky));
-      color:#ffffff;
-      box-shadow: 0 14px 32px rgba(29,78,216,.18);
-      white-space:nowrap;
-    }
-    .btn:hover{filter:brightness(1.02)}
-    .btn-ghost{
-      background: transparent;
-      border:1px solid rgba(29,78,216,.22);
-      color: var(--navy);
-      box-shadow:none;
-    }
-    .btn-ghost:hover{border-color:rgba(29,78,216,.38);background:rgba(29,78,216,.04)}
-    .toggle{
-      display:none;
-      background:transparent;border:1px solid var(--line);
-      border-radius:14px;padding:10px;cursor:pointer;
-    }
-    .toggle span{display:block;width:18px;height:2px;background:var(--text);margin:4px 0;border-radius:2px}
+    /* Hero */
+    .hero{padding:var(--s7) 0 var(--s5)}
+    .hero-grid{display:grid;grid-template-columns:1.2fr .95fr;gap:18px;align-items:start}
+    .badge{
+      display:inline-flex;align-items:center;gap:10px;
+      padding:8px 12px;border-radius:999px;
+      border:1px solid rgba(29,78,216,.18);
+      background: rgba(29,78,216,.05);
+      color:var(--text); /* استخدام متغير اللون */
+      font-weight:900;
+      width:fit-content;
+    }
+    .dot{
+      width:8px;height:8px;border-radius:50%;
+      background: linear-gradient(135deg, var(--blue), var(--sky));
+      box-shadow: 0 0 0 6px rgba(14,165,233,.10);
+    }
+    .hero h2{
+      margin:14px 0 10px;
+      font-size:2.4rem;line-height:1.15;font-weight:900;
+      color: var(--text); /* استخدام متغير اللون */
+      letter-spacing:-.2px;
+    }
+    .lead{
+      margin:0 0 18px;
+      color:var(--muted);
+      font-size:1.06rem;line-height:1.95;
+      max-width: 62ch;
+    }
+    .cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:18px}
 
-    /* Hero */
-    .hero{padding:var(--s7) 0 var(--s5)}
-    .hero-grid{display:grid;grid-template-columns:1.2fr .95fr;gap:18px;align-items:start}
-    .badge{
-      display:inline-flex;align-items:center;gap:10px;
-      padding:8px 12px;border-radius:999px;
-      border:1px solid rgba(29,78,216,.18);
-      background: rgba(29,78,216,.05);
-      color:#1f2937;
-      font-weight:900;
-      width:fit-content;
-    }
-    .dot{
-      width:8px;height:8px;border-radius:50%;
-      background: linear-gradient(135deg, var(--blue), var(--sky));
-      box-shadow: 0 0 0 6px rgba(14,165,233,.10);
-    }
-    .hero h2{
-      margin:14px 0 10px;
-      font-size:2.4rem;line-height:1.15;font-weight:900;
-      color: #0b1220;
-      letter-spacing:-.2px;
-    }
-    .lead{
-      margin:0 0 18px;
-      color:var(--muted);
-      font-size:1.06rem;line-height:1.95;
-      max-width: 62ch;
-    }
-    .cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:18px}
+    /* Panels/Cards */
+    .panel{
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.75);
+      border-radius: var(--radius);
+      padding:18px;
+      box-shadow: var(--shadow);
+    }
+    .panel.soft{box-shadow:none;background: rgba(255,255,255,.55)}
+    .list{list-style:none;margin:12px 0 0;padding:0}
+    .list li{
+      position:relative;
+      padding-right:30px;
+      margin:10px 0;
+      color:var(--muted);
+      font-weight:700;
+      line-height:1.9;
+    }
+    .list li:before{
+      content:"✅"; /* تم تغيير الرمز إلى إيموجي أنظف */
+      position:absolute;right:0;top:2px;
+      width:20px;height:20px;border-radius:8px;
+      display:inline-flex;align-items:center;justify-content:center;
+      /* تم إزالة الخلفية هنا لإظهار الإيموجي بشكل أفضل */
+      background: transparent;
+      color:#fff;font-weight:900;font-size:.9rem;
+    }
 
-    /* Panels/Cards */
-    .panel{
-      border:1px solid var(--line);
-      background: rgba(255,255,255,.75);
-      border-radius: var(--radius);
-      padding:18px;
-      box-shadow: var(--shadow);
-    }
-    .panel.soft{box-shadow:none;background: rgba(255,255,255,.55)}
-    .list{list-style:none;margin:12px 0 0;padding:0}
-    .list li{
-      position:relative;
-      padding-right:30px;
-      margin:10px 0;
-      color:var(--muted);
-      font-weight:700;
-      line-height:1.9;
-    }
-    .list li:before{
-      content:"✓";
-      position:absolute;right:0;top:2px;
-      width:18px;height:18px;border-radius:8px;
-      display:inline-flex;align-items:center;justify-content:center;
-      background: linear-gradient(135deg, var(--blue), var(--sky));
-      color:#fff;font-weight:900;font-size:.9rem;
-    }
+    .kpis{
+      display:grid;grid-template-columns:repeat(3,1fr);
+      gap:12px;margin-top:14px
+    }
+    .kpi{
+      border:1px solid rgba(2,6,23,.10);
+      background: rgba(255,255,255,.85);
+      border-radius:16px;
+      padding:12px;
+    }
+    .kpi strong{display:block;font-size:1.05rem}
+    .kpi span{display:block;color:var(--muted);font-weight:800;margin-top:4px;font-size:.92rem}
 
-    .kpis{
-      display:grid;grid-template-columns:repeat(3,1fr);
-      gap:12px;margin-top:14px
-    }
-    .kpi{
-      border:1px solid rgba(2,6,23,.10);
-      background: rgba(255,255,255,.85);
-      border-radius:16px;
-      padding:12px;
-    }
-    .kpi strong{display:block;font-size:1.05rem}
-    .kpi span{display:block;color:var(--muted);font-weight:800;margin-top:4px;font-size:.92rem}
+    /* Sections */
+    .section{padding:var(--s7) 0}
+    .section.alt{
+      border-top:1px solid var(--line);
+      border-bottom:1px solid var(--line);
+      background: linear-gradient(180deg, rgba(255,255,255,.65), rgba(243,247,255,.75));
+    }
+    .head{margin-bottom:20px}
+    .head h3{
+      margin:0 0 8px;font-size:1.75rem;font-weight:900;
+      color:var(--text); /* استخدام متغير اللون */
+      display:flex;align-items:center;gap:12px; /* تمكين الأيقونة */
+    }
+    .head p{margin:0;color:var(--muted);font-weight:700;line-height:1.9}
 
-    /* Sections */
-    .section{padding:var(--s7) 0}
-    .section.alt{
-      border-top:1px solid var(--line);
-      border-bottom:1px solid var(--line);
-      background: linear-gradient(180deg, rgba(255,255,255,.65), rgba(243,247,255,.75));
-    }
-    .head{margin-bottom:20px}
-    .head h3{margin:0 0 8px;font-size:1.75rem;font-weight:900;color:#0b1220}
-    .head p{margin:0;color:var(--muted);font-weight:700;line-height:1.9}
+    .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+    .card{
+      border:1px solid rgba(2,6,23,.10);
+      background: rgba(255,255,255,.85);
+      border-radius: var(--radius);
+      padding:16px;
+      box-shadow: var(--shadowSoft);
+    }
+    .card h4{
+      margin:0 0 10px;font-size:1.08rem;font-weight:900;
+      color:var(--text); /* استخدام متغير اللون */
+      display:flex;align-items:center;gap:8px; /* تمكين الأيقونة */
+    }
+    .card ul{margin:0;padding:0 18px;color:var(--muted);line-height:1.95;font-weight:700}
 
-    .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
-    .card{
-      border:1px solid rgba(2,6,23,.10);
-      background: rgba(255,255,255,.85);
-      border-radius: var(--radius);
-      padding:16px;
-      box-shadow: var(--shadowSoft);
-    }
-    .card h4{margin:0 0 10px;font-size:1.08rem;font-weight:900;color:#0b1220}
-    .card ul{margin:0;padding:0 18px;color:var(--muted);line-height:1.95;font-weight:700}
+    .steps{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+    .step{
+      display:flex;gap:12px;align-items:flex-start;
+      border:1px solid rgba(2,6,23,.10);
+      background: rgba(255,255,255,.85);
+      border-radius: var(--radius);
+      padding:16px;
+      box-shadow: var(--shadowSoft);
+    }
+    .num{
+      width:38px;height:38px;border-radius:14px;
+      background: rgba(29,78,216,.08);
+      border:1px solid rgba(29,78,216,.18);
+      display:flex;align-items:center;justify-content:center;
+      font-weight:900;color:var(--navy);
+      flex:0 0 auto;
+    }
+    .step h4{margin:0 0 6px;font-weight:900;color:var(--text)} /* استخدام متغير اللون */
+    .step p{margin:0;color:var(--muted);font-weight:700;line-height:1.9}
 
-    .steps{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
-    .step{
-      display:flex;gap:12px;align-items:flex-start;
-      border:1px solid rgba(2,6,23,.10);
-      background: rgba(255,255,255,.85);
-      border-radius: var(--radius);
-      padding:16px;
-      box-shadow: var(--shadowSoft);
-    }
-    .num{
-      width:38px;height:38px;border-radius:14px;
-      background: rgba(29,78,216,.08);
-      border:1px solid rgba(29,78,216,.18);
-      display:flex;align-items:center;justify-content:center;
-      font-weight:900;color:var(--navy);
-      flex:0 0 auto;
-    }
-    .step h4{margin:0 0 6px;font-weight:900;color:#0b1220}
-    .step p{margin:0;color:var(--muted);font-weight:700;line-height:1.9}
+    .tagrow{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}
+    .tag{
+      padding:8px 10px;border-radius:999px;
+      border:1px solid rgba(29,78,216,.18);
+      background: rgba(29,78,216,.05);
+      color:var(--text); /* استخدام متغير اللون */
+      font-weight:900;
+      font-size:.92rem;
+    }
 
-    .tagrow{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}
-    .tag{
-      padding:8px 10px;border-radius:999px;
-      border:1px solid rgba(29,78,216,.18);
-      background: rgba(29,78,216,.05);
-      color:#1f2937;
-      font-weight:900;
-      font-size:.92rem;
-    }
+    /* Compliance */
+    .compliance{display:grid;grid-template-columns:1.1fr .9fr;gap:14px;align-items:start}
+    .notice{
+      border:1px solid rgba(29,78,216,.18);
+      background: rgba(29,78,216,.05);
+      border-radius: var(--radius);
+      padding:16px;
+      box-shadow: var(--shadowSoft);
+    }
+    .notice strong{display:block;margin-bottom:8px;font-weight:900;color:var(--text)} /* استخدام متغير اللون */
+    .notice p{margin:0;color:var(--muted);font-weight:700;line-height:1.95}
 
-    /* Compliance */
-    .compliance{display:grid;grid-template-columns:1.1fr .9fr;gap:14px;align-items:start}
-    .notice{
-      border:1px solid rgba(29,78,216,.18);
-      background: rgba(29,78,216,.05);
-      border-radius: var(--radius);
-      padding:16px;
-      box-shadow: var(--shadowSoft);
-    }
-    .notice strong{display:block;margin-bottom:8px;font-weight:900;color:#0b1220}
-    .notice p{margin:0;color:var(--muted);font-weight:700;line-height:1.95}
+    /* Contact */
+    .contact{display:grid;grid-template-columns:1fr 1fr;gap:14px;align-items:start}
+    .info{display:grid;gap:10px;margin-top:14px}
+    .info-item{
+      border:1px solid rgba(2,6,23,.10);
+      background: rgba(255,255,255,.85);
+      border-radius: var(--radius);
+      padding:12px 14px;
+      box-shadow: var(--shadowSoft);
+    }
+    .label{color:var(--muted);font-weight:900;font-size:.9rem}
+    .value{font-weight:900;margin-top:6px;display:block;color:var(--text)} /* استخدام متغير اللون */
+    form{display:grid;gap:10px;margin-top:12px}
+    label span{display:block;color:var(--muted);font-weight:900;margin-bottom:6px}
+    input,select,textarea{
+      width:100%;
+      border:1px solid rgba(2,6,23,.12);
+      background: #fff;
+      color:var(--text); /* استخدام متغير اللون */
+      border-radius:14px;
+      padding:12px;
+      outline:none;
+      font-family:inherit;
+      font-weight:700;
+    }
+    input:focus,select:focus,textarea:focus{border-color: rgba(29,78,216,.45)}
+    .tiny{font-size:.9rem;color:var(--muted);font-weight:700;line-height:1.85;margin:10px 0 0}
 
-    /* Contact */
-    .contact{display:grid;grid-template-columns:1fr 1fr;gap:14px;align-items:start}
-    .info{display:grid;gap:10px;margin-top:14px}
-    .info-item{
-      border:1px solid rgba(2,6,23,.10);
-      background: rgba(255,255,255,.85);
-      border-radius: var(--radius);
-      padding:12px 14px;
-      box-shadow: var(--shadowSoft);
-    }
-    .label{color:var(--muted);font-weight:900;font-size:.9rem}
-    .value{font-weight:900;margin-top:6px;display:block;color:#0b1220}
-    form{display:grid;gap:10px;margin-top:12px}
-    label span{display:block;color:var(--muted);font-weight:900;margin-bottom:6px}
-    input,select,textarea{
-      width:100%;
-      border:1px solid rgba(2,6,23,.12);
-      background: #fff;
-      color:#0b1220;
-      border-radius:14px;
-      padding:12px;
-      outline:none;
-      font-family:inherit;
-      font-weight:700;
-    }
-    input:focus,select:focus,textarea:focus{border-color: rgba(29,78,216,.45)}
-    .tiny{font-size:.9rem;color:var(--muted);font-weight:700;line-height:1.85;margin:10px 0 0}
+    /* Footer */
+    .footer{
+      border-top:1px solid var(--line);
+      background: rgba(255,255,255,.7);
+      padding:22px 0;
+    }
+    .footer-inner{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+    .links{display:flex;gap:10px;flex-wrap:wrap}
+    .links a{color:var(--muted);font-weight:900;padding:8px 10px;border-radius:14px}
+    .links a:hover{color:var(--text);background:rgba(2,6,23,.04)} /* استخدام متغير اللون */
 
-    /* Footer */
-    .footer{
-      border-top:1px solid var(--line);
-      background: rgba(255,255,255,.7);
-      padding:22px 0;
-    }
-    .footer-inner{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
-    .links{display:flex;gap:10px;flex-wrap:wrap}
-    .links a{color:var(--muted);font-weight:900;padding:8px 10px;border-radius:14px}
-    .links a:hover{color:#0b1220;background:rgba(2,6,23,.04)}
+    .top{
+      position:fixed;left:16px;bottom:16px;
+      width:44px;height:44px;border-radius:16px;
+      border:1px solid rgba(2,6,23,.12);
+      background: rgba(255,255,255,.85);
+      display:flex;align-items:center;justify-content:center;
+      font-weight:900;
+      box-shadow: var(--shadowSoft);
+    }
+    .top:hover{border-color: rgba(29,78,216,.25)}
 
-    .top{
-      position:fixed;left:16px;bottom:16px;
-      width:44px;height:44px;border-radius:16px;
-      border:1px solid rgba(2,6,23,.12);
-      background: rgba(255,255,255,.85);
-      display:flex;align-items:center;justify-content:center;
-      font-weight:900;
-      box-shadow: var(--shadowSoft);
-    }
-    .top:hover{border-color: rgba(29,78,216,.25)}
-
-    /* Responsive */
-    @media (max-width: 980px){
-      .hero-grid,.grid3,.steps,.compliance,.contact{grid-template-columns:1fr}
-      .kpis{grid-template-columns:1fr}
-      .toggle{display:inline-block}
-      nav{
-        position:absolute;top:66px;left:18px;right:18px;
-        display:none;flex-direction:column;gap:10px;
-        background: rgba(255,255,255,.96);
-        border:1px solid var(--line);
-        border-radius: 18px;
-        padding:10px;
-        box-shadow: var(--shadowSoft);
-      }
-      nav.open{display:flex}
-      nav a{padding:12px 12px}
-      .hero h2{font-size:2rem}
-    }
-  </style>
+    /* Responsive */
+    @media (max-width: 980px){
+      .hero-grid,.grid3,.steps,.compliance,.contact{grid-template-columns:1fr}
+      .kpis{grid-template-columns:1fr}
+      .toggle{display:inline-block}
+      nav{
+        position:absolute;top:66px;left:18px;right:18px;
+        display:none;flex-direction:column;gap:10px;
+        background: rgba(255,255,255,.96);
+        border:1px solid var(--line);
+        border-radius: 18px;
+        padding:10px;
+        box-shadow: var(--shadowSoft);
+      }
+      nav.open{display:flex}
+      nav a{padding:12px 12px}
+      .hero h2{font-size:2rem}
+    }
+  </style>
 </head>
 
 <body>
 <header>
-  <div class="container header-inner">
-    <a class="brand" href="#top" aria-label="فيصل للدعاية والإعلان">
-      <span class="mark" aria-hidden="true"></span>
-      <span>
-        <h1>فيصل للدعاية والإعلان</h1>
-        <small>الرياض • نخدم المملكة العربية السعودية بالكامل</small>
-      </span>
-    </a>
+  <div class="container header-inner">
+    <a class="brand" href="#top" aria-label="فيصل للدعاية والإعلان">
+      <span class="mark" aria-hidden="true"></span>
+      <span>
+        <h1>فيصل للدعاية والإعلان</h1>
+        <small>الرياض • نخدم المملكة العربية السعودية بالكامل</small>
+      </span>
+    </a>
 
-    <button class="toggle" aria-label="فتح القائمة" aria-expanded="false" aria-controls="nav">
-      <span></span><span></span><span></span>
-    </button>
+    <button class="toggle" aria-label="فتح القائمة" aria-expanded="false" aria-controls="nav">
+      <span></span><span></span><span></span>
+    </button>
 
-    <nav id="nav">
-      <a href="#services">الخدمات</a>
-      <a href="#method">المنهجية</a>
-      <a href="#deliverables">المخرجات</a>
-      <a href="#compliance">الحوكمة</a>
-      <a href="#contact" class="btn">طلب عرض</a>
-    </nav>
-  </div>
+    <nav id="nav">
+      <a href="#services">الخدمات</a>
+      <a href="#method">المنهجية</a>
+      <a href="#deliverables">المخرجات</a>
+      <a href="#compliance">الحوكمة</a>
+      <a href="#contact" class="btn">طلب عرض</a>
+    </nav>
+  </div>
 </header>
 
 <main id="top">
-  <!-- HERO -->
-  <section class="hero">
-    <div class="container hero-grid">
-      <div>
-        <div class="badge"><span class="dot"></span> ستايل حكومي + شركات: رسمي، نظيف، قابل للاعتماد</div>
-        <h2>حلول اتصالية وإعلانية تحوّل الإنفاق إلى نتائج قابلة للقياس</h2>
-        <p class="lead">
-          نساعد الجهات الحكومية والشركات على التخطيط والتنفيذ وإدارة الحملات عبر القنوات الرقمية والتقليدية
-          ضمن إطار حوكمة واضح، ومؤشرات أداء (KPIs)، وتقارير دورية — بدون ضبابية.
-        </p>
+    <section class="hero">
+    <div class="container hero-grid">
+      <div>
+        <div class="badge"><span class="dot"></span> ستايل حكومي + شركات: رسمي، نظيف، قابل للاعتماد</div>
+        <h2>حلول اتصالية وإعلانية تحوّل الإنفاق إلى نتائج قابلة للقياس</h2>
+        <p class="lead">
+          نساعد الجهات الحكومية والشركات على التخطيط والتنفيذ وإدارة الحملات عبر القنوات الرقمية والتقليدية
+          ضمن إطار حوكمة واضح، ومؤشرات أداء (KPIs)، وتقارير دورية — بدون ضبابية.
+        </p>
 
-        <div class="cta">
-          <a class="btn" href="#contact">اطلب عرضًا فنيًا</a>
-          <a class="btn btn-ghost" href="#services">استعراض الخدمات</a>
-          <a class="btn btn-ghost" href="#deliverables">نماذج مخرجات وتقارير</a>
-        </div>
+        <div class="cta">
+          <a class="btn" href="#contact">اطلب عرضًا فنيًا</a>
+          <a class="btn btn-ghost" href="#services">استعراض الخدمات</a>
+          <a class="btn btn-ghost" href="#deliverables">نماذج مخرجات وتقارير</a>
+        </div>
 
-        <div class="tagrow">
-          <span class="tag">تقارير أسبوعية/شهرية</span>
-          <span class="tag">SLA واتفاقيات خدمة</span>
-          <span class="tag">حوكمة وموافقات</span>
-          <span class="tag">قياس أثر وKPIs</span>
-        </div>
-      </div>
+        <div class="tagrow">
+          <span class="tag">تقارير أسبوعية/شهرية</span>
+          <span class="tag">SLA واتفاقيات خدمة</span>
+          <span class="tag">حوكمة وموافقات</span>
+          <span class="tag">قياس أثر وKPIs</span>
+        </div>
+      </div>
 
-      <div>
-        <div class="panel">
-          <h3 style="margin:0 0 10px;font-weight:900">ملخص تنفيذي</h3>
-          <ul class="list">
-            <li>خطة اتصالية + خارطة رسائل + تقويم محتوى</li>
-            <li>إدارة منصات ومحتوى وتصميمات مؤسسية</li>
-            <li>إعلانات ممولة متعددة القنوات (مع تتبع)</li>
-            <li>إنتاج مرئي للحملات (Video/Motion)</li>
-            <li>قياس أثر وتوصيات تحسين مستمر</li>
-          </ul>
+      <div>
+        <div class="panel">
+          <h3 style="margin:0 0 10px;font-weight:900">ملخص تنفيذي</h3>
+          <ul class="list">
+            <li>خطة اتصالية + خارطة رسائل + تقويم محتوى</li>
+            <li>إدارة منصات ومحتوى وتصميمات مؤسسية</li>
+            <li>إعلانات ممولة متعددة القنوات (مع تتبع)</li>
+            <li>إنتاج مرئي للحملات (Video/Motion)</li>
+            <li>قياس أثر وتوصيات تحسين مستمر</li>
+          </ul>
 
-          <div class="kpis">
-            <div class="kpi"><strong>12+</strong><span>شهر تشغيل (قابل للتخصيص)</span></div>
-            <div class="kpi"><strong>KPIs</strong><span>مؤشرات أداء واضحة</span></div>
-            <div class="kpi"><strong>SLA</strong><span>زمن استجابة متفق عليه</span></div>
-          </div>
-        </div>
+          <div class="kpis">
+            <div class="kpi"><strong>12+</strong><span>شهر تشغيل (قابل للتخصيص)</span></div>
+            <div class="kpi"><strong>KPIs</strong><span>مؤشرات أداء واضحة</span></div>
+            <div class="kpi"><strong>SLA</strong><span>زمن استجابة متفق عليه</span></div>
+        </div>
+        </div>
 
-        <div class="panel soft" style="margin-top:12px">
-          <p style="margin:0;color:var(--muted);font-weight:800;line-height:1.9">
-            * نضيف لاحقًا زر “تحميل بروفايل الشركة PDF” (رابط ملف داخل GitHub).
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
+        <div class="panel soft" style="margin-top:12px">
+          <p style="margin:0;color:var(--muted);font-weight:800;line-height:1.9">
+            * نضيف لاحقًا زر “تحميل بروفايل الشركة PDF” (رابط ملف داخل GitHub).
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-  <!-- SERVICES -->
-  <section id="services" class="section">
-    <div class="container">
-      <div class="head">
-        <h3>الخدمات</h3>
-        <p>مقسمة بشكل يخدم العروض الفنية والمنافسات: استراتيجية → تنفيذ → قياس.</p>
-      </div>
+    <section id="services" class="section">
+    <div class="container">
+      <div class="head">
+        <h3>🛠️ الخدمات</h3>         <p>مقسمة بشكل يخدم العروض الفنية والمنافسات: استراتيجية → تنفيذ → قياس.</p>
+      </div>
 
-      <div class="grid3">
-        <div class="card">
-          <h4>الاستراتيجية والاتصال المؤسسي</h4>
-          <ul>
-            <li>تشخيص الوضع والفرص</li>
-            <li>خطة اتصالية سنوية/ربع سنوية</li>
-            <li>رسائل أساسية + نبرة خطاب</li>
-            <li>خارطة أصحاب المصلحة</li>
-          </ul>
-        </div>
+      <div class="grid3">
+        <div class="card">
+          <h4>🧭 الاستراتيجية والاتصال المؤسسي</h4>           <ul>
+            <li>تشخيص الوضع والفرص</li>
+            <li>خطة اتصالية سنوية/ربع سنوية</li>
+            <li>رسائل أساسية + نبرة خطاب</li>
+            <li>خارطة أصحاب المصلحة</li>
+          </ul>
+        </div>
 
-        <div class="card">
-          <h4>إدارة المحتوى والمنصات</h4>
-          <ul>
-            <li>تقويم محتوى + تحرير + نشر</li>
-            <li>تصاميم ثابتة/متحركة مؤسسية</li>
-            <li>إدارة مجتمع وردود (Governed)</li>
-            <li>دليل أسلوب (Guidelines)</li>
-          </ul>
-        </div>
+        <div class="card">
+          <h4>📝 إدارة المحتوى والمنصات</h4>           <ul>
+            <li>تقويم محتوى + تحرير + نشر</li>
+            <li>تصاميم ثابتة/متحركة مؤسسية</li>
+            <li>إدارة مجتمع وردود (Governed)</li>
+            <li>دليل أسلوب (Guidelines)</li>
+          </ul>
+        </div>
 
-        <div class="card">
-          <h4>الحملات الرقمية المدفوعة</h4>
-          <ul>
-            <li>Google / Meta / X / Snap / TikTok</li>
-            <li>تهيئة تتبع (UTM/Pixel/GA)</li>
-            <li>اختبارات A/B وتحسين مستمر</li>
-            <li>تقارير أداء تفصيلية</li>
-          </ul>
-        </div>
+        <div class="card">
+          <h4>💰 الحملات الرقمية المدفوعة</h4>           <ul>
+            <li>Google / Meta / X / Snap / TikTok</li>
+            <li>تهيئة تتبع (UTM/Pixel/GA)</li>
+            <li>اختبارات A/B وتحسين مستمر</li>
+            <li>تقارير أداء تفصيلية</li>
+          </ul>
+        </div>
 
-        <div class="card">
-          <h4>الإنتاج المرئي والإبداع</h4>
-          <ul>
-            <li>هوية حملة (Key Visual)</li>
-            <li>فيديوهات قصيرة + موشن</li>
-            <li>محتوى توعوي مؤسسي</li>
-            <li>قوالب موحدة للجهة</li>
-          </ul>
-        </div>
+        <div class="card">
+          <h4>🎬 الإنتاج المرئي والإبداع</h4>           <ul>
+            <li>هوية حملة (Key Visual)</li>
+            <li>فيديوهات قصيرة + موشن</li>
+            <li>محتوى توعوي مؤسسي</li>
+            <li>قوالب موحدة للجهة</li>
+          </ul>
+        </div>
 
-        <div class="card">
-          <h4>المؤثرين وإدارة السمعة</h4>
-          <ul>
-            <li>اختيار وتقييم المؤثرين</li>
-            <li>إدارة العقود والمخرجات</li>
-            <li>مراقبة السمعة الرقمية</li>
-            <li>خطة تعامل مع الأزمات</li>
-          </ul>
-        </div>
+        <div class="card">
+          <h4>🗣️ المؤثرين وإدارة السمعة</h4>           <ul>
+            <li>اختيار وتقييم المؤثرين</li>
+            <li>إدارة العقود والمخرجات</li>
+            <li>مراقبة السمعة الرقمية</li>
+            <li>خطة تعامل مع الأزمات</li>
+          </ul>
+        </div>
 
-        <div class="card">
-          <h4>الإعلام التقليدي (عند الحاجة)</h4>
-          <ul>
-            <li>تنسيق إعلامي وبيانات صحفية</li>
-            <li>تغطيات وفعاليات</li>
-            <li>إعلانات داخلية/خارجية</li>
-            <li>علاقات إعلامية</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
+        <div class="card">
+          <h4>📰 الإعلام التقليدي (عند الحاجة)</h4>           <ul>
+            <li>تنسيق إعلامي وبيانات صحفية</li>
+            <li>تغطيات وفعاليات</li>
+            <li>إعلانات داخلية/خارجية</li>
+            <li>علاقات إعلامية</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
 
-  <!-- METHOD -->
-  <section id="method" class="section alt">
-    <div class="container">
-      <div class="head">
-        <h3>منهجية العمل</h3>
-        <p>منهجية تشغيل واضحة مناسبة للجهات الحكومية والشركات (موافقات، توثيق، وتقارير).</p>
-      </div>
+    <section id="method" class="section alt">
+    <div class="container">
+      <div class="head">
+        <h3>📈 منهجية العمل</h3>         <p>منهجية تشغيل واضحة مناسبة للجهات الحكومية والشركات (موافقات، توثيق، وتقارير).</p>
+      </div>
 
-      <div class="steps">
-        <div class="step">
-          <div class="num">1</div>
-          <div>
-            <h4>اكتشاف وتحليل</h4>
-            <p>الأهداف، الجمهور، القنوات، المخاطر، ومؤشرات النجاح.</p>
-          </div>
-        </div>
+      <div class="steps">
+        <div class="step">
+          <div class="num">1</div>
+          <div>
+            <h4>اكتشاف وتحليل</h4>
+            <p>الأهداف، الجمهور، القنوات، المخاطر، ومؤشرات النجاح.</p>
+          </div>
+        </div>
 
-        <div class="step">
-          <div class="num">2</div>
-          <div>
-            <h4>خطة اتصالية</h4>
-            <p>حزم حملات، تقويم محتوى، رسائل أساسية، وإطار قياس.</p>
-          </div>
-        </div>
+        <div class="step">
+          <div class="num">2</div>
+          <div>
+            <h4>خطة اتصالية</h4>
+            <p>حزم حملات، تقويم محتوى، رسائل أساسية، وإطار قياس.</p>
+          </div>
+        </div>
 
-        <div class="step">
-          <div class="num">3</div>
-          <div>
-            <h4>إنتاج وتنفيذ</h4>
-            <p>محتوى/تصميم/فيديو + نشر + إعلانات + إدارة مجتمع وفق دليل اعتماد.</p>
-          </div>
-        </div>
+        <div class="step">
+          <div class="num">3</div>
+          <div>
+            <h4>إنتاج وتنفيذ</h4>
+            <p>محتوى/تصميم/فيديو + نشر + إعلانات + إدارة مجتمع وفق دليل اعتماد.</p>
+          </div>
+        </div>
 
-        <div class="step">
-          <div class="num">4</div>
-          <div>
-            <h4>تقارير وقياس أثر</h4>
-            <p>تقارير أسبوعية/شهرية + KPIs + توصيات تحسين + خطة الشهر التالي.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+        <div class="step">
+          <div class="num">4</div>
+          <div>
+            <h4>تقارير وقياس أثر</h4>
+            <p>تقارير أسبوعية/شهرية + KPIs + توصيات تحسين + خطة الشهر التالي.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-  <!-- DELIVERABLES -->
-  <section id="deliverables" class="section">
-    <div class="container">
-      <div class="head">
-        <h3>المخرجات وقياس الأثر</h3>
-        <p>مخرجات موثقة يمكن الدفاع عنها داخل التقارير والاجتماعات.</p>
-      </div>
+    <section id="deliverables" class="section">
+    <div class="container">
+      <div class="head">
+        <h3>📊 المخرجات وقياس الأثر</h3>         <p>مخرجات موثقة يمكن الدفاع عنها داخل التقارير والاجتماعات.</p>
+      </div>
 
-      <div class="grid3">
-        <div class="card">
-          <h4>مخرجات تشغيل</h4>
-          <ul>
-            <li>تقويم محتوى شهري مع محاور</li>
-            <li>قوالب تصميم مؤسسية ثابتة/متحركة</li>
-            <li>حزم حملات مع أهداف ورسائل</li>
-            <li>مصفوفة موافقات واعتماد</li>
-          </ul>
-        </div>
+      <div class="grid3">
+        <div class="card">
+          <h4>📦 مخرجات تشغيل</h4>           <ul>
+            <li>تقويم محتوى شهري مع محاور</li>
+            <li>قوالب تصميم مؤسسية ثابتة/متحركة</li>
+            <li>حزم حملات مع أهداف ورسائل</li>
+            <li>مصفوفة موافقات واعتماد</li>
+          </ul>
+        </div>
 
-        <div class="card">
-          <h4>تقارير أداء</h4>
-          <ul>
-            <li>لوحة مؤشرات (Dashboard)</li>
-            <li>تقرير أسبوعي مختصر (Executive)</li>
-            <li>تقرير شهري تفصيلي + توصيات</li>
-            <li>تحليل المحتوى الأعلى أداءً</li>
-          </ul>
-        </div>
+        <div class="card">
+          <h4>📑 تقارير أداء</h4>           <ul>
+            <li>لوحة مؤشرات (Dashboard)</li>
+            <li>تقرير أسبوعي مختصر (Executive)</li>
+            <li>تقرير شهري تفصيلي + توصيات</li>
+            <li>تحليل المحتوى الأعلى أداءً</li>
+          </ul>
+        </div>
 
-        <div class="card">
-          <h4>أمثلة KPIs</h4>
-          <ul>
-            <li>الوصول والانطباعات والتفاعل</li>
-            <li>معدلات التحويل (حسب الهدف)</li>
-            <li>تكلفة النتيجة/الاكتساب</li>
-            <li>مؤشرات السمعة (Share of Voice)</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
+        <div class="card">
+          <h4>🔑 أمثلة KPIs</h4>           <ul>
+            <li>الوصول والانطباعات والتفاعل</li>
+            <li>معدلات التحويل (حسب الهدف)</li>
+            <li>تكلفة النتيجة/الاكتساب</li>
+            <li>مؤشرات السمعة (Share of Voice)</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
 
-  <!-- COMPLIANCE -->
-  <section id="compliance" class="section alt">
-    <div class="container compliance">
-      <div>
-        <div class="head">
-          <h3>الامتثال والحوكمة</h3>
-          <p>إجراءات واضحة، سرية، ملكية فكرية، ومخرجات قابلة للتوثيق.</p>
-        </div>
+    <section id="compliance" class="section alt">
+    <div class="container compliance">
+      <div>
+        <div class="head">
+          <h3>🔒 الامتثال والحوكمة</h3>           <p>إجراءات واضحة، سرية، ملكية فكرية، ومخرجات قابلة للتوثيق.</p>
+        </div>
 
-        <div class="steps" style="grid-template-columns:1fr;gap:12px">
-          <div class="step">
-            <div class="num">A</div>
-            <div>
-              <h4>سرية وملكية فكرية</h4>
-              <p>التزام بسرية البيانات ومخرجات المحتوى، وملكية الجهة للمخرجات حسب العقد.</p>
-            </div>
-          </div>
+        <div class="steps" style="grid-template-columns:1fr;gap:12px">
+          <div class="step">
+            <div class="num">A</div>
+            <div>
+              <h4>سرية وملكية فكرية</h4>
+              <p>التزام بسرية البيانات ومخرجات المحتوى، وملكية الجهة للمخرجات حسب العقد.</p>
+            </div>
+          </div>
 
-          <div class="step">
-            <div class="num">B</div>
-            <div>
-              <h4>SLA وإدارة الطلبات</h4>
-              <p>نظام اعتمادات/طلبات، وزمن استجابة محدد، ومسؤوليات واضحة.</p>
-            </div>
-          </div>
+          <div class="step">
+            <div class="num">B</div>
+            <div>
+              <h4>SLA وإدارة الطلبات</h4>
+              <p>نظام اعتمادات/طلبات، وزمن استجابة محدد، ومسؤوليات واضحة.</p>
+            </div>
+          </div>
 
-          <div class="step">
-            <div class="num">C</div>
-            <div>
-              <h4>ضبط الجودة</h4>
-              <p>مراجعة لغوية/بصرية قبل النشر + توثيق النسخ + سجل تغييرات.</p>
-            </div>
-          </div>
-        </div>
-      </div>
+          <div class="step">
+            <div class="num">C</div>
+            <div>
+              <h4>ضبط الجودة</h4>
+              <p>مراجعة لغوية/بصرية قبل النشر + توثيق النسخ + سجل تغييرات.</p>
+            </div>
+          </div>
+        </div>
+      </div>
 
-      <div class="notice">
-        <strong>جاهز للعروض الفنية</strong>
-        <p>
-          إذا تبغى، نحول الموقع إلى “نسخة مناقصة”: نطاق عمل + جدول مخرجات + فريق + خطة زمنية + نماذج تقارير.
-        </p>
-        <div class="tagrow">
-          <span class="tag">لغة رسمية</span>
-          <span class="tag">بدون مبالغة</span>
-          <span class="tag">قابل للتخصيص سريعًا</span>
-        </div>
-      </div>
-    </div>
-  </section>
+      <div class="notice">
+        <strong>جاهز للعروض الفنية</strong>
+        <p>
+          إذا تبغى، نحول الموقع إلى “نسخة مناقصة”: نطاق عمل + جدول مخرجات + فريق + خطة زمنية + نماذج تقارير.
+        </p>
+        <div class="tagrow">
+          <span class="tag">لغة رسمية</span>
+          <span class="tag">بدون مبالغة</span>
+          <span class="tag">قابل للتخصيص سريعًا</span>
+        </div>
+      </div>
+    </div>
+  </section>
 
-  <!-- CONTACT -->
-  <section id="contact" class="section">
-    <div class="container contact">
-      <div>
-        <div class="head">
-          <h3>طلب عرض / تواصل</h3>
-          <p>بيانات مؤقتة (عشوائية) الآن — ونبدلها ببياناتك لاحقًا.</p>
-        </div>
+    <section id="contact" class="section">
+    <div class="container contact">
+      <div>
+        <div class="head">
+          <h3>📞 طلب عرض / تواصل</h3>           <p>بيانات مؤقتة (عشوائية) الآن — ونبدلها ببياناتك لاحقًا.</p>
+        </div>
 
-        <div class="info">
-          <div class="info-item">
-            <span class="label">الهاتف</span>
-            <a class="value" href="tel:+966500000000">+966 50 000 0000</a>
-          </div>
-          <div class="info-item">
-            <span class="label">البريد</span>
-            <a class="value" href="mailto:hello@faisal-ads.sa">hello@faisal-ads.sa</a>
-          </div>
-          <div class="info-item">
-            <span class="label">المقر</span>
-            <span class="value">الرياض — نخدم السعودية بالكامل</span>
-          </div>
-        </div>
+        <div class="info">
+          <div class="info-item">
+            <span class="label">الهاتف</span>
+            <a class="value" href="tel:+966500000000">+966 50 000 0000</a>
+          </div>
+          <div class="info-item">
+            <span class="label">البريد</span>
+            <a class="value" href="mailto:hello@faisal-ads.sa">hello@faisal-ads.sa</a>
+          </div>
+          <div class="info-item">
+            <span class="label">المقر</span>
+            <span class="value">الرياض — نخدم السعودية بالكامل</span>
+          </div>
+        </div>
 
-        <div class="cta" style="margin-top:16px">
-          <a class="btn btn-ghost" target="_blank" rel="noopener"
-             href="https://wa.me/966500000000?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%20%D8%8C%20%D8%A3%D8%B1%D9%8A%D8%AF%20%D8%B7%D9%84%D8%A8%20%D8%B9%D8%B1%D8%B6%20%D9%84%D8%AE%D8%AF%D9%85%D8%A7%D8%AA%20%D9%81%D9%8A%D8%B5%D9%84%20%D9%84%D9%84%D8%AF%D8%B9%D8%A7%D9%8A%D8%A9%20%D9%88%D8%A7%D9%84%D8%A5%D8%B9%D9%84%D8%A7%D9%86">
-            تواصل واتساب
-          </a>
-          <a class="btn" href="#services">استعراض الخدمات</a>
-        </div>
+        <div class="cta" style="margin-top:16px">
+          <a class="btn btn-ghost" target="_blank" rel="noopener"
+             href="https://wa.me/966500000000?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%20%D8%8C%20%D8%A3%D8%B1%D9%8A%D8%AF%20%D8%B7%D9%84%D8%A8%20%D8%B9%D8%B1%D8%B6%20%D9%84%D8%AE%D8%AF%D9%85%D8%A7%D8%AA%20%D9%81%D9%8A%D8%B5%D9%84%20%D9%84%D9%84%D8%AF%D8%B9%D8%A7%D9%8A%D8%A9%20%D9%88%D8%A7%D9%84%D8%A5%D8%B9%D9%84%D8%A7%D9%86">
+            تواصل واتساب
+          </a>
+          <a class="btn" href="#services">استعراض الخدمات</a>
+        </div>
 
-        <p class="tiny">
-          ملاحظة: GitHub Pages ما يرسل بريد مباشرة. النموذج أدناه مربوط بخدمة خارجية (Formspree).
-        </p>
-      </div>
+        <p class="tiny">
+          ملاحظة: GitHub Pages ما يرسل بريد مباشرة. النموذج أدناه مربوط بخدمة خارجية (Formspree).
+        </p>
+      </div>
 
-      <div class="panel">
-        <h3 style="margin:0 0 10px;font-weight:900">نموذج الطلب</h3>
-        <form action="https://formspree.io/f/xxxxxxxx" method="POST">
-          <label><span>الاسم</span><input name="name" required placeholder="اسمك الكامل" /></label>
-          <label><span>الجهة / الشركة</span><input name="company" placeholder="اختياري" /></label>
-          <label><span>البريد</span><input name="email" type="email" required placeholder="name@company.com" /></label>
-          <label>
-            <span>نوع الخدمة</span>
-            <select name="service">
-              <option>استراتيجية واتصال مؤسسي</option>
-              <option>إدارة منصات ومحتوى</option>
-              <option>حملات رقمية ممولة</option>
-              <option>إنتاج مرئي وإبداعي</option>
-              <option>مؤثرين وإدارة السمعة</option>
-              <option>إعلام تقليدي</option>
-              <option>أخرى</option>
-            </select>
-          </label>
-          <label><span>تفاصيل الطلب</span><textarea name="message" rows="5" required placeholder="اكتب المطلوب، المدة، وأي ملاحظات"></textarea></label>
-          <button class="btn" type="submit">إرسال الطلب</button>
-          <p class="tiny">بدّل xxxxxxxx برابطك من Formspree أو قلّي نخليه Google Form.</p>
-        </form>
-      </div>
-    </div>
-  </section>
+      <div class="panel">
+        <h3 style="margin:0 0 10px;font-weight:900">نموذج الطلب</h3>
+        <form action="https://formspree.io/f/xxxxxxxx" method="POST">
+          <label><span>الاسم</span><input name="name" required placeholder="اسمك الكامل" /></label>
+          <label><span>الجهة / الشركة</span><input name="company" placeholder="اختياري" /></label>
+          <label><span>البريد</span><input name="email" type="email" required placeholder="name@company.com" /></label>
+          <label>
+            <span>نوع الخدمة</span>
+            <select name="service">
+              <option>استراتيجية واتصال مؤسسي</option>
+              <option>إدارة منصات ومحتوى</option>
+              <option>حملات رقمية ممولة</option>
+              <option>إنتاج مرئي وإبداعي</option>
+              <option>مؤثرين وإدارة السمعة</option>
+              <option>إعلام تقليدي</option>
+              <option>أخرى</option>
+            </select>
+          </label>
+          <label><span>تفاصيل الطلب</span><textarea name="message" rows="5" required placeholder="اكتب المطلوب، المدة، وأي ملاحظات"></textarea></label>
+          <button class="btn" type="submit">إرسال الطلب</button>
+          <p class="tiny">بدّل xxxxxxxx برابطك من Formspree أو قلّي نخليه Google Form.</p>
+        </form>
+      </div>
+    </div>
+  </section>
 
-  <footer class="footer">
-    <div class="container footer-inner">
-      <div>
-        <div style="font-weight:900">فيصل للدعاية والإعلان</div>
-        <div style="color:var(--muted);font-weight:800">الرياض — نخدم السعودية بالكامل</div>
-      </div>
-      <div class="links">
-        <a href="#services">الخدمات</a>
-        <a href="#method">المنهجية</a>
-        <a href="#compliance">الحوكمة</a>
-        <a href="#contact">تواصل</a>
-      </div>
-    </div>
-  </footer>
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div>
+        <div style="font-weight:900">فيصل للدعاية والإعلان</div>
+        <div style="color:var(--muted);font-weight:800">الرياض — نخدم السعودية بالكامل</div>
+      </div>
+      <div class="links">
+        <a href="#services">الخدمات</a>
+        <a href="#method">المنهجية</a>
+        <a href="#compliance">الحوكمة</a>
+        <a href="#contact">تواصل</a>
+      </div>
+    </div>
+  </footer>
 
-  <a class="top" href="#top" aria-label="العودة للأعلى">↑</a>
+  <a class="top" href="#top" aria-label="العودة للأعلى">↑</a>
 </main>
 
 <script>
-  const toggle = document.querySelector('.toggle');
-  const nav = document.querySelector('#nav');
-  if(toggle && nav){
-    toggle.addEventListener('click', () => {
-      const open = nav.classList.toggle('open');
-      toggle.setAttribute('aria-expanded', String(open));
-    });
-    nav.querySelectorAll('a').forEach(a => {
-      a.addEventListener('click', () => {
-        nav.classList.remove('open');
-        toggle.setAttribute('aria-expanded', 'false');
-      });
-    });
-  }
+  const toggle = document.querySelector('.toggle');
+  const nav = document.querySelector('#nav');
+  if(toggle && nav){
+    toggle.addEventListener('click', () => {
+      const open = nav.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', String(open));
+    });
+    nav.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', () => {
+        nav.classList.remove('open');
+        toggle.setAttribute('aria-expanded', 'false');
+      });
+    });
+  }
 </script>
 </body>
 </html>
