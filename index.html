@@ -1,0 +1,412 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>فيصل للدعاية والإعلان | السعودية</title>
+  <meta name="description" content="فيصل للدعاية والإعلان — خدمات التسويق والإعلان والاتصال المؤسسي داخل المملكة العربية السعودية." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --bg:#0b1220; --text:#eef2ff; --muted:rgba(238,242,255,.72);
+  --line:rgba(238,242,255,.12); --accent:#7dd3fc; --accent2:#a78bfa;
+  --shadow:0 12px 40px rgba(0,0,0,.35); --radius:18px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0; font-family:"Cairo",system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+  background:
+    radial-gradient(1100px 600px at 80% 10%, rgba(167,139,250,.18), transparent 55%),
+    radial-gradient(1100px 600px at 20% 0%, rgba(125,211,252,.16), transparent 55%),
+    linear-gradient(180deg,var(--bg),#070b14);
+  color:var(--text);
+}
+a{color:inherit;text-decoration:none}
+.container{max-width:1100px;margin:0 auto;padding:0 18px}
+
+header{
+  position:sticky;top:0;z-index:50;
+  backdrop-filter: blur(10px);
+  background: rgba(7,11,20,.55);
+  border-bottom:1px solid var(--line);
+}
+.header-inner{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:14px 0}
+.brand{display:flex;align-items:center;gap:10px}
+.brand-mark{width:38px;height:38px;border-radius:12px;background:linear-gradient(135deg,var(--accent),var(--accent2));box-shadow:var(--shadow)}
+.brand-title{font-weight:900;line-height:1}
+.brand-sub{display:block;color:var(--muted);font-size:.9rem;margin-top:2px}
+
+.nav{display:flex;gap:14px;align-items:center}
+.nav a{color:var(--muted);font-weight:700}
+.nav a:hover{color:var(--text)}
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;
+  padding:12px 16px;border-radius:16px;
+  background:linear-gradient(135deg,rgba(125,211,252,.95),rgba(167,139,250,.95));
+  color:#081022;font-weight:900;border:0;cursor:pointer;
+}
+.btn:hover{filter:brightness(1.05)}
+.btn-ghost{background:transparent;border:1px solid var(--line);color:var(--text)}
+
+.nav-toggle{display:none;background:transparent;border:1px solid var(--line);border-radius:14px;padding:10px;cursor:pointer}
+.nav-toggle span{display:block;width:18px;height:2px;background:var(--text);margin:4px 0;border-radius:2px}
+
+.hero{padding:64px 0 22px}
+.hero-grid{display:grid;grid-template-columns:1.35fr .95fr;gap:18px;align-items:start}
+.kicker{color:var(--muted);margin:0 0 10px;font-weight:800}
+h1{margin:0 0 10px;font-size:2.35rem;line-height:1.2}
+.lead{color:var(--muted);font-size:1.06rem;line-height:1.9;margin:0 0 18px}
+.hero-cta{display:flex;gap:12px;flex-wrap:wrap;margin:18px 0}
+.card{
+  border:1px solid var(--line); background:rgba(255,255,255,.035);
+  border-radius:var(--radius); padding:16px; box-shadow:var(--shadow);
+}
+.card.soft{box-shadow:none;background:rgba(255,255,255,.02)}
+.checklist{list-style:none;margin:10px 0 0;padding:0}
+.checklist li{position:relative;padding-right:26px;margin:10px 0;color:var(--muted);line-height:1.8}
+.checklist li::before{
+  content:"✓"; position:absolute; right:0; top:0;
+  width:18px;height:18px;display:inline-flex;align-items:center;justify-content:center;
+  border-radius:8px; color:#081022;
+  background:linear-gradient(135deg,var(--accent),var(--accent2));
+  font-weight:900;font-size:.9rem
+}
+
+.section{padding:56px 0}
+.section.alt{
+  background:linear-gradient(180deg,rgba(255,255,255,.02),rgba(255,255,255,.01));
+  border-top:1px solid var(--line); border-bottom:1px solid var(--line);
+}
+.section-head{margin-bottom:18px}
+.section-head h2{margin:0 0 6px;font-size:1.7rem}
+.muted{color:var(--muted)}
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.tile,.case{
+  border:1px solid var(--line); border-radius:var(--radius);
+  background:rgba(255,255,255,.03); padding:14px;
+}
+.tile h3,.case h3{margin:0 0 8px}
+.tile ul{margin:0;padding:0 18px;color:var(--muted);line-height:1.9}
+.case ul{margin:10px 0 0;padding:0 18px;color:var(--muted);line-height:1.9}
+
+.steps{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+.step{display:flex;gap:12px;align-items:flex-start;border:1px solid var(--line);border-radius:var(--radius);padding:14px;background:rgba(255,255,255,.03)}
+.step-num{width:34px;height:34px;border-radius:14px;background:rgba(255,255,255,.06);border:1px solid var(--line);display:flex;align-items:center;justify-content:center;font-weight:900}
+
+.about-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:14px;align-items:start}
+.pills{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+.pill{border:1px solid var(--line);background:rgba(255,255,255,.03);padding:8px 10px;border-radius:999px;color:var(--muted);font-weight:800;font-size:.92rem}
+
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;align-items:start}
+.form{display:grid;gap:10px;margin-top:10px}
+label span{display:block;color:var(--muted);font-weight:800;margin-bottom:6px}
+input,select,textarea{
+  width:100%; border:1px solid var(--line);
+  background:rgba(0,0,0,.18); color:var(--text);
+  border-radius:14px; padding:12px; outline:none; font-family:inherit;
+}
+input:focus,select:focus,textarea:focus{border-color:rgba(125,211,252,.55)}
+.whatsapp{
+  display:inline-flex;align-items:center;justify-content:center;
+  margin-top:8px;padding:12px 16px;border-radius:16px;
+  border:1px solid rgba(125,211,252,.35);
+  background:rgba(125,211,252,.08);
+  font-weight:900;
+}
+.footer{padding:24px 0;border-top:1px solid var(--line);background:rgba(0,0,0,.12)}
+.footer-inner{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+.footer-links{display:flex;gap:12px}
+.footer-links a{color:var(--muted);font-weight:800}
+.footer-links a:hover{color:var(--text)}
+
+@media (max-width:920px){
+  .hero-grid,.grid-3,.steps,.about-grid,.contact-grid{grid-template-columns:1fr}
+  h1{font-size:2rem}
+  .nav-toggle{display:inline-block}
+  .nav{
+    position:absolute; top:64px; left:18px; right:18px;
+    background:rgba(7,11,20,.95);
+    border:1px solid var(--line);
+    border-radius:18px;
+    padding:10px;
+    display:none; flex-direction:column; gap:10px;
+  }
+  .nav.open{display:flex}
+  .nav a{padding:10px 12px;border-radius:14px}
+  .nav a:hover{background:rgba(255,255,255,.05)}
+}
+</style>
+</head>
+
+<body>
+<header>
+  <div class="container header-inner">
+    <a class="brand" href="#top" aria-label="فيصل للدعاية والإعلان">
+      <span class="brand-mark" aria-hidden="true"></span>
+      <span>
+        <span class="brand-title">فيصل للدعاية والإعلان</span>
+        <span class="brand-sub">الرياض • نخدم السعودية بالكامل</span>
+      </span>
+    </a>
+
+    <button class="nav-toggle" aria-label="فتح القائمة" aria-expanded="false" aria-controls="nav">
+      <span></span><span></span><span></span>
+    </button>
+
+    <nav id="nav" class="nav">
+      <a href="#services">الخدمات</a>
+      <a href="#approach">منهجية العمل</a>
+      <a href="#work">نماذج أعمال</a>
+      <a href="#about">من نحن</a>
+      <a class="btn" href="#contact">طلب عرض</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="container hero-grid">
+      <div>
+        <p class="kicker">حلول اتصالية وإعلانية تُحوّل الإنفاق إلى أثر</p>
+        <h1>تخطيط + تنفيذ + قياس… بدون ضوضاء</h1>
+        <p class="lead">
+          نساعد الجهات الحكومية والشركات على بناء حضور اتصالي فعّال، وتنفيذ حملات تسويق وإعلان مدروسة،
+          مع تقارير أداء واضحة ومؤشرات قياس قابلة للتتبع.
+        </p>
+        <div class="hero-cta">
+          <a class="btn" href="#contact">اطلب عرضًا فنيًا</a>
+          <a class="btn btn-ghost" href="#services">استعرض الخدمات</a>
+        </div>
+      </div>
+
+      <div>
+        <div class="card">
+          <h2 style="margin:0 0 8px">ملخص سريع</h2>
+          <ul class="checklist">
+            <li>تخطيط اتصالي واستراتيجية حملات</li>
+            <li>إدارة حسابات + محتوى + تصميم</li>
+            <li>إعلانات ممولة متعددة القنوات</li>
+            <li>مؤثرين وإدارة سمعة</li>
+            <li>تقارير أداء وقياس أثر (KPIs)</li>
+          </ul>
+        </div>
+        <div class="card soft" style="margin-top:12px">
+          <p class="muted" style="margin:0">
+            نموذج التواصل قابل للربط بخدمة خارجية (Formspree/Google Forms) — يُضبط خلال دقائق.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="services" class="section">
+    <div class="container">
+      <div class="section-head">
+        <h2>الخدمات</h2>
+        <p class="muted">مقسمة بحيث تتحول مباشرة إلى عرض فني للمنافسات.</p>
+      </div>
+
+      <div class="grid-3">
+        <article class="tile">
+          <h3>استراتيجية واتصال مؤسسي</h3>
+          <ul>
+            <li>خطة اتصالية سنوية/ربع سنوية</li>
+            <li>رسائل ونبرة خطاب</li>
+            <li>خارطة أصحاب المصلحة</li>
+          </ul>
+        </article>
+
+        <article class="tile">
+          <h3>إدارة المحتوى والمنصات</h3>
+          <ul>
+            <li>تقويم محتوى + تحرير + نشر</li>
+            <li>تصميم ثابت/متحرك</li>
+            <li>إدارة المجتمع والردود</li>
+          </ul>
+        </article>
+
+        <article class="tile">
+          <h3>حملات رقمية مدفوعة</h3>
+          <ul>
+            <li>Google / Meta / X / Snap / TikTok</li>
+            <li>تتبع وتهيئة التحويل</li>
+            <li>تقارير وتحسين مستمر</li>
+          </ul>
+        </article>
+
+        <article class="tile">
+          <h3>إنتاج مرئي وإبداعي</h3>
+          <ul>
+            <li>فيديوهات قصيرة للحملات</li>
+            <li>موشن/مونتاج</li>
+            <li>هوية حملة (Key Visual)</li>
+          </ul>
+        </article>
+
+        <article class="tile">
+          <h3>مؤثرين وإدارة السمعة</h3>
+          <ul>
+            <li>اختيار وتقييم المؤثرين</li>
+            <li>إدارة عقود ومحتوى</li>
+            <li>مراقبة سمعة وخطة أزمات</li>
+          </ul>
+        </article>
+
+        <article class="tile">
+          <h3>إعلام تقليدي (عند الحاجة)</h3>
+          <ul>
+            <li>علاقات إعلامية وتغطيات</li>
+            <li>تنسيق صحفي</li>
+            <li>حملات خارجية/داخلية</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="approach" class="section alt">
+    <div class="container">
+      <div class="section-head">
+        <h2>منهجية العمل</h2>
+        <p class="muted">خطة واضحة + تنفيذ مضبوط + قياس أثر.</p>
+      </div>
+
+      <div class="steps">
+        <div class="step"><div class="step-num">1</div><div><h3 style="margin:0 0 6px">تحليل</h3><p class="muted" style="margin:0">أهداف، جمهور، قنوات، مؤشرات نجاح.</p></div></div>
+        <div class="step"><div class="step-num">2</div><div><h3 style="margin:0 0 6px">تخطيط</h3><p class="muted" style="margin:0">خطة حملات وتقويم وميزانيات ورسائل.</p></div></div>
+        <div class="step"><div class="step-num">3</div><div><h3 style="margin:0 0 6px">تنفيذ</h3><p class="muted" style="margin:0">محتوى + نشر + إعلانات + إدارة مجتمع.</p></div></div>
+        <div class="step"><div class="step-num">4</div><div><h3 style="margin:0 0 6px">تقارير</h3><p class="muted" style="margin:0">أسبوعية/شهرية + KPIs + توصيات.</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="work" class="section">
+    <div class="container">
+      <div class="section-head">
+        <h2>نماذج أعمال</h2>
+        <p class="muted">استبدلها لاحقًا بمشاريعك الحقيقية.</p>
+      </div>
+
+      <div class="grid-3">
+        <article class="case">
+          <h3>حملة توعوية وطنية</h3>
+          <p class="muted">هوية حملة + محتوى مرئي + إعلانات + تقارير أثر.</p>
+          <ul><li>مدة: 8 أسابيع</li><li>قنوات: X, Snap, Google</li></ul>
+        </article>
+        <article class="case">
+          <h3>إدارة حسابات جهة خدمية</h3>
+          <p class="muted">تقويم + إدارة مجتمع + لوحات قياس.</p>
+          <ul><li>مدة: 12 شهر</li><li>مخرجات: تقارير شهرية</li></ul>
+        </article>
+        <article class="case">
+          <h3>إطلاق خدمة جديدة</h3>
+          <p class="muted">رسائل الإطلاق + فيديوهات قصيرة + تتبع تحويل.</p>
+          <ul><li>مدة: 6 أسابيع</li><li>هدف: طلبات/حجوزات</li></ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="about" class="section alt">
+    <div class="container about-grid">
+      <div>
+        <h2>من نحن</h2>
+        <p class="lead">
+          <b>فيصل للدعاية والإعلان</b> شركة سعودية مقرها الرياض، تقدم خدمات التسويق والإعلان والاتصال المؤسسي للقطاعين الحكومي والخاص،
+          مع التزام بالمنهجية والجداول الزمنية وشفافية التقارير.
+        </p>
+        <div class="pills">
+          <span class="pill">الرياض</span>
+          <span class="pill">نخدم السعودية بالكامل</span>
+          <span class="pill">تقارير دورية</span>
+          <span class="pill">KPIs</span>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3 style="margin:0 0 8px">ما الذي يميزنا؟</h3>
+        <ul class="checklist">
+          <li>فصل بين التخطيط والتنفيذ والقياس</li>
+          <li>مخرجات قابلة للتوثيق ضمن العروض الفنية</li>
+          <li>حوكمة عمل (SLA) ومسؤوليات واضحة</li>
+          <li>تحسين مستمر مبني على بيانات</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="section">
+    <div class="container contact-grid">
+      <div>
+        <h2>طلب عرض / تواصل</h2>
+        <p class="muted">بيانات عشوائية مؤقتًا — غيّرها لاحقًا.</p>
+        <div class="card" style="box-shadow:none">
+          <p style="margin:0"><b>الهاتف:</b> <a href="tel:+966500000000">+966 50 000 0000</a></p>
+          <p style="margin:10px 0 0"><b>البريد:</b> <a href="mailto:hello@faisal-ads.sa">hello@faisal-ads.sa</a></p>
+          <p style="margin:10px 0 0"><b>المدينة:</b> الرياض — نخدم السعودية بالكامل</p>
+        </div>
+
+        <a class="whatsapp" target="_blank" rel="noopener"
+           href="https://wa.me/966500000000?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%20%D8%8C%20%D8%A3%D8%B1%D9%8A%D8%AF%20%D8%B9%D8%B1%D8%B6%20%D8%AE%D8%AF%D9%85%D8%A7%D8%AA%20%D9%81%D9%8A%D8%B5%D9%84%20%D9%84%D9%84%D8%AF%D8%B9%D8%A7%D9%8A%D8%A9%20%D9%88%D8%A7%D9%84%D8%A5%D8%B9%D9%84%D8%A7%D9%86">
+          تواصل واتساب
+        </a>
+      </div>
+
+      <div class="card">
+        <h3 style="margin:0 0 8px">نموذج الطلب</h3>
+        <form class="form" action="https://formspree.io/f/xxxxxxxx" method="POST">
+          <label><span>الاسم</span><input name="name" required placeholder="اسمك الكامل"></label>
+          <label><span>الجهة / الشركة</span><input name="company" placeholder="اختياري"></label>
+          <label><span>البريد</span><input name="email" type="email" required placeholder="name@company.com"></label>
+          <label><span>نوع الخدمة</span>
+            <select name="service">
+              <option>استراتيجية واتصال مؤسسي</option>
+              <option>إدارة منصات ومحتوى</option>
+              <option>حملات رقمية ممولة</option>
+              <option>إنتاج مرئي وإبداعي</option>
+              <option>مؤثرين وإدارة السمعة</option>
+              <option>أخرى</option>
+            </select>
+          </label>
+          <label><span>تفاصيل الطلب</span><textarea name="message" rows="5" required placeholder="اكتب المطلوب والمدة"></textarea></label>
+          <button class="btn" type="submit">إرسال الطلب</button>
+          <p class="muted" style="margin:10px 0 0;font-size:.9rem">غيّر xxxxxxxx برابطك من Formspree أو قلّي نخليه Google Form.</p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div><b>فيصل للدعاية والإعلان</b><div class="muted" style="font-size:.9rem">الرياض — نخدم السعودية بالكامل</div></div>
+      <div class="footer-links">
+        <a href="#services">الخدمات</a>
+        <a href="#approach">المنهجية</a>
+        <a href="#contact">تواصل</a>
+      </div>
+    </div>
+  </footer>
+</main>
+
+<script>
+const toggle=document.querySelector('.nav-toggle');
+const nav=document.querySelector('#nav');
+if(toggle&&nav){
+  toggle.addEventListener('click',()=>{
+    const open=nav.classList.toggle('open');
+    toggle.setAttribute('aria-expanded', String(open));
+  });
+  nav.querySelectorAll('a').forEach(a=>{
+    a.addEventListener('click',()=>{
+      nav.classList.remove('open');
+      toggle.setAttribute('aria-expanded','false');
+    });
+  });
+}
+</script>
+</body>
+</html>
