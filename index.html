@@ -12,103 +12,104 @@
 
   <style>
     :root{
-      --bg:#071426;
-      --bg2:#061122;
-      --surface:rgba(255,255,255,.04);
-      --surface2:rgba(255,255,255,.06);
-      --text:#F2F6FF;
-      --muted:rgba(242,246,255,.75);
-      --line:rgba(242,246,255,.12);
+      /* White corporate system */
+      --bg:#ffffff;
+      --bg2:#f6f9ff;
+      --surface:#ffffff;
+      --surface2:#f3f7ff;
+      --text:#0b1220;
+      --muted:#4b5563;
+      --line:rgba(15,23,42,.12);
 
-      /* Blue system */
-      --blue:#2F80ED;
-      --sky:#56CCF2;
-      --navy:#0B2C5A;
-      --glow:rgba(86,204,242,.18);
+      /* Blue accents (government/corporate) */
+      --blue:#1d4ed8;     /* primary */
+      --sky:#0ea5e9;      /* accent */
+      --navy:#0b2c5a;     /* deep */
+      --glow:rgba(14,165,233,.12);
 
       --radius:18px;
-      --shadow:0 14px 45px rgba(0,0,0,.42);
-      --shadowSoft:0 12px 28px rgba(0,0,0,.25);
+      --shadow:0 14px 40px rgba(2,6,23,.10);
+      --shadowSoft:0 10px 24px rgba(2,6,23,.08);
+
+      --container:1120px;
+
+      /* spacing scale */
+      --s1:8px;
+      --s2:12px;
+      --s3:16px;
+      --s4:20px;
+      --s5:28px;
+      --s6:44px;
+      --s7:64px;
     }
 
     *{box-sizing:border-box}
     html{scroll-behavior:smooth}
     body{
       margin:0;
-      font-family:"Cairo", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      font-family:"Cairo",system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
       color:var(--text);
       background:
-        radial-gradient(900px 550px at 85% 6%, var(--glow), transparent 60%),
-        radial-gradient(850px 520px at 15% 0%, rgba(47,128,237,.14), transparent 60%),
+        radial-gradient(900px 520px at 85% 0%, var(--glow), transparent 55%),
+        radial-gradient(900px 520px at 10% 0%, rgba(29,78,216,.10), transparent 55%),
         linear-gradient(180deg, var(--bg), var(--bg2));
     }
 
     a{color:inherit;text-decoration:none}
-    .container{max-width:1120px;margin:0 auto;padding:0 18px}
+    .container{max-width:var(--container);margin:0 auto;padding:0 18px}
 
     /* Header */
     header{
       position:sticky;top:0;z-index:50;
+      background: rgba(255,255,255,.82);
       backdrop-filter: blur(10px);
-      background: rgba(6,17,34,.62);
       border-bottom:1px solid var(--line);
     }
     .header-inner{
       display:flex;align-items:center;justify-content:space-between;
       gap:14px;padding:14px 0;
     }
-    .brand{
-      display:flex;align-items:center;gap:12px;
-      min-width: 220px;
-    }
+    .brand{display:flex;align-items:center;gap:12px;min-width:220px}
     .mark{
       width:40px;height:40px;border-radius:14px;
       background: linear-gradient(135deg, var(--blue), var(--sky));
       box-shadow: var(--shadowSoft);
-      position:relative;
-      overflow:hidden;
+      position:relative;overflow:hidden;
     }
     .mark:after{
       content:"";
-      position:absolute;inset:-20%;
-      background: radial-gradient(circle at 30% 30%, rgba(255,255,255,.35), transparent 45%);
+      position:absolute;inset:-25%;
+      background: radial-gradient(circle at 30% 30%, rgba(255,255,255,.55), transparent 45%);
       transform: rotate(18deg);
     }
-    .brand h1{
-      font-size:1.05rem;margin:0;line-height:1.1;font-weight:900;
-      letter-spacing:.2px;
-    }
-    .brand small{
-      display:block;color:var(--muted);font-weight:700;margin-top:4px;
-    }
+    .brand h1{font-size:1.05rem;margin:0;line-height:1.1;font-weight:900}
+    .brand small{display:block;color:var(--muted);font-weight:700;margin-top:4px}
 
-    nav{
-      display:flex;gap:14px;align-items:center;
-    }
+    nav{display:flex;gap:10px;align-items:center}
     nav a{
       color:var(--muted);
       font-weight:800;
-      padding:10px 10px;border-radius:14px;
+      padding:10px 12px;border-radius:14px;
     }
-    nav a:hover{color:var(--text); background: rgba(255,255,255,.04)}
+    nav a:hover{color:var(--text);background:rgba(2,6,23,.04)}
     .btn{
       display:inline-flex;align-items:center;justify-content:center;
       border:0;cursor:pointer;
       padding:12px 16px;border-radius:16px;
       font-weight:900;
       background: linear-gradient(135deg, var(--blue), var(--sky));
-      color:#061122;
-      box-shadow: 0 14px 35px rgba(47,128,237,.18);
+      color:#ffffff;
+      box-shadow: 0 14px 32px rgba(29,78,216,.18);
       white-space:nowrap;
     }
-    .btn:hover{filter:brightness(1.03)}
+    .btn:hover{filter:brightness(1.02)}
     .btn-ghost{
       background: transparent;
-      border:1px solid rgba(86,204,242,.35);
-      color: var(--text);
+      border:1px solid rgba(29,78,216,.22);
+      color: var(--navy);
       box-shadow:none;
     }
-    .btn-ghost:hover{border-color:rgba(86,204,242,.6)}
+    .btn-ghost:hover{border-color:rgba(29,78,216,.38);background:rgba(29,78,216,.04)}
     .toggle{
       display:none;
       background:transparent;border:1px solid var(--line);
@@ -117,186 +118,189 @@
     .toggle span{display:block;width:18px;height:2px;background:var(--text);margin:4px 0;border-radius:2px}
 
     /* Hero */
-    .hero{padding:64px 0 24px}
-    .hero-grid{display:grid;grid-template-columns:1.25fr .95fr;gap:18px;align-items:start}
+    .hero{padding:var(--s7) 0 var(--s5)}
+    .hero-grid{display:grid;grid-template-columns:1.2fr .95fr;gap:18px;align-items:start}
     .badge{
       display:inline-flex;align-items:center;gap:10px;
       padding:8px 12px;border-radius:999px;
-      border:1px solid rgba(86,204,242,.25);
-      background: rgba(86,204,242,.06);
-      color: var(--muted);
+      border:1px solid rgba(29,78,216,.18);
+      background: rgba(29,78,216,.05);
+      color:#1f2937;
       font-weight:900;
       width:fit-content;
     }
     .dot{
       width:8px;height:8px;border-radius:50%;
       background: linear-gradient(135deg, var(--blue), var(--sky));
-      box-shadow: 0 0 0 6px rgba(86,204,242,.08);
+      box-shadow: 0 0 0 6px rgba(14,165,233,.10);
     }
     .hero h2{
       margin:14px 0 10px;
-      font-size:2.35rem;line-height:1.15;
-      font-weight:900;
+      font-size:2.4rem;line-height:1.15;font-weight:900;
+      color: #0b1220;
+      letter-spacing:-.2px;
     }
     .lead{
       margin:0 0 18px;
       color:var(--muted);
       font-size:1.06rem;line-height:1.95;
-      max-width: 60ch;
+      max-width: 62ch;
     }
     .cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:18px}
 
+    /* Panels/Cards */
     .panel{
       border:1px solid var(--line);
-      background: var(--surface);
+      background: rgba(255,255,255,.75);
       border-radius: var(--radius);
-      padding:16px;
+      padding:18px;
       box-shadow: var(--shadow);
     }
-    .panel.soft{box-shadow:none;background: rgba(255,255,255,.03)}
+    .panel.soft{box-shadow:none;background: rgba(255,255,255,.55)}
+    .list{list-style:none;margin:12px 0 0;padding:0}
+    .list li{
+      position:relative;
+      padding-right:30px;
+      margin:10px 0;
+      color:var(--muted);
+      font-weight:700;
+      line-height:1.9;
+    }
+    .list li:before{
+      content:"✓";
+      position:absolute;right:0;top:2px;
+      width:18px;height:18px;border-radius:8px;
+      display:inline-flex;align-items:center;justify-content:center;
+      background: linear-gradient(135deg, var(--blue), var(--sky));
+      color:#fff;font-weight:900;font-size:.9rem;
+    }
+
     .kpis{
-      display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:12px
+      display:grid;grid-template-columns:repeat(3,1fr);
+      gap:12px;margin-top:14px
     }
     .kpi{
-      border:1px solid rgba(242,246,255,.10);
-      background: rgba(255,255,255,.03);
+      border:1px solid rgba(2,6,23,.10);
+      background: rgba(255,255,255,.85);
       border-radius:16px;
       padding:12px;
     }
     .kpi strong{display:block;font-size:1.05rem}
     .kpi span{display:block;color:var(--muted);font-weight:800;margin-top:4px;font-size:.92rem}
 
-    .list{
-      list-style:none;margin:10px 0 0;padding:0
-    }
-    .list li{
-      position:relative;
-      padding-right:28px;
-      margin:10px 0;
-      color:var(--muted);
-      font-weight:700;
-      line-height:1.85;
-    }
-    .list li:before{
-      content:"✓";
-      position:absolute;right:0;top:0;
-      width:18px;height:18px;border-radius:8px;
-      display:inline-flex;align-items:center;justify-content:center;
-      background: linear-gradient(135deg, var(--blue), var(--sky));
-      color:#061122;font-weight:900;font-size:.9rem;
-    }
-
     /* Sections */
-    .section{padding:56px 0}
+    .section{padding:var(--s7) 0}
     .section.alt{
       border-top:1px solid var(--line);
       border-bottom:1px solid var(--line);
-      background: linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.015));
+      background: linear-gradient(180deg, rgba(255,255,255,.65), rgba(243,247,255,.75));
     }
-    .head{margin-bottom:18px}
-    .head h3{margin:0 0 6px;font-size:1.75rem;font-weight:900}
+    .head{margin-bottom:20px}
+    .head h3{margin:0 0 8px;font-size:1.75rem;font-weight:900;color:#0b1220}
     .head p{margin:0;color:var(--muted);font-weight:700;line-height:1.9}
 
     .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
     .card{
-      border:1px solid rgba(242,246,255,.10);
-      background: rgba(255,255,255,.03);
+      border:1px solid rgba(2,6,23,.10);
+      background: rgba(255,255,255,.85);
       border-radius: var(--radius);
-      padding:14px;
+      padding:16px;
       box-shadow: var(--shadowSoft);
     }
-    .card h4{margin:0 0 8px;font-size:1.1rem;font-weight:900}
+    .card h4{margin:0 0 10px;font-size:1.08rem;font-weight:900;color:#0b1220}
     .card ul{margin:0;padding:0 18px;color:var(--muted);line-height:1.95;font-weight:700}
-    .tagrow{display:flex;flex-wrap:wrap;gap:10px;margin-top:12px}
+
+    .steps{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+    .step{
+      display:flex;gap:12px;align-items:flex-start;
+      border:1px solid rgba(2,6,23,.10);
+      background: rgba(255,255,255,.85);
+      border-radius: var(--radius);
+      padding:16px;
+      box-shadow: var(--shadowSoft);
+    }
+    .num{
+      width:38px;height:38px;border-radius:14px;
+      background: rgba(29,78,216,.08);
+      border:1px solid rgba(29,78,216,.18);
+      display:flex;align-items:center;justify-content:center;
+      font-weight:900;color:var(--navy);
+      flex:0 0 auto;
+    }
+    .step h4{margin:0 0 6px;font-weight:900;color:#0b1220}
+    .step p{margin:0;color:var(--muted);font-weight:700;line-height:1.9}
+
+    .tagrow{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}
     .tag{
       padding:8px 10px;border-radius:999px;
-      border:1px solid rgba(86,204,242,.22);
-      background: rgba(11,44,90,.28);
-      color: var(--muted);
+      border:1px solid rgba(29,78,216,.18);
+      background: rgba(29,78,216,.05);
+      color:#1f2937;
       font-weight:900;
       font-size:.92rem;
     }
 
-    .steps{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
-    .step{
-      display:flex;gap:12px;align-items:flex-start;
-      border:1px solid rgba(242,246,255,.10);
-      background: rgba(255,255,255,.03);
-      border-radius: var(--radius);
-      padding:14px;
-    }
-    .num{
-      width:36px;height:36px;border-radius:14px;
-      background: rgba(86,204,242,.08);
-      border:1px solid rgba(86,204,242,.22);
-      display:flex;align-items:center;justify-content:center;
-      font-weight:900;
-    }
-    .step p{margin:0;color:var(--muted);font-weight:700;line-height:1.9}
-    .step h4{margin:0 0 6px;font-weight:900}
-
-    /* Compliance / Government tone */
-    .compliance{
-      display:grid;grid-template-columns:1.1fr .9fr;gap:14px;align-items:start
-    }
+    /* Compliance */
+    .compliance{display:grid;grid-template-columns:1.1fr .9fr;gap:14px;align-items:start}
     .notice{
-      border:1px solid rgba(86,204,242,.25);
-      background: rgba(86,204,242,.06);
+      border:1px solid rgba(29,78,216,.18);
+      background: rgba(29,78,216,.05);
       border-radius: var(--radius);
-      padding:14px;
+      padding:16px;
+      box-shadow: var(--shadowSoft);
     }
-    .notice strong{display:block;margin-bottom:6px;font-weight:900}
+    .notice strong{display:block;margin-bottom:8px;font-weight:900;color:#0b1220}
     .notice p{margin:0;color:var(--muted);font-weight:700;line-height:1.95}
 
     /* Contact */
     .contact{display:grid;grid-template-columns:1fr 1fr;gap:14px;align-items:start}
-    .info{
-      display:grid;gap:10px;margin-top:12px
-    }
+    .info{display:grid;gap:10px;margin-top:14px}
     .info-item{
-      border:1px solid rgba(242,246,255,.10);
-      background: rgba(255,255,255,.03);
+      border:1px solid rgba(2,6,23,.10);
+      background: rgba(255,255,255,.85);
       border-radius: var(--radius);
-      padding:12px;
+      padding:12px 14px;
+      box-shadow: var(--shadowSoft);
     }
     .label{color:var(--muted);font-weight:900;font-size:.9rem}
-    .value{font-weight:900;margin-top:6px;display:block}
-    form{display:grid;gap:10px;margin-top:10px}
+    .value{font-weight:900;margin-top:6px;display:block;color:#0b1220}
+    form{display:grid;gap:10px;margin-top:12px}
     label span{display:block;color:var(--muted);font-weight:900;margin-bottom:6px}
     input,select,textarea{
       width:100%;
-      border:1px solid rgba(242,246,255,.12);
-      background: rgba(0,0,0,.18);
-      color:var(--text);
+      border:1px solid rgba(2,6,23,.12);
+      background: #fff;
+      color:#0b1220;
       border-radius:14px;
       padding:12px;
       outline:none;
       font-family:inherit;
       font-weight:700;
     }
-    input:focus,select:focus,textarea:focus{border-color: rgba(86,204,242,.55)}
-    .tiny{font-size:.9rem;color:var(--muted);font-weight:700;line-height:1.85;margin:8px 0 0}
+    input:focus,select:focus,textarea:focus{border-color: rgba(29,78,216,.45)}
+    .tiny{font-size:.9rem;color:var(--muted);font-weight:700;line-height:1.85;margin:10px 0 0}
 
+    /* Footer */
     .footer{
       border-top:1px solid var(--line);
-      background: rgba(0,0,0,.16);
+      background: rgba(255,255,255,.7);
       padding:22px 0;
     }
     .footer-inner{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
     .links{display:flex;gap:10px;flex-wrap:wrap}
     .links a{color:var(--muted);font-weight:900;padding:8px 10px;border-radius:14px}
-    .links a:hover{color:var(--text); background: rgba(255,255,255,.04)}
+    .links a:hover{color:#0b1220;background:rgba(2,6,23,.04)}
 
     .top{
       position:fixed;left:16px;bottom:16px;
       width:44px;height:44px;border-radius:16px;
-      border:1px solid rgba(242,246,255,.12);
-      background: rgba(255,255,255,.06);
+      border:1px solid rgba(2,6,23,.12);
+      background: rgba(255,255,255,.85);
       display:flex;align-items:center;justify-content:center;
       font-weight:900;
       box-shadow: var(--shadowSoft);
     }
-    .top:hover{border-color: rgba(86,204,242,.45)}
+    .top:hover{border-color: rgba(29,78,216,.25)}
 
     /* Responsive */
     @media (max-width: 980px){
@@ -306,10 +310,11 @@
       nav{
         position:absolute;top:66px;left:18px;right:18px;
         display:none;flex-direction:column;gap:10px;
-        background: rgba(6,17,34,.95);
+        background: rgba(255,255,255,.96);
         border:1px solid var(--line);
         border-radius: 18px;
         padding:10px;
+        box-shadow: var(--shadowSoft);
       }
       nav.open{display:flex}
       nav a{padding:12px 12px}
@@ -336,8 +341,8 @@
     <nav id="nav">
       <a href="#services">الخدمات</a>
       <a href="#method">المنهجية</a>
-      <a href="#deliverables">المخرجات وقياس الأثر</a>
-      <a href="#compliance">الامتثال والحوكمة</a>
+      <a href="#deliverables">المخرجات</a>
+      <a href="#compliance">الحوكمة</a>
       <a href="#contact" class="btn">طلب عرض</a>
     </nav>
   </div>
@@ -348,8 +353,8 @@
   <section class="hero">
     <div class="container hero-grid">
       <div>
-        <div class="badge"><span class="dot"></span> ستايل حكومي + شركات: رسمي، واضح، قابل للترسية</div>
-        <h2>حلول اتصالية وإعلانية تُحوّل الإنفاق إلى نتائج قابلة للقياس</h2>
+        <div class="badge"><span class="dot"></span> ستايل حكومي + شركات: رسمي، نظيف، قابل للاعتماد</div>
+        <h2>حلول اتصالية وإعلانية تحوّل الإنفاق إلى نتائج قابلة للقياس</h2>
         <p class="lead">
           نساعد الجهات الحكومية والشركات على التخطيط والتنفيذ وإدارة الحملات عبر القنوات الرقمية والتقليدية
           ضمن إطار حوكمة واضح، ومؤشرات أداء (KPIs)، وتقارير دورية — بدون ضبابية.
@@ -371,7 +376,7 @@
 
       <div>
         <div class="panel">
-          <h3 style="margin:0 0 8px;font-weight:900">ملخص تنفيذي</h3>
+          <h3 style="margin:0 0 10px;font-weight:900">ملخص تنفيذي</h3>
           <ul class="list">
             <li>خطة اتصالية + خارطة رسائل + تقويم محتوى</li>
             <li>إدارة منصات ومحتوى وتصميمات مؤسسية</li>
@@ -389,7 +394,7 @@
 
         <div class="panel soft" style="margin-top:12px">
           <p style="margin:0;color:var(--muted);font-weight:800;line-height:1.9">
-            * تقدر تضيف “تحميل بروفايل الشركة PDF” هنا لاحقًا (رابط ملف داخل GitHub).
+            * نضيف لاحقًا زر “تحميل بروفايل الشركة PDF” (رابط ملف داخل GitHub).
           </p>
         </div>
       </div>
@@ -517,7 +522,7 @@
     <div class="container">
       <div class="head">
         <h3>المخرجات وقياس الأثر</h3>
-        <p>نحن لا نبيع “منشورات” — نبيع مخرجات موثقة يمكن الدفاع عنها داخل التقارير.</p>
+        <p>مخرجات موثقة يمكن الدفاع عنها داخل التقارير والاجتماعات.</p>
       </div>
 
       <div class="grid3">
@@ -560,15 +565,15 @@
       <div>
         <div class="head">
           <h3>الامتثال والحوكمة</h3>
-          <p>هذا القسم “يطمن” اللجان: إجراءات واضحة، سرية، ملكية فكرية، ومخرجات قابلة للتوثيق.</p>
+          <p>إجراءات واضحة، سرية، ملكية فكرية، ومخرجات قابلة للتوثيق.</p>
         </div>
 
-        <div class="steps" style="grid-template-columns:1fr;gap:10px">
+        <div class="steps" style="grid-template-columns:1fr;gap:12px">
           <div class="step">
             <div class="num">A</div>
             <div>
               <h4>سرية وملكية فكرية</h4>
-              <p>التزام بسرية البيانات ومخرجات المحتوى، والالتزام بملكية الجهة للمخرجات حسب العقد.</p>
+              <p>التزام بسرية البيانات ومخرجات المحتوى، وملكية الجهة للمخرجات حسب العقد.</p>
             </div>
           </div>
 
@@ -576,7 +581,7 @@
             <div class="num">B</div>
             <div>
               <h4>SLA وإدارة الطلبات</h4>
-              <p>نظام طلبات/اعتمادات، وزمن استجابة محدد، ومسؤوليات واضحة (RACI عند الحاجة).</p>
+              <p>نظام اعتمادات/طلبات، وزمن استجابة محدد، ومسؤوليات واضحة.</p>
             </div>
           </div>
 
@@ -584,7 +589,7 @@
             <div class="num">C</div>
             <div>
               <h4>ضبط الجودة</h4>
-              <p>مراجعة لغوية/بصرية قبل النشر + توثيق النسخ + سجل تغييرات (Change Log).</p>
+              <p>مراجعة لغوية/بصرية قبل النشر + توثيق النسخ + سجل تغييرات.</p>
             </div>
           </div>
         </div>
@@ -593,13 +598,12 @@
       <div class="notice">
         <strong>جاهز للعروض الفنية</strong>
         <p>
-          إذا تبغى، نحول هذا الموقع إلى “نسخة مناقصة” حرفيًا:
-          صفحة نطاق عمل + جدول مخرجات + فريق العمل + خطة زمنية + نماذج تقارير.
+          إذا تبغى، نحول الموقع إلى “نسخة مناقصة”: نطاق عمل + جدول مخرجات + فريق + خطة زمنية + نماذج تقارير.
         </p>
-        <div class="tagrow" style="margin-top:12px">
-          <span class="tag">قابل للتخصيص خلال يوم</span>
+        <div class="tagrow">
           <span class="tag">لغة رسمية</span>
           <span class="tag">بدون مبالغة</span>
+          <span class="tag">قابل للتخصيص سريعًا</span>
         </div>
       </div>
     </div>
@@ -611,7 +615,7 @@
       <div>
         <div class="head">
           <h3>طلب عرض / تواصل</h3>
-          <p>ضع بياناتك ونعطيك رد رسمي. البيانات هنا مؤقتة (عشوائية) مثل ما طلبت.</p>
+          <p>بيانات مؤقتة (عشوائية) الآن — ونبدلها ببياناتك لاحقًا.</p>
         </div>
 
         <div class="info">
@@ -629,37 +633,25 @@
           </div>
         </div>
 
-        <div class="cta" style="margin-top:14px">
+        <div class="cta" style="margin-top:16px">
           <a class="btn btn-ghost" target="_blank" rel="noopener"
              href="https://wa.me/966500000000?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%20%D8%8C%20%D8%A3%D8%B1%D9%8A%D8%AF%20%D8%B7%D9%84%D8%A8%20%D8%B9%D8%B1%D8%B6%20%D9%84%D8%AE%D8%AF%D9%85%D8%A7%D8%AA%20%D9%81%D9%8A%D8%B5%D9%84%20%D9%84%D9%84%D8%AF%D8%B9%D8%A7%D9%8A%D8%A9%20%D9%88%D8%A7%D9%84%D8%A5%D8%B9%D9%84%D8%A7%D9%86">
             تواصل واتساب
           </a>
-          <a class="btn" href="#services">ابدأ بالخدمات</a>
+          <a class="btn" href="#services">استعراض الخدمات</a>
         </div>
 
         <p class="tiny">
-          ملاحظة: GitHub Pages ما يرسل بريد مباشرة. النموذج أدناه مربوط بخدمة خارجية (Formspree). بدّل الرابط عندك.
+          ملاحظة: GitHub Pages ما يرسل بريد مباشرة. النموذج أدناه مربوط بخدمة خارجية (Formspree).
         </p>
       </div>
 
       <div class="panel">
-        <h3 style="margin:0 0 8px;font-weight:900">نموذج الطلب</h3>
+        <h3 style="margin:0 0 10px;font-weight:900">نموذج الطلب</h3>
         <form action="https://formspree.io/f/xxxxxxxx" method="POST">
-          <label>
-            <span>الاسم</span>
-            <input name="name" required placeholder="اسمك الكامل" />
-          </label>
-
-          <label>
-            <span>الجهة / الشركة</span>
-            <input name="company" placeholder="اختياري" />
-          </label>
-
-          <label>
-            <span>البريد</span>
-            <input name="email" type="email" required placeholder="name@company.com" />
-          </label>
-
+          <label><span>الاسم</span><input name="name" required placeholder="اسمك الكامل" /></label>
+          <label><span>الجهة / الشركة</span><input name="company" placeholder="اختياري" /></label>
+          <label><span>البريد</span><input name="email" type="email" required placeholder="name@company.com" /></label>
           <label>
             <span>نوع الخدمة</span>
             <select name="service">
@@ -672,17 +664,9 @@
               <option>أخرى</option>
             </select>
           </label>
-
-          <label>
-            <span>تفاصيل الطلب</span>
-            <textarea name="message" rows="5" required placeholder="اكتب المطلوب، المدة، وأي ملاحظات"></textarea>
-          </label>
-
+          <label><span>تفاصيل الطلب</span><textarea name="message" rows="5" required placeholder="اكتب المطلوب، المدة، وأي ملاحظات"></textarea></label>
           <button class="btn" type="submit">إرسال الطلب</button>
-
-          <p class="tiny">
-            بدّل xxxxxxxx برابطك من Formspree. أو قلّي تبغاه Google Form ونعدّل الرابط.
-          </p>
+          <p class="tiny">بدّل xxxxxxxx برابطك من Formspree أو قلّي نخليه Google Form.</p>
         </form>
       </div>
     </div>
@@ -697,7 +681,7 @@
       <div class="links">
         <a href="#services">الخدمات</a>
         <a href="#method">المنهجية</a>
-        <a href="#compliance">الامتثال</a>
+        <a href="#compliance">الحوكمة</a>
         <a href="#contact">تواصل</a>
       </div>
     </div>
