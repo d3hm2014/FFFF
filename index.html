@@ -12,34 +12,23 @@
 
   <style>
     :root{
-      /* White corporate system */
       --bg:#ffffff;
       --bg2:#f6f9ff;
-      --surface:#ffffff;
-      --surface2:#f3f7ff;
       --text:#0b1220;
       --muted:#4b5563;
       --line:rgba(15,23,42,.12);
 
-      /* Blue accents (government/corporate) */
-      --blue:#1d4ed8;     /* primary */
-      --sky:#0ea5e9;      /* accent */
-      --navy:#0b2c5a;     /* deep */
+      --blue:#1d4ed8;
+      --sky:#0ea5e9;
+      --navy:#0b2c5a;
       --glow:rgba(14,165,233,.12);
 
       --radius:18px;
       --shadow:0 14px 40px rgba(2,6,23,.10);
       --shadowSoft:0 10px 24px rgba(2,6,23,.08);
-
       --container:1120px;
 
-      /* spacing scale */
-      --s1:8px;
-      --s2:12px;
-      --s3:16px;
-      --s4:20px;
       --s5:28px;
-      --s6:44px;
       --s7:64px;
     }
 
@@ -74,8 +63,7 @@
       width:40px;height:40px;border-radius:14px;
       background: linear-gradient(135deg, var(--blue), var(--sky));
       box-shadow: var(--shadowSoft);
-      position:relative;overflow:hidden;
-      flex:0 0 auto;
+      position:relative;overflow:hidden;flex:0 0 auto;
     }
     .mark:after{
       content:"";
@@ -138,18 +126,18 @@
     .hero h2{
       margin:14px 0 10px;
       font-size:2.4rem;line-height:1.15;font-weight:900;
-      color: #0b1220;
+      color:#0b1220;
       letter-spacing:-.2px;
     }
     .lead{
       margin:0 0 18px;
       color:var(--muted);
       font-size:1.06rem;line-height:1.95;
-      max-width: 62ch;
+      max-width:62ch;
     }
     .cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:18px}
 
-    /* Panels/Cards */
+    /* Panels */
     .panel{
       border:1px solid var(--line);
       background: rgba(255,255,255,.85);
@@ -160,12 +148,8 @@
     .panel.soft{box-shadow:none;background: rgba(255,255,255,.65)}
     .list{list-style:none;margin:12px 0 0;padding:0}
     .list li{
-      position:relative;
-      padding-right:30px;
-      margin:10px 0;
-      color:var(--muted);
-      font-weight:700;
-      line-height:1.9;
+      position:relative;padding-right:30px;margin:10px 0;
+      color:var(--muted);font-weight:700;line-height:1.9;
     }
     .list li:before{
       content:"✓";
@@ -175,19 +159,6 @@
       background: linear-gradient(135deg, var(--blue), var(--sky));
       color:#fff;font-weight:900;font-size:.9rem;
     }
-
-    .kpis{
-      display:grid;grid-template-columns:repeat(3,1fr);
-      gap:12px;margin-top:14px
-    }
-    .kpi{
-      border:1px solid rgba(2,6,23,.10);
-      background: rgba(255,255,255,.95);
-      border-radius:16px;
-      padding:12px;
-    }
-    .kpi strong{display:block;font-size:1.05rem}
-    .kpi span{display:block;color:var(--muted);font-weight:800;margin-top:4px;font-size:.92rem}
 
     /* Hero visual (Saudi SVG) */
     .hero-visual{
@@ -215,29 +186,17 @@
       opacity:.18;
       pointer-events:none;
     }
-    .hero-visual-inner{
-      position:relative;
-      display:grid;
-      gap:12px;
-    }
-    .visual-title{
-      display:flex;align-items:center;justify-content:space-between;gap:12px;
-    }
-    .visual-title h3{
-      margin:0;font-size:1.05rem;font-weight:900;color:#0b1220;
-    }
-    .visual-title span{
-      color:var(--muted);font-weight:800;font-size:.92rem;
-    }
+    .hero-visual-inner{position:relative;display:grid;gap:12px}
+    .visual-title{display:flex;align-items:center;justify-content:space-between;gap:12px}
+    .visual-title h3{margin:0;font-size:1.05rem;font-weight:900;color:#0b1220}
+    .visual-title span{color:var(--muted);font-weight:800;font-size:.92rem}
     .map-wrap{
       border:1px solid rgba(29,78,216,.14);
       background: rgba(255,255,255,.90);
       border-radius: 16px;
       padding: 14px;
     }
-    .map-caption{
-      display:flex;gap:10px;flex-wrap:wrap;margin-top:10px
-    }
+    .map-caption{display:flex;gap:10px;flex-wrap:wrap;margin-top:10px}
     .pill{
       padding:8px 10px;border-radius:999px;
       border:1px solid rgba(29,78,216,.18);
@@ -247,8 +206,39 @@
       font-size:.9rem;
     }
 
+    /* Clients strip */
+    .clients{padding: 0 0 44px}
+    .clients-row{
+      margin-top:18px;
+      border:1px solid rgba(2,6,23,.10);
+      background: rgba(255,255,255,.85);
+      border-radius: var(--radius);
+      padding:14px;
+      box-shadow: var(--shadowSoft);
+    }
+    .clients-head{
+      display:flex;justify-content:space-between;align-items:center;gap:12px;
+      margin-bottom:12px;
+    }
+    .clients-head h3{margin:0;font-size:1.1rem;font-weight:900}
+    .clients-head p{margin:0;color:var(--muted);font-weight:800}
+    .logos{
+      display:grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap:10px;
+    }
+    .logo{
+      height:56px;border-radius:16px;
+      border:1px dashed rgba(29,78,216,.25);
+      background: linear-gradient(180deg, rgba(29,78,216,.05), rgba(14,165,233,.05));
+      display:flex;align-items:center;justify-content:center;
+      color: rgba(11,44,90,.75);
+      font-weight:900;
+      letter-spacing:.2px;
+    }
+
     /* Sections */
-    .section{padding:var(--s7) 0}
+    .section{padding:64px 0}
     .section.alt{
       border-top:1px solid var(--line);
       border-bottom:1px solid var(--line);
@@ -283,8 +273,7 @@
       background: rgba(29,78,216,.08);
       border:1px solid rgba(29,78,216,.18);
       display:flex;align-items:center;justify-content:center;
-      font-weight:900;color:var(--navy);
-      flex:0 0 auto;
+      font-weight:900;color:var(--navy);flex:0 0 auto;
     }
     .step h4{margin:0 0 6px;font-weight:900;color:#0b1220}
     .step p{margin:0;color:var(--muted);font-weight:700;line-height:1.9}
@@ -299,17 +288,113 @@
       font-size:.92rem;
     }
 
-    /* Compliance */
-    .compliance{display:grid;grid-template-columns:1.1fr .9fr;gap:14px;align-items:start}
-    .notice{
-      border:1px solid rgba(29,78,216,.18);
-      background: rgba(29,78,216,.05);
+    /* Stats */
+    .stats{
+      display:grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap:12px;
+      margin-top:16px;
+    }
+    .stat{
+      border:1px solid rgba(2,6,23,.10);
+      background: rgba(255,255,255,.95);
+      border-radius: var(--radius);
+      padding:14px;
+      box-shadow: var(--shadowSoft);
+    }
+    .stat strong{
+      display:block;
+      font-size:1.55rem;
+      font-weight:900;
+      color: var(--navy);
+      letter-spacing:-.3px;
+    }
+    .stat span{
+      display:block;
+      margin-top:6px;
+      color: var(--muted);
+      font-weight:800;
+      line-height:1.7;
+      font-size:.95rem;
+    }
+
+    /* Team */
+    .team-grid{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap:14px;
+      margin-top:16px;
+    }
+    .member{
+      border:1px solid rgba(2,6,23,.10);
+      background: rgba(255,255,255,.95);
       border-radius: var(--radius);
       padding:16px;
       box-shadow: var(--shadowSoft);
     }
-    .notice strong{display:block;margin-bottom:8px;font-weight:900;color:#0b1220}
-    .notice p{margin:0;color:var(--muted);font-weight:700;line-height:1.95}
+    .member-top{
+      display:flex;align-items:center;gap:12px;
+      padding-bottom:12px;margin-bottom:12px;
+      border-bottom:1px solid rgba(2,6,23,.08);
+    }
+    .avatar{
+      width:44px;height:44px;border-radius:16px;
+      background: linear-gradient(135deg, rgba(29,78,216,.20), rgba(14,165,233,.20));
+      border:1px solid rgba(29,78,216,.20);
+      display:flex;align-items:center;justify-content:center;
+      font-weight:900;color: var(--navy);
+      flex:0 0 auto;
+    }
+    .member h4{margin:0;font-weight:900}
+    .role{color:var(--muted);font-weight:800;margin-top:4px;font-size:.95rem}
+    .member ul{margin:0;padding:0 18px;color:var(--muted);line-height:1.95;font-weight:700}
+
+    /* New: Tables (SOW, Deliverables, SLA) */
+    .table-wrap{
+      border:1px solid rgba(2,6,23,.10);
+      background: rgba(255,255,255,.95);
+      border-radius: var(--radius);
+      box-shadow: var(--shadowSoft);
+      overflow:hidden;
+      margin-top:16px;
+    }
+    table{
+      width:100%;
+      border-collapse:collapse;
+      font-weight:800;
+    }
+    thead th{
+      text-align:right;
+      padding:14px 14px;
+      background: linear-gradient(180deg, rgba(29,78,216,.07), rgba(14,165,233,.05));
+      border-bottom:1px solid rgba(2,6,23,.10);
+      color:#0b1220;
+      font-size:.95rem;
+    }
+    tbody td{
+      padding:14px 14px;
+      border-bottom:1px solid rgba(2,6,23,.08);
+      color:var(--muted);
+      vertical-align:top;
+      line-height:1.85;
+    }
+    tbody tr:last-child td{border-bottom:none}
+    .t-badge{
+      display:inline-flex;align-items:center;gap:8px;
+      padding:6px 10px;border-radius:999px;
+      border:1px solid rgba(29,78,216,.18);
+      background: rgba(29,78,216,.05);
+      color:#1f2937;
+      font-weight:900;
+      font-size:.9rem;
+      white-space:nowrap;
+    }
+    .note{
+      margin-top:12px;
+      color:var(--muted);
+      font-weight:800;
+      line-height:1.9;
+    }
 
     /* Contact */
     .contact{display:grid;grid-template-columns:1fr 1fr;gap:14px;align-items:start}
@@ -328,7 +413,7 @@
     input,select,textarea{
       width:100%;
       border:1px solid rgba(2,6,23,.12);
-      background: #fff;
+      background:#fff;
       color:#0b1220;
       border-radius:14px;
       padding:12px;
@@ -363,8 +448,9 @@
 
     /* Responsive */
     @media (max-width: 980px){
-      .hero-grid,.grid3,.steps,.compliance,.contact{grid-template-columns:1fr}
-      .kpis{grid-template-columns:1fr}
+      .hero-grid,.grid3,.steps,.contact,.team-grid{grid-template-columns:1fr}
+      .stats{grid-template-columns:1fr 1fr}
+      .logos{grid-template-columns: repeat(3, 1fr)}
       .toggle{display:inline-block}
       nav{
         position:absolute;top:66px;left:18px;right:18px;
@@ -378,6 +464,22 @@
       nav.open{display:flex}
       nav a{padding:12px 12px}
       .hero h2{font-size:2rem}
+      thead{display:none}
+      table, tbody, tr, td{display:block;width:100%}
+      tbody td{border-bottom:0}
+      tbody tr{border-bottom:1px solid rgba(2,6,23,.08)}
+      tbody tr:last-child{border-bottom:none}
+      tbody td:before{
+        content: attr(data-label);
+        display:block;
+        font-weight:900;
+        color:#0b1220;
+        margin-bottom:6px;
+      }
+    }
+    @media (max-width: 520px){
+      .stats{grid-template-columns:1fr}
+      .logos{grid-template-columns: repeat(2, 1fr)}
     }
   </style>
 </head>
@@ -399,9 +501,10 @@
 
     <nav id="nav">
       <a href="#services">الخدمات</a>
-      <a href="#method">المنهجية</a>
-      <a href="#deliverables">المخرجات</a>
-      <a href="#compliance">الحوكمة</a>
+      <a href="#sow">نطاق العمل</a>
+      <a href="#deliverables-plan">خطة المخرجات</a>
+      <a href="#sla">SLA</a>
+      <a href="#team">فريق العمل</a>
       <a href="#contact" class="btn">طلب عرض</a>
     </nav>
   </div>
@@ -421,20 +524,20 @@
 
         <div class="cta">
           <a class="btn" href="#contact">اطلب عرضًا فنيًا</a>
-          <a class="btn btn-ghost" href="#services">استعراض الخدمات</a>
-          <a class="btn btn-ghost" href="#deliverables">نماذج مخرجات وتقارير</a>
+          <a class="btn btn-ghost" href="#sow">نطاق العمل</a>
+          <a class="btn btn-ghost" href="#sla">SLA مفصل</a>
         </div>
 
         <div class="tagrow">
-          <span class="tag">تقارير أسبوعية/شهرية</span>
-          <span class="tag">SLA واتفاقيات خدمة</span>
           <span class="tag">حوكمة وموافقات</span>
+          <span class="tag">تقارير دورية</span>
           <span class="tag">قياس أثر وKPIs</span>
+          <span class="tag">تشغيل مؤسسي</span>
         </div>
 
         <div class="panel soft" style="margin-top:16px">
           <p style="margin:0;color:var(--muted);font-weight:800;line-height:1.9">
-            ملاحظة: هذا موقع صفحة واحدة (Single Page) مناسب لـ GitHub Pages. نقدر نفصله لاحقًا لعدة صفحات إذا رغبت.
+            هذا الموقع مُصمم ليكون “واجهة عرض فني” جاهزة للعروض الحكومية: نطاق، مخرجات، SLA، وفريق تشغيل.
           </p>
         </div>
       </div>
@@ -442,7 +545,6 @@
       <!-- Saudi map visual -->
       <div class="hero-visual" aria-label="تغطية المملكة">
         <div class="grid-dots"></div>
-
         <div class="hero-visual-inner">
           <div class="visual-title">
             <h3>نخدم المملكة العربية السعودية</h3>
@@ -538,12 +640,55 @@
 
           <div class="panel soft" style="margin:0">
             <p style="margin:0;color:var(--muted);font-weight:800;line-height:1.9">
-              هذه خريطة رمزية (Stylized SVG). إذا تبغى خريطة حدود دقيقة 100% أجيب لك SVG واقعي.
+              خريطة رمزية (Stylized SVG). يمكن تخصيصها لإظهار مناطق/مدن أو تحويلها لخريطة حدود دقيقة.
             </p>
           </div>
         </div>
       </div>
+    </div>
+  </section>
 
+  <!-- CLIENTS STRIP -->
+  <section class="clients">
+    <div class="container">
+      <div class="clients-row">
+        <div class="clients-head">
+          <h3>جهات وشركاء (نماذج)</h3>
+          <p>ضع الشعارات الحقيقية لاحقًا</p>
+        </div>
+        <div class="logos" aria-label="شعارات عملاء (Placeholders)">
+          <div class="logo">Client Logo</div>
+          <div class="logo">Client Logo</div>
+          <div class="logo">Client Logo</div>
+          <div class="logo">Client Logo</div>
+          <div class="logo">Client Logo</div>
+          <div class="logo">Client Logo</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <section class="section alt" id="stats">
+    <div class="container">
+      <div class="head">
+        <h3>أرقام إنجازات (قابلة للتعديل)</h3>
+        <p>الأرقام هنا placeholders — غيّرها لأرقامك الحقيقية.</p>
+      </div>
+
+      <div class="stats" aria-label="إحصائيات وإنجازات">
+        <div class="stat"><strong>120+</strong><span>حملة تم تخطيطها وتنفيذها</span></div>
+        <div class="stat"><strong>30+</strong><span>قطاع/مجال تم خدمته</span></div>
+        <div class="stat"><strong>2.5M+</strong><span>وصول/انطباعات مجمعة (نمذجة)</span></div>
+        <div class="stat"><strong>98%</strong><span>التزام بالجدول الزمني (SLA)</span></div>
+      </div>
+
+      <div class="tagrow">
+        <span class="tag">تقارير دورية</span>
+        <span class="tag">KPIs</span>
+        <span class="tag">تحسين مستمر</span>
+        <span class="tag">حوكمة محتوى</span>
+      </div>
     </div>
   </section>
 
@@ -619,144 +764,361 @@
     </div>
   </section>
 
-  <!-- METHOD -->
-  <section id="method" class="section alt">
+  <!-- SOW -->
+  <section id="sow" class="section alt">
     <div class="container">
       <div class="head">
-        <h3>منهجية العمل</h3>
-        <p>منهجية تشغيل واضحة مناسبة للجهات الحكومية والشركات (موافقات، توثيق، وتقارير).</p>
+        <h3>نطاق العمل (SOW)</h3>
+        <p>صياغة جاهزة للعروض الفنية. عدّل العناصر حسب اشتراطات الجهة وحجم القنوات.</p>
       </div>
 
-      <div class="steps">
-        <div class="step">
-          <div class="num">1</div>
-          <div>
-            <h4>اكتشاف وتحليل</h4>
-            <p>الأهداف، الجمهور، القنوات، المخاطر، ومؤشرات النجاح.</p>
-          </div>
-        </div>
-
-        <div class="step">
-          <div class="num">2</div>
-          <div>
-            <h4>خطة اتصالية</h4>
-            <p>حزم حملات، تقويم محتوى، رسائل أساسية، وإطار قياس.</p>
-          </div>
-        </div>
-
-        <div class="step">
-          <div class="num">3</div>
-          <div>
-            <h4>إنتاج وتنفيذ</h4>
-            <p>محتوى/تصميم/فيديو + نشر + إعلانات + إدارة مجتمع وفق دليل اعتماد.</p>
-          </div>
-        </div>
-
-        <div class="step">
-          <div class="num">4</div>
-          <div>
-            <h4>تقارير وقياس أثر</h4>
-            <p>تقارير أسبوعية/شهرية + KPIs + توصيات تحسين + خطة الشهر التالي.</p>
-          </div>
-        </div>
+      <div class="table-wrap" role="region" aria-label="جدول نطاق العمل">
+        <table>
+          <thead>
+            <tr>
+              <th>المجال</th>
+              <th>يشمل</th>
+              <th>المسؤولية</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td data-label="المجال"><span class="t-badge">التخطيط والاستراتيجية</span></td>
+              <td data-label="يشمل">خطة اتصالية، خارطة رسائل، تحديد الجمهور، تقويم محتوى، إطار قياس KPIs.</td>
+              <td data-label="المسؤولية">الوكالة: إعداد وتحديث • الجهة: اعتماد</td>
+            </tr>
+            <tr>
+              <td data-label="المجال"><span class="t-badge">المحتوى والتصميم</span></td>
+              <td data-label="يشمل">كتابة وتحرير، تصميم ثابت/متحرك، قوالب، تغطيات، مراجعة قبل النشر.</td>
+              <td data-label="المسؤولية">الوكالة: إنتاج/مراجعة • الجهة: اعتماد نهائي</td>
+            </tr>
+            <tr>
+              <td data-label="المجال"><span class="t-badge">إدارة المنصات</span></td>
+              <td data-label="يشمل">جدولة ونشر، إدارة المجتمع، الردود وفق دليل، تقارير متابعة أسبوعية.</td>
+              <td data-label="المسؤولية">الوكالة: تشغيل • الجهة: تزويد معلومات/تصعيدات</td>
+            </tr>
+            <tr>
+              <td data-label="المجال"><span class="t-badge">الحملات المدفوعة</span></td>
+              <td data-label="يشمل">تشغيل إعلانات، تتبع (UTM/Pixel/GA)، تحسين مستمر، تقارير أداء شهرية.</td>
+              <td data-label="المسؤولية">الوكالة: تشغيل وتحسين • الجهة: توفير ميزانيات/صلاحيات</td>
+            </tr>
+            <tr>
+              <td data-label="المجال"><span class="t-badge">التقارير والحوكمة</span></td>
+              <td data-label="يشمل">تقارير أسبوعية/شهرية، اجتماعات متابعة، محاضر، سجل تغييرات، إدارة مخاطر.</td>
+              <td data-label="المسؤولية">الوكالة: إعداد • الجهة: مراجعة واعتماد</td>
+            </tr>
+          </tbody>
+        </table>
       </div>
+
+      <p class="note">
+        * يمكن إضافة/استبعاد منصات أو رفع/خفض حجم الإنتاج حسب اشتراطات المنافسة والميزانية.
+      </p>
     </div>
   </section>
 
-  <!-- DELIVERABLES -->
-  <section id="deliverables" class="section">
+  <!-- DELIVERABLES PLAN (MONTHLY) -->
+  <section id="deliverables-plan" class="section">
     <div class="container">
       <div class="head">
-        <h3>المخرجات وقياس الأثر</h3>
-        <p>مخرجات موثقة يمكن الدفاع عنها داخل التقارير والاجتماعات.</p>
+        <h3>جدول المخرجات حسب الشهر</h3>
+        <p>قالب تشغيل 12 شهر (Placeholders). غيّر الأعداد لتطابق عقدك ونطاق القنوات.</p>
       </div>
 
-      <div class="grid3">
-        <div class="card">
-          <h4>مخرجات تشغيل</h4>
-          <ul>
-            <li>تقويم محتوى شهري مع محاور</li>
-            <li>قوالب تصميم مؤسسية ثابتة/متحركة</li>
-            <li>حزم حملات مع أهداف ورسائل</li>
-            <li>مصفوفة موافقات واعتماد</li>
-          </ul>
-        </div>
-
-        <div class="card">
-          <h4>تقارير أداء</h4>
-          <ul>
-            <li>لوحة مؤشرات (Dashboard)</li>
-            <li>تقرير أسبوعي مختصر (Executive)</li>
-            <li>تقرير شهري تفصيلي + توصيات</li>
-            <li>تحليل المحتوى الأعلى أداءً</li>
-          </ul>
-        </div>
-
-        <div class="card">
-          <h4>أمثلة KPIs</h4>
-          <ul>
-            <li>الوصول والانطباعات والتفاعل</li>
-            <li>معدلات التحويل (حسب الهدف)</li>
-            <li>تكلفة النتيجة/الاكتساب</li>
-            <li>مؤشرات السمعة (Share of Voice)</li>
-          </ul>
-        </div>
+      <div class="table-wrap" role="region" aria-label="جدول المخرجات حسب الشهر">
+        <table>
+          <thead>
+            <tr>
+              <th>الشهر</th>
+              <th>مخرجات المحتوى</th>
+              <th>تصميم/موشن</th>
+              <th>حملات مدفوعة</th>
+              <th>تقارير واجتماعات</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- 12 months placeholders -->
+            <tr>
+              <td data-label="الشهر"><span class="t-badge">شهر 1</span></td>
+              <td data-label="مخرجات المحتوى">تقويم محتوى + 20 منشور</td>
+              <td data-label="تصميم/موشن">12 تصميم + 2 موشن</td>
+              <td data-label="حملات مدفوعة">حملة 1 (Awareness)</td>
+              <td data-label="تقارير واجتماعات">تقرير شهري + اجتماع متابعة</td>
+            </tr>
+            <tr>
+              <td data-label="الشهر"><span class="t-badge">شهر 2</span></td>
+              <td data-label="مخرجات المحتوى">24 منشور + 4 قصص</td>
+              <td data-label="تصميم/موشن">14 تصميم + 2 موشن</td>
+              <td data-label="حملات مدفوعة">حملة 1 (Optimization)</td>
+              <td data-label="تقارير واجتماعات">تقرير شهري + محضر</td>
+            </tr>
+            <tr>
+              <td data-label="الشهر"><span class="t-badge">شهر 3</span></td>
+              <td data-label="مخرجات المحتوى">24 منشور + تغطية</td>
+              <td data-label="تصميم/موشن">14 تصميم + 3 موشن</td>
+              <td data-label="حملات مدفوعة">حملة 2</td>
+              <td data-label="تقارير واجتماعات">تقرير شهري + تحليل KPIs</td>
+            </tr>
+            <tr>
+              <td data-label="الشهر"><span class="t-badge">شهر 4</span></td>
+              <td data-label="مخرجات المحتوى">24 منشور</td>
+              <td data-label="تصميم/موشن">14 تصميم + 2 موشن</td>
+              <td data-label="حملات مدفوعة">حملة 2 (Optimization)</td>
+              <td data-label="تقارير واجتماعات">تقرير شهري + اجتماع</td>
+            </tr>
+            <tr>
+              <td data-label="الشهر"><span class="t-badge">شهر 5</span></td>
+              <td data-label="مخرجات المحتوى">26 منشور + 1 بيان</td>
+              <td data-label="تصميم/موشن">16 تصميم + 3 موشن</td>
+              <td data-label="حملات مدفوعة">حملة 3</td>
+              <td data-label="تقارير واجتماعات">تقرير شهري + توصيات</td>
+            </tr>
+            <tr>
+              <td data-label="الشهر"><span class="t-badge">شهر 6</span></td>
+              <td data-label="مخرجات المحتوى">26 منشور + تغطية</td>
+              <td data-label="تصميم/موشن">16 تصميم + 2 موشن</td>
+              <td data-label="حملات مدفوعة">حملة 3 (Optimization)</td>
+              <td data-label="تقارير واجتماعات">تقرير ربع سنوي + اجتماع</td>
+            </tr>
+            <tr>
+              <td data-label="الشهر"><span class="t-badge">شهر 7</span></td>
+              <td data-label="مخرجات المحتوى">24 منشور</td>
+              <td data-label="تصميم/موشن">14 تصميم + 2 موشن</td>
+              <td data-label="حملات مدفوعة">حملة 4</td>
+              <td data-label="تقارير واجتماعات">تقرير شهري</td>
+            </tr>
+            <tr>
+              <td data-label="الشهر"><span class="t-badge">شهر 8</span></td>
+              <td data-label="مخرجات المحتوى">24 منشور + 4 قصص</td>
+              <td data-label="تصميم/موشن">14 تصميم + 2 موشن</td>
+              <td data-label="حملات مدفوعة">حملة 4 (Optimization)</td>
+              <td data-label="تقارير واجتماعات">تقرير شهري + محضر</td>
+            </tr>
+            <tr>
+              <td data-label="الشهر"><span class="t-badge">شهر 9</span></td>
+              <td data-label="مخرجات المحتوى">24 منشور</td>
+              <td data-label="تصميم/موشن">14 تصميم + 3 موشن</td>
+              <td data-label="حملات مدفوعة">حملة 5</td>
+              <td data-label="تقارير واجتماعات">تقرير شهري + تحليل KPIs</td>
+            </tr>
+            <tr>
+              <td data-label="الشهر"><span class="t-badge">شهر 10</span></td>
+              <td data-label="مخرجات المحتوى">26 منشور + تغطية</td>
+              <td data-label="تصميم/موشن">16 تصميم + 2 موشن</td>
+              <td data-label="حملات مدفوعة">حملة 5 (Optimization)</td>
+              <td data-label="تقارير واجتماعات">تقرير شهري</td>
+            </tr>
+            <tr>
+              <td data-label="الشهر"><span class="t-badge">شهر 11</span></td>
+              <td data-label="مخرجات المحتوى">26 منشور</td>
+              <td data-label="تصميم/موشن">16 تصميم + 3 موشن</td>
+              <td data-label="حملات مدفوعة">حملة 6</td>
+              <td data-label="تقارير واجتماعات">تقرير شهري + توصيات</td>
+            </tr>
+            <tr>
+              <td data-label="الشهر"><span class="t-badge">شهر 12</span></td>
+              <td data-label="مخرجات المحتوى">خطة سنة جديدة + 20 منشور</td>
+              <td data-label="تصميم/موشن">12 تصميم + 2 موشن</td>
+              <td data-label="حملات مدفوعة">مراجعة + خطة تحسين</td>
+              <td data-label="تقارير واجتماعات">تقرير سنوي + عرض نتائج</td>
+            </tr>
+          </tbody>
+        </table>
       </div>
+
+      <p class="note">
+        * هذه مجرد أرقام نموذجية. في المنافسات الحكومية الأفضل تثبيت “الحد الأدنى” وإتاحة “مرونة زيادات حسب الحاجة”.
+      </p>
     </div>
   </section>
 
-  <!-- COMPLIANCE -->
-  <section id="compliance" class="section alt">
-    <div class="container compliance">
-      <div>
-        <div class="head">
-          <h3>الامتثال والحوكمة</h3>
-          <p>إجراءات واضحة، سرية، ملكية فكرية، ومخرجات قابلة للتوثيق.</p>
-        </div>
-
-        <div class="steps" style="grid-template-columns:1fr;gap:12px">
-          <div class="step">
-            <div class="num">A</div>
-            <div>
-              <h4>سرية وملكية فكرية</h4>
-              <p>التزام بسرية البيانات ومخرجات المحتوى، وملكية الجهة للمخرجات حسب العقد.</p>
-            </div>
-          </div>
-
-          <div class="step">
-            <div class="num">B</div>
-            <div>
-              <h4>SLA وإدارة الطلبات</h4>
-              <p>نظام اعتمادات/طلبات، وزمن استجابة محدد، ومسؤوليات واضحة.</p>
-            </div>
-          </div>
-
-          <div class="step">
-            <div class="num">C</div>
-            <div>
-              <h4>ضبط الجودة</h4>
-              <p>مراجعة لغوية/بصرية قبل النشر + توثيق النسخ + سجل تغييرات.</p>
-            </div>
-          </div>
-        </div>
+  <!-- SLA -->
+  <section id="sla" class="section alt">
+    <div class="container">
+      <div class="head">
+        <h3>SLA مفصل (زمن الرد/الاعتماد/النشر)</h3>
+        <p>صياغة تشغيل واضحة: متى نرد؟ متى نجهز؟ متى ننشر؟ ومتى يصير التصعيد؟</p>
       </div>
 
-      <div class="notice">
-        <strong>جاهز للعروض الفنية</strong>
-        <p>
-          إذا تبغى، نحول الموقع إلى “نسخة مناقصة”: نطاق عمل + جدول مخرجات + فريق + خطة زمنية + نماذج تقارير.
-        </p>
-        <div class="tagrow">
-          <span class="tag">لغة رسمية</span>
-          <span class="tag">بدون مبالغة</span>
-          <span class="tag">قابل للتخصيص سريعًا</span>
+      <div class="table-wrap" role="region" aria-label="جدول اتفاقية مستوى الخدمة">
+        <table>
+          <thead>
+            <tr>
+              <th>البند</th>
+              <th>التعريف</th>
+              <th>المعيار الزمني</th>
+              <th>ملاحظات/تصعيد</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td data-label="البند"><span class="t-badge">زمن الاستجابة</span></td>
+              <td data-label="التعريف">الرد الأولي على طلب الجهة (تأكيد الاستلام + خطة إجراء).</td>
+              <td data-label="المعيار الزمني">خلال 4 ساعات عمل</td>
+              <td data-label="ملاحظات/تصعيد">عاجل: خلال 60 دقيقة</td>
+            </tr>
+            <tr>
+              <td data-label="البند"><span class="t-badge">تحضير محتوى (نص)</span></td>
+              <td data-label="التعريف">صياغة/تعديل نص منشور وفق دليل النبرة.</td>
+              <td data-label="المعيار الزمني">1–2 يوم عمل</td>
+              <td data-label="ملاحظات/تصعيد">حسب طول النص وعدد المراجعات</td>
+            </tr>
+            <tr>
+              <td data-label="البند"><span class="t-badge">تحضير تصميم ثابت</span></td>
+              <td data-label="التعريف">تصميم منشور ثابت بقالب مؤسسي.</td>
+              <td data-label="المعيار الزمني">2–3 أيام عمل</td>
+              <td data-label="ملاحظات/تصعيد">عاجل: 24 ساعة (حسب الطاقة)</td>
+            </tr>
+            <tr>
+              <td data-label="البند"><span class="t-badge">تحضير موشن/فيديو قصير</span></td>
+              <td data-label="التعريف">موشن/فيديو توعوي قصير (Script + Edit).</td>
+              <td data-label="المعيار الزمني">5–7 أيام عمل</td>
+              <td data-label="ملاحظات/تصعيد">يعتمد على مدة الفيديو وتوفر المواد</td>
+            </tr>
+            <tr>
+              <td data-label="البند"><span class="t-badge">زمن الاعتماد</span></td>
+              <td data-label="التعريف">المدة المخصصة لاعتماد الجهة للمحتوى قبل النشر.</td>
+              <td data-label="المعيار الزمني">48 ساعة كحد أقصى</td>
+              <td data-label="ملاحظات/تصعيد">تأخر الاعتماد يؤخر النشر تلقائيًا</td>
+            </tr>
+            <tr>
+              <td data-label="البند"><span class="t-badge">زمن النشر</span></td>
+              <td data-label="التعريف">بعد اعتماد الجهة يتم جدولة/نشر المحتوى.</td>
+              <td data-label="المعيار الزمني">خلال 4–8 ساعات عمل</td>
+              <td data-label="ملاحظات/تصعيد">حسب أفضل وقت للنشر وخطة التقويم</td>
+            </tr>
+            <tr>
+              <td data-label="البند"><span class="t-badge">إدارة الأزمات</span></td>
+              <td data-label="التعريف">تعامل عاجل مع إساءة/ترند/معلومة حساسة.</td>
+              <td data-label="المعيار الزمني">استجابة 30–60 دقيقة</td>
+              <td data-label="ملاحظات/تصعيد">تصعيد فوري لمدير المشروع + جهة الاتصال</td>
+            </tr>
+            <tr>
+              <td data-label="البند"><span class="t-badge">التقارير</span></td>
+              <td data-label="التعريف">تقارير أداء دورية.</td>
+              <td data-label="المعيار الزمني">أسبوعي مختصر + شهري تفصيلي</td>
+              <td data-label="ملاحظات/تصعيد">ربع سنوي: مراجعة استراتيجية وتحسين</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p class="note">
+        * “ساعات العمل” تُحدد في العقد (مثال: الأحد–الخميس 9ص–5م). ويمكن إضافة SLA لقنوات الدعم (واتساب/إيميل).
+      </p>
+    </div>
+  </section>
+
+  <!-- TEAM -->
+  <section id="team" class="section">
+    <div class="container">
+      <div class="head">
+        <h3>فريق العمل (نموذج للعروض الحكومية)</h3>
+        <p>ضع أسماء الفريق الفعلية لاحقًا — الهيكل والمسؤوليات مكتوبة بطريقة تقييم فني.</p>
+      </div>
+
+      <div class="team-grid">
+        <div class="member">
+          <div class="member-top">
+            <div class="avatar">PM</div>
+            <div>
+              <h4>مدير المشروع</h4>
+              <div class="role">إدارة التنفيذ + الحوكمة + التقارير</div>
+            </div>
+          </div>
+          <ul>
+            <li>خطة تنفيذ وجدول زمني</li>
+            <li>إدارة المخاطر والتصعيد</li>
+            <li>اجتماعات متابعة ومحاضر</li>
+            <li>تقارير شهرية للجهة</li>
+          </ul>
+        </div>
+
+        <div class="member">
+          <div class="member-top">
+            <div class="avatar">CS</div>
+            <div>
+              <h4>قائد المحتوى</h4>
+              <div class="role">استراتيجية المحتوى + الرسائل</div>
+            </div>
+          </div>
+          <ul>
+            <li>تقويم محتوى ومحاور</li>
+            <li>صياغة رسمية/توعوية</li>
+            <li>مراجعة قبل النشر</li>
+            <li>مواءمة الرسائل مع أهداف الجهة</li>
+          </ul>
+        </div>
+
+        <div class="member">
+          <div class="member-top">
+            <div class="avatar">AD</div>
+            <div>
+              <h4>أخصائي الإعلانات والأداء</h4>
+              <div class="role">إدارة الحملات + التحسين + KPIs</div>
+            </div>
+          </div>
+          <ul>
+            <li>إعداد وتتبع التحويل</li>
+            <li>تشغيل وتحسين الحملات</li>
+            <li>تقارير أداء دورية</li>
+            <li>اختبارات A/B وتوصيات</li>
+          </ul>
+        </div>
+
+        <div class="member">
+          <div class="member-top">
+            <div class="avatar">GD</div>
+            <div>
+              <h4>مصمم جرافيك</h4>
+              <div class="role">هوية بصرية + قوالب مؤسسية</div>
+            </div>
+          </div>
+          <ul>
+            <li>قوالب ثابتة/متحركة</li>
+            <li>Key Visual للحملات</li>
+            <li>توثيق النسخ</li>
+            <li>تسليم ملفات قابلة للأرشفة</li>
+          </ul>
+        </div>
+
+        <div class="member">
+          <div class="member-top">
+            <div class="avatar">VD</div>
+            <div>
+              <h4>منتج/محرر فيديو</h4>
+              <div class="role">فيديوهات قصيرة + موشن</div>
+            </div>
+          </div>
+          <ul>
+            <li>سكربت ومشاهد</li>
+            <li>مونتاج + موشن جرافيك</li>
+            <li>إخراج مناسب للمنصات</li>
+            <li>تحسين الرسائل بصريًا</li>
+          </ul>
+        </div>
+
+        <div class="member">
+          <div class="member-top">
+            <div class="avatar">QA</div>
+            <div>
+              <h4>مراجع جودة</h4>
+              <div class="role">لغة + التزام + حوكمة نشر</div>
+            </div>
+          </div>
+          <ul>
+            <li>تدقيق لغوي ومصطلحي</li>
+            <li>مراجعة سياسة النشر</li>
+            <li>مصفوفة اعتمادات</li>
+            <li>تقليل الأخطاء قبل النشر</li>
+          </ul>
         </div>
       </div>
     </div>
   </section>
 
   <!-- CONTACT -->
-  <section id="contact" class="section">
+  <section id="contact" class="section alt">
     <div class="container contact">
       <div>
         <div class="head">
@@ -826,8 +1188,10 @@
       </div>
       <div class="links">
         <a href="#services">الخدمات</a>
-        <a href="#method">المنهجية</a>
-        <a href="#compliance">الحوكمة</a>
+        <a href="#sow">نطاق العمل</a>
+        <a href="#deliverables-plan">خطة المخرجات</a>
+        <a href="#sla">SLA</a>
+        <a href="#team">فريق العمل</a>
         <a href="#contact">تواصل</a>
       </div>
     </div>
