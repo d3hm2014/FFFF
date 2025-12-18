@@ -6,6 +6,17 @@
 <title>فيصل للدعاية والإعلان | وكالة اتصالية للشركات والجهات</title>
 <meta name="description" content="فيصل للدعاية والإعلان — حلول اتصالية وإعلانية للشركات والجهات داخل المملكة. تخطيط، تنفيذ، وقياس أثر بمستوى الشركات الكبرى." />
 
+<!-- Open Graph / Social Media -->
+<meta property="og:type" content="website" />
+<meta property="og:title" content="فيصل للدعاية والإعلان | وكالة اتصالية للشركات والجهات" />
+<meta property="og:description" content="حلول اتصالية وإعلانية للشركات والجهات داخل المملكة. تخطيط، تنفيذ، وقياس أثر بمستوى الشركات الكبرى." />
+<meta property="og:url" content="https://faisal-ads.sa" />
+<meta property="og:image" content="https://faisal-ads.sa/og-image.jpg" />
+<meta name="twitter:card" content="summary_large_image" />
+
+<!-- Canonical -->
+<link rel="canonical" href="https://faisal-ads.sa" />
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet">
@@ -44,6 +55,32 @@ body{
     radial-gradient(650px 420px at 55% 30%, rgba(188,235,255,.08), transparent 55%),
     linear-gradient(180deg, var(--bg), var(--bg2));
   overflow-x:hidden;
+}
+body.loading{overflow:hidden}
+body.loading::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  background:var(--bg);
+  z-index:9999;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  animation:fadeOut 0.5s ease 0.3s forwards;
+}
+body.loading::after{
+  content:"جاري التحميل...";
+  position:fixed;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%);
+  z-index:10000;
+  color:var(--text);
+  font-weight:900;
+  animation:fadeOut 0.5s ease 0.3s forwards;
+}
+@keyframes fadeOut{
+  to{opacity:0;pointer-events:none}
 }
 
 a{color:inherit;text-decoration:none}
@@ -85,6 +122,7 @@ header{
 .nav a{
   padding:10px 12px;border-radius:16px;
   color:var(--muted);font-weight:900;
+  transition:all 0.2s ease;
 }
 .nav a:hover{background:rgba(255,255,255,.05);color:var(--text)}
 .btn{
@@ -93,17 +131,20 @@ header{
   background: linear-gradient(135deg, var(--blue), var(--sky));
   color:#041023;font-weight:900;border:0;cursor:pointer;
   box-shadow: 0 14px 35px rgba(47,128,237,.18);
+  transition:all 0.2s ease;
 }
-.btn:hover{filter:brightness(1.03)}
+.btn:hover{filter:brightness(1.03);transform:translateY(-1px)}
 .btn.ghost{
   background:transparent;color:var(--text);
   border:1px solid rgba(86,204,242,.35);box-shadow:none;
 }
-.btn.ghost:hover{border-color:rgba(86,204,242,.65)}
+.btn.ghost:hover{border-color:rgba(86,204,242,.65);transform:translateY(-1px)}
 .menu{
   display:none;background:transparent;border:1px solid var(--line);
   padding:10px;border-radius:16px;cursor:pointer;
+  transition:all 0.2s ease;
 }
+.menu:hover{border-color:rgba(86,204,242,.5)}
 .menu span{display:block;width:18px;height:2px;background:var(--text);margin:4px 0;border-radius:2px}
 
 /* --- Hero (big-company feel) --- */
@@ -135,6 +176,11 @@ header{
   width:8px;height:8px;border-radius:50%;
   background:linear-gradient(135deg,var(--blue),var(--sky));
   box-shadow: 0 0 0 6px rgba(86,204,242,.08);
+  animation:pulse 2s ease-in-out infinite;
+}
+@keyframes pulse{
+  0%,100%{opacity:1;transform:scale(1)}
+  50%{opacity:0.7;transform:scale(1.1)}
 }
 .h-title{
   margin:14px 0 10px;
@@ -165,7 +211,7 @@ header{
 }
 .card.soft{box-shadow:none;background:rgba(255,255,255,.03)}
 
-/* Right hero: “creative but corporate” */
+/* Right hero: "creative but corporate" */
 .hero-visual{
   position:relative;
   border:1px solid rgba(86,204,242,.22);
@@ -206,6 +252,10 @@ header{
   will-change: transform;
   animation: floatY 6.5s ease-in-out infinite;
   overflow:hidden;
+  min-height:200px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
 }
 .logo3d-card::before{
   content:"";position:absolute;inset:-40%;
@@ -220,6 +270,19 @@ header{
   border-radius: 18px;
   transform: translateZ(26px);
   filter: drop-shadow(0 24px 38px rgba(0,0,0,.38));
+}
+.logo-placeholder{
+  width:120px;
+  height:120px;
+  border-radius:20px;
+  background:linear-gradient(135deg, var(--blue), var(--sky));
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:2.5rem;
+  font-weight:900;
+  color:#041023;
+  box-shadow:0 20px 40px rgba(47,128,237,.3);
 }
 .visual-kpis{
   display:grid;grid-template-columns:repeat(3,1fr);gap:10px;
@@ -261,6 +324,12 @@ header{
   border-radius: var(--radius);
   padding:16px;
   box-shadow: var(--shadowSoft);
+  transition:all 0.3s ease;
+}
+.tile:hover{
+  border-color:rgba(86,204,242,.3);
+  transform:translateY(-2px);
+  box-shadow: 0 20px 40px rgba(0,0,0,.3);
 }
 .tile h3{margin:0 0 8px;font-weight:950}
 .tile p{margin:0;color:var(--muted);line-height:1.9;font-weight:700}
@@ -282,6 +351,11 @@ header{
   background: rgba(255,255,255,.03);
   border-radius: var(--radius);
   padding:14px;
+  transition:all 0.3s ease;
+}
+.step:hover{
+  border-color:rgba(86,204,242,.3);
+  transform:translateY(-2px);
 }
 .step .num{
   width:36px;height:36px;border-radius:16px;
@@ -313,6 +387,10 @@ header{
   background: rgba(255,255,255,.03);
   border-radius: var(--radius);
   padding:12px;
+  transition:all 0.2s ease;
+}
+.info .item:hover{
+  border-color:rgba(86,204,242,.3);
 }
 .label{color:var(--muted);font-weight:950;font-size:.9rem}
 .value{display:block;margin-top:6px;font-weight:950}
@@ -328,9 +406,29 @@ input,select,textarea{
   outline:none;
   font-family:inherit;
   font-weight:750;
+  transition:all 0.2s ease;
 }
-input:focus,select:focus,textarea:focus{border-color:rgba(86,204,242,.55)}
+input:focus,select:focus,textarea:focus{
+  border-color:rgba(86,204,242,.55);
+  background:rgba(0,0,0,.25);
+}
 .note{font-size:.92rem;color:var(--muted);line-height:1.9;font-weight:750;margin:0}
+.success-message{
+  display:none;
+  padding:14px;
+  border-radius:16px;
+  background:rgba(86,204,242,.1);
+  border:1px solid rgba(86,204,242,.3);
+  color:var(--text);
+  font-weight:900;
+  text-align:center;
+  margin-top:10px;
+}
+.success-message.show{display:block;animation:slideIn 0.3s ease}
+@keyframes slideIn{
+  from{opacity:0;transform:translateY(-10px)}
+  to{opacity:1;transform:translateY(0)}
+}
 
 /* --- Footer --- */
 footer{
@@ -340,7 +438,10 @@ footer{
 }
 .footer-inner{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
 .footer-links{display:flex;gap:10px;flex-wrap:wrap}
-.footer-links a{color:var(--muted);font-weight:950;padding:8px 10px;border-radius:16px}
+.footer-links a{
+  color:var(--muted);font-weight:950;padding:8px 10px;border-radius:16px;
+  transition:all 0.2s ease;
+}
 .footer-links a:hover{background:rgba(255,255,255,.05);color:var(--text)}
 
 /* --- Floating back to top --- */
@@ -352,8 +453,15 @@ footer{
   display:flex;align-items:center;justify-content:center;
   box-shadow: var(--shadowSoft);
   font-weight:950;
+  opacity:0;
+  pointer-events:none;
+  transition:all 0.3s ease;
 }
-.top:hover{border-color:rgba(86,204,242,.5)}
+.top.show{opacity:1;pointer-events:all}
+.top:hover{
+  border-color:rgba(86,204,242,.5);
+  transform:translateY(-2px);
+}
 
 /* --- Responsive --- */
 @media (max-width:980px){
@@ -372,13 +480,37 @@ footer{
   .h-title{font-size:2.05rem}
 }
 @media (prefers-reduced-motion: reduce){
-  .logo3d-card{animation:none}
-  .logo3d-card::before{animation:none}
+  *{animation:none !important;transition:none !important}
 }
 </style>
+
+<!-- Schema.org Markup -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "فيصل للدعاية والإعلان",
+  "url": "https://faisal-ads.sa",
+  "logo": "https://faisal-ads.sa/logo.jpg",
+  "description": "وكالة اتصالية وإعلانية للشركات والجهات داخل المملكة العربية السعودية",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "الرياض",
+    "addressCountry": "SA"
+  },
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "telephone": "+966-50-000-0000",
+    "contactType": "customer service",
+    "areaServed": "SA",
+    "availableLanguage": "ar"
+  },
+  "sameAs": []
+}
+</script>
 </head>
 
-<body>
+<body class="loading">
 <header>
   <div class="container header-inner">
     <a class="brand" href="#top" aria-label="فيصل للدعاية والإعلان">
@@ -409,7 +541,7 @@ footer{
     <div class="container hero-grid">
       <div>
         <div class="badge"><span class="dot"></span> ستايل شركات كبرى • مناسب للجهات</div>
-        <h2 class="h-title">اتصال مؤسسي وإعلان…<br>بمنطق “نتيجة” مو “منشور”</h2>
+        <h2 class="h-title">اتصال مؤسسي وإعلان…<br>بمنطق "نتيجة" مو "منشور"</h2>
         <p class="h-sub">
           نشتغل كذراع اتصالي للجهات والشركات: تخطيط واضح، تنفيذ منضبط، ومؤشرات أداء قابلة للتتبع.
           التصميم إبداعي؟ نعم. لكن تحت السيطرة — عشان ما نضحك على أنفسنا.
@@ -432,12 +564,12 @@ footer{
       <aside class="hero-visual" aria-label="واجهة العرض">
         <div class="visual-top">
           <div class="mini"><span class="chip"></span> عرض مؤسسي بتأثير 3D خفيف</div>
-          <div class="mini muted">v1 • GitHub Pages</div>
+          <div class="mini muted">v2 • محسّن</div>
         </div>
 
         <div class="logo3d-stage">
           <div class="logo3d-card" id="logoCard">
-            <img class="logo3d-img" src="logo.jpg" alt="شعار فيصل للدعاية والإعلان" />
+            <div class="logo-placeholder">ف</div>
           </div>
 
           <div class="visual-kpis">
@@ -490,286 +622,4 @@ footer{
             <svg viewBox="0 0 24 24"><path d="M4 4h16v16H4V4zm2 2v12h12V6H6zm2 9h8v2H8v-2zm0-4h8v2H8v-2z"/></svg>
           </div>
           <h3>حملات رقمية مدفوعة</h3>
-          <p>إعلانات بتركيز على “النتيجة”، مع تتبع وتحسين مستمر.</p>
-          <ul>
-            <li>Google / Meta / X / Snap / TikTok</li>
-            <li>UTM + تتبع</li>
-            <li>تقارير تفصيلية</li>
-          </ul>
-        </div>
-
-        <div class="tile">
-          <div class="icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24"><path d="M21 6h-6V4h6v2zM9 20H3v-2h6v2zm12 0h-8v-2h8v2zM11 4H3v2h8V4zm9 4H4v8h16V8z"/></svg>
-          </div>
-          <h3>إنتاج مرئي وإبداع</h3>
-          <p>هوية حملة + فيديوهات قصيرة + موشن… بس مع رسالة واضحة.</p>
-          <ul>
-            <li>Key Visual</li>
-            <li>Shorts / Motion</li>
-            <li>مكتبة أصول</li>
-          </ul>
-        </div>
-
-        <div class="tile">
-          <div class="icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24"><path d="M12 12a5 5 0 100-10 5 5 0 000 10zm0 2c-5 0-9 2.5-9 6v2h18v-2c0-3.5-4-6-9-6z"/></svg>
-          </div>
-          <h3>مؤثرون وإدارة سمعة</h3>
-          <p>اختيار وتقييم وتوثيق، ومراقبة سمعة بخطة واضحة.</p>
-          <ul>
-            <li>قائمة مؤثرين</li>
-            <li>إدارة العقود</li>
-            <li>Share of Voice</li>
-          </ul>
-        </div>
-
-        <div class="tile">
-          <div class="icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24"><path d="M21 9V3H3v6h18zM3 21h18v-8H3v8zm2-6h14v4H5v-4z"/></svg>
-          </div>
-          <h3>تقارير وقياس أثر</h3>
-          <p>Dashboard + تقرير أسبوعي تنفيذي + تقرير شهري توصيات.</p>
-          <ul>
-            <li>لوحات مؤشرات</li>
-            <li>تحليل أداء المحتوى</li>
-            <li>خطة التحسين</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- METHOD -->
-  <section id="method" class="section alt">
-    <div class="container">
-      <div class="head">
-        <h2>منهجية العمل</h2>
-        <p>هذه هي “طريقة الشركات”. مو اجتهادات يومية.</p>
-      </div>
-
-      <div class="steps">
-        <div class="step">
-          <div class="num">1</div>
-          <div>
-            <h3>تحليل وتشخيص</h3>
-            <p>أهداف، جمهور، قنوات، مخاطر، وتعريف واضح لمؤشرات النجاح.</p>
-          </div>
-        </div>
-        <div class="step">
-          <div class="num">2</div>
-          <div>
-            <h3>خطة تشغيل</h3>
-            <p>تقويم، حملات، رسائل، ميزانيات، وآلية اعتماد للمحتوى.</p>
-          </div>
-        </div>
-        <div class="step">
-          <div class="num">3</div>
-          <div>
-            <h3>تنفيذ مضبوط</h3>
-            <p>إنتاج + نشر + إعلانات + إدارة مجتمع مع ضبط جودة قبل النشر.</p>
-          </div>
-        </div>
-        <div class="step">
-          <div class="num">4</div>
-          <div>
-            <h3>قياس وتحسين</h3>
-            <p>تقارير + KPIs + توصيات + اختبارات A/B وتقليل الهدر.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- PROOF -->
-  <section id="proof" class="section">
-    <div class="container grid2">
-      <div>
-        <div class="head">
-          <h2>نماذج أثر</h2>
-          <p>مو “شوفوا شغلنا” بس… “شوفوا كيف نقيسه”.</p>
-        </div>
-
-        <div class="grid3" style="grid-template-columns:1fr;gap:12px">
-          <div class="tile">
-            <h3>نموذج تقرير أسبوعي تنفيذي</h3>
-            <p>ملخص من صفحة واحدة: ما تم، ما لم يتم، مؤشرات، ومخاطر الأسبوع القادم.</p>
-          </div>
-          <div class="tile">
-            <h3>لوحة مؤشرات شهرية</h3>
-            <p>KPIs + تحليل محتوى + توصيات + خطة شهر جديد مبنية على بيانات.</p>
-          </div>
-          <div class="tile">
-            <h3>مخرجات تشغيل قابلة للتوثيق</h3>
-            <p>تقويم محتوى، مصفوفة اعتماد، سجل تغييرات، وقوالب موحّدة.</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="head" style="margin-bottom:12px">
-          <h2>ماذا سيقول “مدير تسويق ذكي”؟</h2>
-          <p>الرسالة لازم تكون قوية… والحركة لازم تكون محترمة.</p>
-        </div>
-        <div class="quote">
-          <p>“نبغى موقع يحسّس العميل إننا شركة كبيرة: لغة واضحة، أقسام مرتّبة، ومؤشرات أثر… بدون استعراض يضيّع الثقة.”</p>
-          <div class="who">— معيارنا الداخلي قبل أي تصميم</div>
-        </div>
-        <hr class="sep">
-        <p class="note">إذا تبغى، نضيف صفحة ثانية للعروض الفنية: نطاق عمل + جدول مخرجات + Timeline + فريق العمل.</p>
-        <div style="margin-top:12px;display:flex;gap:10px;flex-wrap:wrap">
-          <a class="btn" href="#contact">اطلب عرضًا</a>
-          <a class="btn ghost" href="#governance">شوف الحوكمة</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- GOVERNANCE -->
-  <section id="governance" class="section alt">
-    <div class="container grid2">
-      <div class="tile">
-        <div class="head" style="margin-bottom:10px">
-          <h2>الحوكمة والامتثال</h2>
-          <p>قسم “يطمن” الجهات: إجراءات واضحة، سرية، وملكية فكرية.</p>
-        </div>
-        <ul>
-          <li><b>سرية وخصوصية:</b> حماية البيانات ومعلومات الجهة.</li>
-          <li><b>ملكية فكرية:</b> المخرجات للعميل حسب العقد.</li>
-          <li><b>SLA:</b> زمن استجابة محدد ونافذة اعتماد.</li>
-          <li><b>ضبط جودة:</b> مراجعة لغوية/بصرية + سجل تغييرات.</li>
-        </ul>
-      </div>
-
-      <div class="tile">
-        <div class="head" style="margin-bottom:10px">
-          <h2>كيف نخليها “صفقة سهلة”؟</h2>
-          <p>نحوّل الخدمة إلى مخرجات قابلة للتسليم.</p>
-        </div>
-        <ul>
-          <li>مصفوفة اعتماد محتوى (Approvals)</li>
-          <li>تقويم شهري + حزم حملات</li>
-          <li>Dashboard KPIs</li>
-          <li>تقرير شهري توصيات</li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <!-- CONTACT -->
-  <section id="contact" class="section">
-    <div class="container">
-      <div class="head">
-        <h2>طلب عرض / تواصل</h2>
-        <p>بيانات مؤقتة الآن — نستبدلها ببياناتك لاحقًا.</p>
-      </div>
-
-      <div class="contact">
-        <div class="info">
-          <div class="item">
-            <span class="label">الهاتف</span>
-            <a class="value" href="tel:+966500000000">+966 50 000 0000</a>
-          </div>
-          <div class="item">
-            <span class="label">البريد</span>
-            <a class="value" href="mailto:hello@faisal-ads.sa">hello@faisal-ads.sa</a>
-          </div>
-          <div class="item">
-            <span class="label">المقر</span>
-            <span class="value">الرياض — نخدم السعودية بالكامل</span>
-          </div>
-
-          <a class="btn ghost" target="_blank" rel="noopener"
-             href="https://wa.me/966500000000?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%20%D8%8C%20%D8%A3%D8%B1%D9%8A%D8%AF%20%D8%B7%D9%84%D8%A8%20%D8%B9%D8%B1%D8%B6%20%D9%84%D8%AE%D8%AF%D9%85%D8%A7%D8%AA%20%D9%81%D9%8A%D8%B5%D9%84%20%D9%84%D9%84%D8%AF%D8%B9%D8%A7%D9%8A%D8%A9%20%D9%88%D8%A7%D9%84%D8%A5%D8%B9%D9%84%D8%A7%D9%86">
-            تواصل واتساب
-          </a>
-
-          <p class="note">ملاحظة: GitHub Pages لا يرسل بريد مباشرة. النموذج أدناه مربوط بـ Formspree (بدّل الرابط).</p>
-        </div>
-
-        <div class="card soft">
-          <h3 style="margin:0 0 8px;font-weight:950">نموذج الطلب</h3>
-          <form action="https://formspree.io/f/xxxxxxxx" method="POST">
-            <label><span>الاسم</span><input name="name" required placeholder="اسمك الكامل"></label>
-            <label><span>الجهة / الشركة</span><input name="company" placeholder="اختياري"></label>
-            <label><span>البريد</span><input name="email" type="email" required placeholder="name@company.com"></label>
-            <label><span>نوع الخدمة</span>
-              <select name="service">
-                <option>استراتيجية واتصال مؤسسي</option>
-                <option>إدارة محتوى ومنصات</option>
-                <option>حملات رقمية مدفوعة</option>
-                <option>إنتاج مرئي وإبداع</option>
-                <option>مؤثرون وإدارة سمعة</option>
-                <option>تقارير وقياس أثر</option>
-                <option>أخرى</option>
-              </select>
-            </label>
-            <label><span>تفاصيل الطلب</span><textarea name="message" rows="5" required placeholder="اكتب المطلوب، المدة، وأي ملاحظات"></textarea></label>
-            <button class="btn" type="submit">إرسال الطلب</button>
-            <p class="note">غيّر xxxxxxxx برابط Formspree الخاص بك أو استخدم Google Forms.</p>
-          </form>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <footer>
-    <div class="container footer-inner">
-      <div>
-        <div style="font-weight:950">فيصل للدعاية والإعلان</div>
-        <div class="muted" style="font-weight:850">تصميم مؤسسي • قياس أثر • تشغيل منضبط</div>
-      </div>
-      <div class="footer-links">
-        <a href="#services">الخدمات</a>
-        <a href="#method">المنهجية</a>
-        <a href="#contact">تواصل</a>
-      </div>
-    </div>
-  </footer>
-
-  <a class="top" href="#top" aria-label="العودة للأعلى">↑</a>
-</main>
-
-<script>
-/* Mobile menu */
-const menuBtn = document.querySelector('.menu');
-const nav = document.getElementById('nav');
-if(menuBtn && nav){
-  menuBtn.addEventListener('click', () => {
-    const open = nav.classList.toggle('open');
-    menuBtn.setAttribute('aria-expanded', String(open));
-  });
-  nav.querySelectorAll('a').forEach(a=>{
-    a.addEventListener('click', ()=>{
-      nav.classList.remove('open');
-      menuBtn.setAttribute('aria-expanded','false');
-    });
-  });
-}
-
-/* 3D logo tilt (desktop only) */
-(() => {
-  const card = document.getElementById('logoCard');
-  if(!card) return;
-  const isTouch = matchMedia('(pointer: coarse)').matches;
-  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if(isTouch || reduce) return;
-
-  const clamp = (n,min,max)=>Math.max(min,Math.min(max,n));
-
-  card.addEventListener('mousemove', (e) => {
-    const r = card.getBoundingClientRect();
-    const x = (e.clientX - r.left) / r.width - 0.5;
-    const y = (e.clientY - r.top) / r.height - 0.5;
-    const rotY = clamp(x * 10, -8, 8);
-    const rotX = clamp(-y * 10, -8, 8);
-    card.style.transform = `perspective(1100px) rotateX(${rotX}deg) rotateY(${rotY}deg) translateY(-8px)`;
-  });
-
-  card.addEventListener('mouseleave', () => {
-    card.style.transform = '';
-  });
-})();
-</script>
-</body>
-</html>
+          <p>إعل
