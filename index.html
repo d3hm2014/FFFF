@@ -1,729 +1,326 @@
 <!doctype html>
 <html lang="ar" dir="rtl">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>فيصل للدعاية والإعلان | 3D Command Center</title>
-<meta name="description" content="فيصل للدعاية والإعلان — موقع 3D بأسلوب شركات كبرى: لوحة قيادة، حوكمة، حملات، وقياس أثر.">
-
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>فيصل للدعاية والإعلان | تجربة 3D</title>
+<meta name="description" content="تجربة 3D تفاعلية لوكالة فيصل للدعاية والإعلان: قصة تمرير، مشاهد، ورسائل مركزة." />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet">
-
 <style>
-:root{
-  --bg:#030712;
-  --bg2:#050B18;
-  --txt:#F4F7FF;
-  --mut:rgba(244,247,255,.72);
-  --line:rgba(244,247,255,.10);
-
-  --blue:#2F80ED;
-  --cyan:#56CCF2;
-  --teal:#35F0C2;
-  --glow:rgba(86,204,242,.18);
-
-  --radius:22px;
-  --shadow:0 20px 60px rgba(0,0,0,.55);
-  --shadow2:0 12px 28px rgba(0,0,0,.28);
-
-  --max:1200px;
-}
-
-*{box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{
-  margin:0;
-  font-family:"Cairo",system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
-  color:var(--txt);
-  background:
-    radial-gradient(1000px 600px at 70% 0%, var(--glow), transparent 60%),
-    radial-gradient(800px 520px at 10% 10%, rgba(47,128,237,.16), transparent 60%),
-    radial-gradient(700px 450px at 50% 45%, rgba(53,240,194,.08), transparent 55%),
-    linear-gradient(180deg,var(--bg),var(--bg2));
-  overflow-x:hidden;
-}
-
-a{color:inherit;text-decoration:none}
-.container{max-width:var(--max);margin:auto;padding:0 18px}
-
-/* Header */
-header{
-  position:sticky;top:0;z-index:50;
-  backdrop-filter: blur(12px);
-  background: rgba(3,7,18,.62);
-  border-bottom:1px solid var(--line);
-}
-.hbar{
-  display:flex;align-items:center;justify-content:space-between;gap:14px;
-  padding:14px 0;
-}
-.brand{display:flex;align-items:center;gap:12px}
-.brand .mark{
-  width:42px;height:42px;border-radius:16px;
-  background:linear-gradient(135deg,var(--blue),var(--cyan));
-  box-shadow:var(--shadow2);
-  position:relative;overflow:hidden;
-}
-.brand .mark:after{
-  content:"";position:absolute;inset:-30%;
-  background:radial-gradient(circle at 30% 30%, rgba(255,255,255,.35), transparent 45%);
-  transform:rotate(20deg);
-}
-.brand b{display:block;font-weight:950;letter-spacing:.2px}
-.brand small{display:block;color:var(--mut);font-weight:850;margin-top:2px}
-
-.nav{display:flex;gap:8px;align-items:center;flex-wrap:wrap;justify-content:flex-end}
-.nav a{
-  padding:10px 12px;border-radius:16px;
-  color:var(--mut);font-weight:950
-}
-.nav a:hover{background:rgba(255,255,255,.05);color:var(--txt)}
-.btn{
-  display:inline-flex;align-items:center;justify-content:center;
-  padding:12px 16px;border-radius:16px;
-  background:linear-gradient(135deg,var(--blue),var(--cyan));
-  color:#041022;font-weight:950;border:0;cursor:pointer;
-  box-shadow:0 14px 35px rgba(47,128,237,.18);
-}
-.btn.ghost{
-  background:transparent;color:var(--txt);
-  border:1px solid rgba(86,204,242,.35);
-  box-shadow:none;
-}
-.menu{display:none;background:transparent;border:1px solid var(--line);border-radius:16px;padding:10px;cursor:pointer}
-.menu span{display:block;width:18px;height:2px;background:var(--txt);margin:4px 0;border-radius:2px}
-
-/* Hero layout */
-.hero{padding:56px 0 22px;position:relative}
-.heroGrid{
-  display:grid;
-  grid-template-columns:1.05fr .95fr;
-  gap:16px;
-  align-items:stretch;
-}
-
-.kicker{
-  display:inline-flex;align-items:center;gap:10px;
-  padding:9px 12px;border-radius:999px;
-  border:1px solid rgba(86,204,242,.28);
-  background:rgba(86,204,242,.07);
-  color:rgba(244,247,255,.82);
-  font-weight:950;
-  width:fit-content;
-}
-.kicker .dot{
-  width:8px;height:8px;border-radius:50%;
-  background:linear-gradient(135deg,var(--blue),var(--cyan));
-  box-shadow:0 0 0 6px rgba(86,204,242,.08);
-}
-
-.hTitle{
-  margin:14px 0 10px;
-  font-size:2.55rem;
-  line-height:1.12;
-  font-weight:980;
-  letter-spacing:.2px;
-}
-.hSub{
-  margin:0 0 16px;
-  color:var(--mut);
-  font-size:1.08rem;
-  line-height:1.95;
-  font-weight:750;
-  max-width:64ch;
-}
-.cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:16px}
-
-.miniRow{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
-.pill{
-  padding:8px 10px;border-radius:999px;
-  border:1px solid rgba(244,247,255,.12);
-  background:rgba(255,255,255,.03);
-  color:var(--mut);
-  font-weight:950;
-  font-size:.92rem;
-}
-.pill strong{color:var(--txt)}
-
-/* 3D Command Center */
-.center{
-  border:1px solid rgba(86,204,242,.22);
-  border-radius:28px;
-  background:
-    radial-gradient(circle at 20% 15%, rgba(86,204,242,.18), transparent 50%),
-    radial-gradient(circle at 85% 70%, rgba(47,128,237,.18), transparent 55%),
-    linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
-  box-shadow:var(--shadow);
-  overflow:hidden;
-  position:relative;
-  padding:14px;
-}
-
-/* Grid inside (like control room) */
-.centerTop{
-  display:flex;align-items:center;justify-content:space-between;gap:10px;
-  margin-bottom:12px;
-}
-.centerTop .status{
-  display:flex;align-items:center;gap:10px;
-  color:var(--mut);
-  font-weight:950;
-  font-size:.95rem;
-}
-.status .led{
-  width:10px;height:10px;border-radius:50%;
-  background:linear-gradient(135deg,var(--teal),var(--cyan));
-  box-shadow:0 0 0 7px rgba(53,240,194,.08);
-}
-.centerTop .mode{
-  color:var(--mut);
-  font-weight:950;
-  font-size:.92rem;
-  border:1px solid rgba(244,247,255,.12);
-  background:rgba(255,255,255,.03);
-  padding:8px 10px;border-radius:999px;
-}
-
-/* 3D stage */
-.stage{
-  position:relative;
-  perspective: 1200px;
-  height: 330px;
-  border-radius:24px;
-  overflow:hidden;
-}
-.stage::before{
-  content:"";
-  position:absolute;inset:-40%;
-  background:
-    conic-gradient(from 160deg, rgba(86,204,242,.18), transparent 35%, rgba(47,128,237,.18), transparent 70%, rgba(53,240,194,.12));
-  filter: blur(20px);
-  opacity:.8;
-  pointer-events:none;
-}
-.gridLines{
-  position:absolute;inset:0;
-  background:
-    linear-gradient(to right, rgba(244,247,255,.06) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(244,247,255,.05) 1px, transparent 1px);
-  background-size: 34px 34px;
-  mask-image: radial-gradient(circle at 50% 40%, rgba(0,0,0,1), rgba(0,0,0,.25) 60%, transparent 78%);
-  opacity:.6;
-  pointer-events:none;
-}
-
-/* Floating hologram card (logo) */
-.holo{
-  position:absolute;left:50%;top:50%;
-  transform-style: preserve-3d;
-  width:min(360px, 92%);
-  translate:-50% -54%;
-  border-radius:26px;
-  border:1px solid rgba(244,247,255,.14);
-  background: rgba(10,18,40,.35);
-  box-shadow: var(--shadow2);
-  overflow:hidden;
-  will-change: transform;
-  animation: drift 7s ease-in-out infinite;
-}
-.holo::after{
-  content:"";
-  position:absolute;inset:-35%;
-  background: linear-gradient(120deg, transparent 42%, rgba(255,255,255,.16), transparent 60%);
-  transform: translateX(-18%) rotate(12deg);
-  animation: sweep 6.2s ease-in-out infinite;
-  pointer-events:none;
-}
-.holo img{
-  width:100%;
-  display:block;
-  transform: translateZ(30px);
-  filter: drop-shadow(0 26px 44px rgba(0,0,0,.45));
-}
-
-/* 3D base plate */
-.plate{
-  position:absolute;left:50%;bottom:18px;
-  width:min(520px, 94%);
-  height:110px;
-  translate:-50% 0;
-  border-radius:26px;
-  border:1px solid rgba(86,204,242,.20);
-  background: linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
-  transform: rotateX(70deg);
-  transform-origin: center;
-  box-shadow: 0 18px 55px rgba(0,0,0,.35);
-}
-.ring{
-  position:absolute;inset:14px;
-  border-radius:999px;
-  border:1px solid rgba(53,240,194,.22);
-  box-shadow: inset 0 0 0 1px rgba(86,204,242,.12);
-  background: radial-gradient(circle at 50% 50%, rgba(86,204,242,.14), transparent 55%);
-}
-.ring::after{
-  content:"";
-  position:absolute;inset:-2px;
-  border-radius:999px;
-  border:1px dashed rgba(244,247,255,.14);
-  opacity:.7;
-  animation: spin 10s linear infinite;
-}
-
-/* Micro panels */
-.panels{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:10px;
-  margin-top:12px;
-}
-.panel{
-  border:1px solid rgba(244,247,255,.10);
-  background: rgba(255,255,255,.03);
-  border-radius:18px;
-  padding:12px;
-}
-.panel b{display:block;font-weight:980}
-.panel span{display:block;margin-top:4px;color:var(--mut);font-weight:950;font-size:.92rem}
-
-/* Sections */
-.section{padding:56px 0}
-.section.alt{
-  border-top:1px solid var(--line);
-  border-bottom:1px solid var(--line);
-  background: linear-gradient(180deg, rgba(255,255,255,.025), rgba(255,255,255,.01));
-}
-.head{margin-bottom:16px}
-.head h2{margin:0 0 6px;font-size:1.8rem;font-weight:980}
-.head p{margin:0;color:var(--mut);font-weight:780;line-height:1.9}
-
-.grid3{
-  display:grid;grid-template-columns:repeat(3,1fr);
-  gap:14px;
-}
-.card{
-  border:1px solid rgba(244,247,255,.10);
-  background: rgba(255,255,255,.03);
-  border-radius:22px;
-  padding:16px;
-  box-shadow: var(--shadow2);
-}
-.card h3{margin:0 0 8px;font-weight:980}
-.card p{margin:0;color:var(--mut);line-height:1.9;font-weight:760}
-.card ul{margin:10px 0 0;padding:0 18px;color:var(--mut);line-height:1.95;font-weight:780}
-
-.steps{
-  display:grid;grid-template-columns:repeat(2,1fr);
-  gap:12px;
-}
-.step{
-  display:flex;gap:12px;align-items:flex-start;
-  border:1px solid rgba(244,247,255,.10);
-  background: rgba(255,255,255,.03);
-  border-radius:22px;
-  padding:14px;
-}
-.step .num{
-  width:36px;height:36px;border-radius:16px;
-  background: rgba(86,204,242,.09);
-  border:1px solid rgba(86,204,242,.22);
-  display:flex;align-items:center;justify-content:center;
-  font-weight:980;
-}
-.step b{display:block;font-weight:980;margin-bottom:6px}
-.step p{margin:0;color:var(--mut);line-height:1.9;font-weight:780}
-
-/* Contact */
-.contact{
-  display:grid;grid-template-columns:1fr 1fr;gap:14px;align-items:start;
-}
-.box{
-  border:1px solid rgba(244,247,255,.10);
-  background: rgba(255,255,255,.03);
-  border-radius:22px;
-  padding:16px;
-}
-.kv{display:grid;gap:10px;margin-top:10px}
-.kv .item{
-  border:1px solid rgba(244,247,255,.10);
-  background: rgba(0,0,0,.14);
-  border-radius:18px;
-  padding:12px;
-}
-.label{color:var(--mut);font-weight:950;font-size:.9rem}
-.value{display:block;margin-top:6px;font-weight:980}
-
-form{display:grid;gap:10px;margin-top:6px}
-label span{display:block;margin-bottom:6px;color:var(--mut);font-weight:950}
-input,select,textarea{
-  width:100%;
-  border:1px solid rgba(244,247,255,.12);
-  background: rgba(0,0,0,.18);
-  color:var(--txt);
-  border-radius:16px;
-  padding:12px;
-  outline:none;
-  font-family:inherit;
-  font-weight:780;
-}
-input:focus,select:focus,textarea:focus{border-color:rgba(86,204,242,.55)}
-.note{margin:0;color:var(--mut);font-weight:780;line-height:1.9;font-size:.92rem}
-
-/* Footer */
-footer{
-  border-top:1px solid var(--line);
-  background: rgba(0,0,0,.16);
-  padding:22px 0;
-}
-.footerInner{
-  display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;
-}
-.links{display:flex;gap:10px;flex-wrap:wrap}
-.links a{
-  color:var(--mut);font-weight:980;
-  padding:8px 10px;border-radius:16px;
-}
-.links a:hover{background:rgba(255,255,255,.05);color:var(--txt)}
-.top{
-  position:fixed;left:16px;bottom:16px;
-  width:44px;height:44px;border-radius:16px;
-  border:1px solid rgba(244,247,255,.12);
-  background: rgba(255,255,255,.06);
-  display:flex;align-items:center;justify-content:center;
-  box-shadow: var(--shadow2);
-  font-weight:980;
-}
-
-/* Animations */
-@keyframes drift{
-  0%,100%{transform: translate(-50%,-54%) rotateX(0deg) rotateY(0deg) translateY(0)}
-  50%{transform: translate(-50%,-54%) rotateX(1.3deg) rotateY(-1.6deg) translateY(-10px)}
-}
-@keyframes sweep{
-  0%,100%{opacity:.22; transform: translateX(-18%) rotate(12deg)}
-  50%{opacity:.48; transform: translateX(18%) rotate(12deg)}
-}
-@keyframes spin{to{transform:rotate(360deg)}}
-
-/* Responsive */
-@media (max-width:980px){
-  .menu{display:inline-block}
-  .nav{
-    position:absolute;top:66px;left:18px;right:18px;
-    display:none;flex-direction:column;gap:8px;
-    background: rgba(3,7,18,.95);
-    border:1px solid var(--line);
-    border-radius:18px;padding:10px;
+  :root{
+    --bg:#020611; --txt:#F3F6FF; --mut:rgba(243,246,255,.74);
+    --blue:#2F80ED; --cyan:#56CCF2; --line:rgba(243,246,255,.10);
+    --card:rgba(255,255,255,.06); --shadow:0 18px 60px rgba(0,0,0,.55);
   }
-  .nav.open{display:flex}
-  .heroGrid,.grid3,.steps,.contact{grid-template-columns:1fr}
-  .panels{grid-template-columns:1fr}
-  .stage{height:320px}
-  .hTitle{font-size:2.05rem}
-}
-@media (prefers-reduced-motion: reduce){
-  .holo{animation:none}
-  .holo::after{animation:none}
-  .ring::after{animation:none}
-}
+  *{box-sizing:border-box}
+  body{
+    margin:0;font-family:"Cairo",system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+    background: radial-gradient(900px 600px at 75% 0%, rgba(86,204,242,.16), transparent 60%),
+               radial-gradient(850px 550px at 15% 10%, rgba(47,128,237,.14), transparent 60%),
+               linear-gradient(180deg,#020611,#050A18);
+    color:var(--txt);
+  }
+  /* Canvas fullscreen */
+  #wrap{
+    position:relative; height: 520vh; /* سكروول طويل للمشاهد */
+  }
+  canvas{
+    position:sticky; top:0; width:100%; height:100vh; display:block;
+  }
+  /* Overlay story */
+  .hud{
+    position:sticky; top:0;
+    height:100vh; pointer-events:none;
+  }
+  .topbar{
+    position:absolute; top:14px; left:16px; right:16px;
+    display:flex; justify-content:space-between; align-items:center; gap:12px;
+    padding:12px 14px; border:1px solid var(--line); border-radius:18px;
+    background:rgba(2,6,17,.55); backdrop-filter:blur(10px);
+    box-shadow:0 10px 28px rgba(0,0,0,.35);
+    pointer-events:auto;
+  }
+  .brand{display:flex;align-items:center;gap:12px}
+  .mark{
+    width:42px;height:42px;border-radius:16px;
+    background:linear-gradient(135deg,var(--blue),var(--cyan));
+    box-shadow:0 12px 30px rgba(0,0,0,.35);
+  }
+  .brand b{display:block;font-weight:950}
+  .brand small{display:block;color:var(--mut);font-weight:850;margin-top:2px}
+  .cta{
+    display:flex;gap:10px;flex-wrap:wrap;justify-content:flex-end;
+  }
+  .btn{
+    border:0; cursor:pointer; font-family:inherit;
+    padding:10px 14px; border-radius:16px; font-weight:950;
+    background:linear-gradient(135deg,var(--blue),var(--cyan)); color:#041022;
+  }
+  .btn.ghost{
+    background:transparent; color:var(--txt);
+    border:1px solid rgba(86,204,242,.35);
+  }
+
+  .scene{
+    position:absolute; right:16px; left:16px;
+    bottom:22px;
+    display:grid; gap:10px;
+    max-width: 760px;
+    pointer-events:none;
+  }
+  .card{
+    border:1px solid var(--line);
+    background: rgba(255,255,255,.04);
+    border-radius: 22px;
+    padding:16px 16px;
+    box-shadow: var(--shadow);
+    transform: translateY(14px);
+    opacity:0;
+    transition: opacity .4s ease, transform .4s ease;
+  }
+  .card.on{opacity:1; transform: translateY(0)}
+  .kicker{
+    display:inline-flex;align-items:center;gap:10px;
+    padding:8px 12px;border-radius:999px;
+    border:1px solid rgba(86,204,242,.28);
+    background:rgba(86,204,242,.07);
+    color:rgba(243,246,255,.82); font-weight:950;
+    width:fit-content;
+  }
+  .dot{width:8px;height:8px;border-radius:50%;
+    background:linear-gradient(135deg,var(--blue),var(--cyan));
+    box-shadow:0 0 0 6px rgba(86,204,242,.08);
+  }
+  h1{margin:10px 0 6px; font-size:2.25rem; line-height:1.15; font-weight:980;}
+  p{margin:0; color:var(--mut); line-height:1.95; font-weight:750;}
+  .mini{
+    display:flex;gap:10px;flex-wrap:wrap;margin-top:10px;
+    color:var(--mut); font-weight:900; font-size:.92rem;
+  }
+  .tag{
+    padding:7px 10px;border-radius:999px;
+    border:1px solid rgba(243,246,255,.12);
+    background:rgba(255,255,255,.03);
+  }
+
+  /* Small hint */
+  .hint{
+    position:absolute; left:50%; top:88vh; translate:-50% 0;
+    color:rgba(243,246,255,.65);
+    font-weight:900; font-size:.92rem;
+    border:1px solid rgba(243,246,255,.10);
+    background:rgba(2,6,17,.45);
+    padding:10px 12px;border-radius:999px;
+    backdrop-filter:blur(10px);
+  }
+
+  @media (max-width:900px){
+    h1{font-size:1.85rem}
+    #wrap{height: 560vh;}
+  }
 </style>
 </head>
-
 <body>
-<header>
-  <div class="container hbar">
-    <a class="brand" href="#top" aria-label="فيصل للدعاية والإعلان">
-      <span class="mark" aria-hidden="true"></span>
-      <span>
-        <b>فيصل للدعاية والإعلان</b>
-        <small>الرياض • نخدم السعودية بالكامل</small>
-      </span>
-    </a>
 
-    <button class="menu" aria-label="فتح القائمة" aria-expanded="false" aria-controls="nav">
-      <span></span><span></span><span></span>
-    </button>
+<div id="wrap">
+  <canvas id="c"></canvas>
 
-    <nav id="nav" class="nav">
-      <a href="#services">الخدمات</a>
-      <a href="#method">المنهجية</a>
-      <a href="#governance">الحوكمة</a>
-      <a class="btn" href="#contact">اطلب عرضًا</a>
-    </nav>
+  <div class="hud">
+    <div class="topbar">
+      <div class="brand">
+        <div class="mark" aria-hidden="true"></div>
+        <div>
+          <b>فيصل للدعاية والإعلان</b>
+          <small>تجربة 3D • الرياض • نخدم السعودية بالكامل</small>
+        </div>
+      </div>
+      <div class="cta">
+        <a class="btn ghost" href="#end">الخدمات</a>
+        <a class="btn" href="#end">اطلب عرضًا</a>
+      </div>
+    </div>
+
+    <div class="hint">اسحب للأسفل ⟵ القصة تتحرك</div>
+
+    <div class="scene" aria-live="polite">
+      <div class="card" id="s0">
+        <div class="kicker"><span class="dot"></span> فكرة مختلفة بالكامل</div>
+        <h1>موقع “قصة” — مو صفحة أقسام</h1>
+        <p>أنت تسحب سكرول… والتجربة تتحرك 3D. الرسالة واضحة: وكالة تشغيل ونتائج، مو زينة.</p>
+        <div class="mini">
+          <span class="tag">Corporate-ready</span>
+          <span class="tag">3D محسوب</span>
+          <span class="tag">قابل للمناقصات</span>
+        </div>
+      </div>
+
+      <div class="card" id="s1">
+        <div class="kicker"><span class="dot"></span> المشهد 1</div>
+        <h1>غرفة عمليات للاتصال</h1>
+        <p>خطة → تشغيل → قياس أثر. كل شيء يتوثق ويُقاس وينتج قرار.</p>
+        <div class="mini">
+          <span class="tag">KPIs</span><span class="tag">Dashboard</span><span class="tag">تقارير</span>
+        </div>
+      </div>
+
+      <div class="card" id="s2">
+        <div class="kicker"><span class="dot"></span> المشهد 2</div>
+        <h1>حملات “نتيجة” مو “منشور”</h1>
+        <p>UTM + تتبع + تحسين مستمر. الهدف: تحويل الإنفاق إلى أثر ملموس.</p>
+        <div class="mini">
+          <span class="tag">Google</span><span class="tag">Meta</span><span class="tag">A/B</span>
+        </div>
+      </div>
+
+      <div class="card" id="s3">
+        <div class="kicker"><span class="dot"></span> المشهد 3</div>
+        <h1>حوكمة تُطمّن الجهات</h1>
+        <p>اعتمادات، SLA، سرية، وسجل تغييرات. هذا اللي يخلي الترسية سهلة.</p>
+        <div class="mini">
+          <span class="tag">Approvals</span><span class="tag">SLA</span><span class="tag">Compliance</span>
+        </div>
+      </div>
+    </div>
   </div>
-</header>
 
-<main id="top">
-  <!-- HERO -->
-  <section class="hero">
-    <div class="container heroGrid">
-      <div>
-        <div class="kicker"><span class="dot"></span> فكرة جديدة: 3D Command Center</div>
-        <h1 class="hTitle">وكالة اتصالية تعمل<br>بعقلية “غرفة عمليات”</h1>
-        <p class="hSub">
-          بدل “بوستات”، نشتغل بنظام تشغيل: خطة، تنفيذ، قياس أثر، وتوصيات تحسين.
-          مخرجات موثقة تصلح للعروض الفنية، وتناسب الشركات الكبرى.
+  <div id="end" style="height:100vh;display:flex;align-items:center">
+    <div class="container" style="width:100%">
+      <div style="border:1px solid var(--line);background:rgba(255,255,255,.04);border-radius:22px;padding:18px;box-shadow:var(--shadow)">
+        <h2 style="margin:0 0 6px;font-weight:980">الخدمات بسرعة</h2>
+        <p style="margin:0;color:var(--mut);line-height:1.9;font-weight:760">
+          استراتيجية واتصال مؤسسي • إدارة محتوى • حملات مدفوعة • إنتاج مرئي • سمعة ومؤثرين • قياس أثر.
         </p>
-
-        <div class="cta">
-          <a class="btn" href="#contact">اطلب عرضًا فنيًا</a>
-          <a class="btn ghost" href="#services">استعرض الخدمات</a>
-          <a class="btn ghost" href="#method">كيف نشتغل؟</a>
+        <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:12px">
+          <a class="btn" href="mailto:hello@faisal-ads.sa">hello@faisal-ads.sa</a>
+          <a class="btn ghost" href="tel:+966500000000">+966 50 000 0000</a>
         </div>
-
-        <div class="miniRow">
-          <span class="pill"><strong>KPIs</strong> واضحة</span>
-          <span class="pill"><strong>SLA</strong> واستجابة</span>
-          <span class="pill">حوكمة واعتمادات</span>
-          <span class="pill">تقارير دورية</span>
-        </div>
-      </div>
-
-      <!-- 3D Center -->
-      <aside class="center" aria-label="3D Command Center">
-        <div class="centerTop">
-          <div class="status"><span class="led"></span> النظام يعمل • عرض تفاعلي 3D</div>
-          <div class="mode">Corporate / Government</div>
-        </div>
-
-        <div class="stage" id="stage">
-          <div class="gridLines" aria-hidden="true"></div>
-
-          <div class="plate" aria-hidden="true">
-            <div class="ring"></div>
-          </div>
-
-          <div class="holo" id="holo">
-            <img src="logo.jpg" alt="شعار فيصل للدعاية والإعلان">
-          </div>
-        </div>
-
-        <div class="panels">
-          <div class="panel"><b>تشغيل</b><span>تقويم + اعتماد + تنفيذ</span></div>
-          <div class="panel"><b>قياس أثر</b><span>Dashboard + تقارير</span></div>
-          <div class="panel"><b>تحسين</b><span>A/B + توصيات</span></div>
-        </div>
-      </aside>
-    </div>
-  </section>
-
-  <!-- SERVICES -->
-  <section id="services" class="section">
-    <div class="container">
-      <div class="head">
-        <h2>الخدمات</h2>
-        <p>حزم واضحة تصلح للعروض الفنية: استراتيجية → تشغيل → حملات → قياس.</p>
-      </div>
-
-      <div class="grid3">
-        <div class="card">
-          <h3>استراتيجية واتصال مؤسسي</h3>
-          <p>رسائل، نبرة، وخطط اتصالية قابلة للتنفيذ مع إطار قياس واضح.</p>
-          <ul>
-            <li>خطة سنوية/ربع سنوية</li>
-            <li>تعريف KPIs</li>
-            <li>خارطة أصحاب المصلحة</li>
-          </ul>
-        </div>
-
-        <div class="card">
-          <h3>إدارة المحتوى والمنصات</h3>
-          <p>تقويم محتوى + كتابة + تصميم + نشر + إدارة مجتمع وفق اعتماد.</p>
-          <ul>
-            <li>قوالب مؤسسية</li>
-            <li>مراجعة قبل النشر</li>
-            <li>سجل تغييرات</li>
-          </ul>
-        </div>
-
-        <div class="card">
-          <h3>حملات رقمية مدفوعة</h3>
-          <p>إعلانات بتركيز على “النتيجة” مع تتبع وتحسين مستمر.</p>
-          <ul>
-            <li>Google / Meta / X / Snap / TikTok</li>
-            <li>UTM + Pixels</li>
-            <li>تقارير تفصيلية</li>
-          </ul>
-        </div>
-
-        <div class="card">
-          <h3>إنتاج مرئي وإبداع</h3>
-          <p>هوية حملة + موشن + فيديوهات قصيرة برسالة واضحة.</p>
-          <ul>
-            <li>Key Visual</li>
-            <li>Shorts / Motion</li>
-            <li>مكتبة أصول</li>
-          </ul>
-        </div>
-
-        <div class="card">
-          <h3>مؤثرون وإدارة سمعة</h3>
-          <p>اختيار وتقييم وتوثيق، ومراقبة سمعة بخطة.</p>
-          <ul>
-            <li>تقييم مؤثرين</li>
-            <li>إدارة عقود</li>
-            <li>Share of Voice</li>
-          </ul>
-        </div>
-
-        <div class="card">
-          <h3>تقارير وقياس أثر</h3>
-          <p>لوحات مؤشرات + تقرير أسبوعي تنفيذي + تقرير شهري توصيات.</p>
-          <ul>
-            <li>Dashboard</li>
-            <li>تحليل محتوى</li>
-            <li>خطة تحسين</li>
-          </ul>
-        </div>
+        <p style="margin:10px 0 0;color:var(--mut);font-weight:750">* البيانات مؤقتة. نعدلها لاحقًا.</p>
       </div>
     </div>
-  </section>
+  </div>
+</div>
 
-  <!-- METHOD -->
-  <section id="method" class="section alt">
-    <div class="container">
-      <div class="head">
-        <h2>المنهجية</h2>
-        <p>طريقة تشغيل واضحة — مو ارتجال.</p>
-      </div>
-
-      <div class="steps">
-        <div class="step"><div class="num">1</div><div><b>تحليل وتشخيص</b><p>أهداف، جمهور، قنوات، ومؤشرات نجاح.</p></div></div>
-        <div class="step"><div class="num">2</div><div><b>خطة تشغيل</b><p>تقويم + حملات + اعتماد + ميزانيات.</p></div></div>
-        <div class="step"><div class="num">3</div><div><b>تنفيذ مضبوط</b><p>إنتاج + نشر + إعلانات + ضبط جودة.</p></div></div>
-        <div class="step"><div class="num">4</div><div><b>قياس وتحسين</b><p>KPIs + تقارير + توصيات + A/B.</p></div></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- GOVERNANCE -->
-  <section id="governance" class="section">
-    <div class="container">
-      <div class="head">
-        <h2>الحوكمة والامتثال</h2>
-        <p>قسم يطمّن الجهات: إجراءات واضحة، سرية، وملكية فكرية.</p>
-      </div>
-
-      <div class="grid3">
-        <div class="card"><h3>السرية والخصوصية</h3><p>التزام بحماية بيانات الجهة ومخرجاتها.</p></div>
-        <div class="card"><h3>الملكية الفكرية</h3><p>المخرجات تعود للعميل حسب العقد.</p></div>
-        <div class="card"><h3>SLA وإدارة الطلبات</h3><p>زمن استجابة محدد وآلية اعتماد واضحة.</p></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- CONTACT -->
-  <section id="contact" class="section alt">
-    <div class="container">
-      <div class="head">
-        <h2>طلب عرض / تواصل</h2>
-        <p>بيانات مؤقتة الآن — نستبدلها لاحقًا.</p>
-      </div>
-
-      <div class="contact">
-        <div class="box">
-          <b style="font-weight:980">بيانات التواصل</b>
-          <div class="kv">
-            <div class="item"><span class="label">الهاتف</span><a class="value" href="tel:+966500000000">+966 50 000 0000</a></div>
-            <div class="item"><span class="label">البريد</span><a class="value" href="mailto:hello@faisal-ads.sa">hello@faisal-ads.sa</a></div>
-            <div class="item"><span class="label">المقر</span><span class="value">الرياض — نخدم السعودية بالكامل</span></div>
-          </div>
-          <p class="note" style="margin-top:10px">ملاحظة: GitHub Pages لا يرسل بريد مباشرة. استخدم Formspree أو Google Forms.</p>
-        </div>
-
-        <div class="box">
-          <b style="font-weight:980">نموذج الطلب</b>
-          <form action="https://formspree.io/f/xxxxxxxx" method="POST">
-            <label><span>الاسم</span><input name="name" required placeholder="اسمك الكامل"></label>
-            <label><span>الجهة / الشركة</span><input name="company" placeholder="اختياري"></label>
-            <label><span>البريد</span><input name="email" type="email" required placeholder="name@company.com"></label>
-            <label><span>نوع الخدمة</span>
-              <select name="service">
-                <option>استراتيجية واتصال مؤسسي</option>
-                <option>إدارة محتوى ومنصات</option>
-                <option>حملات رقمية مدفوعة</option>
-                <option>إنتاج مرئي وإبداع</option>
-                <option>تقارير وقياس أثر</option>
-                <option>أخرى</option>
-              </select>
-            </label>
-            <label><span>تفاصيل الطلب</span><textarea name="message" rows="5" required placeholder="اكتب المطلوب، المدة، وأي ملاحظات"></textarea></label>
-            <button class="btn" type="submit">إرسال</button>
-            <p class="note">غيّر xxxxxxxx برابط Formspree الخاص بك.</p>
-          </form>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <footer>
-    <div class="container footerInner">
-      <div>
-        <b style="font-weight:980">فيصل للدعاية والإعلان</b>
-        <div style="color:var(--mut);font-weight:900">3D Command Center • Corporate/Gov</div>
-      </div>
-      <div class="links">
-        <a href="#services">الخدمات</a>
-        <a href="#method">المنهجية</a>
-        <a href="#contact">تواصل</a>
-      </div>
-    </div>
-  </footer>
-
-  <a class="top" href="#top" aria-label="العودة للأعلى">↑</a>
-</main>
-
+<!-- Three.js from CDN -->
+<script src="https://unpkg.com/three@0.160.0/build/three.min.js"></script>
 <script>
-/* Mobile menu */
-const menuBtn = document.querySelector('.menu');
-const nav = document.getElementById('nav');
-if(menuBtn && nav){
-  menuBtn.addEventListener('click', () => {
-    const open = nav.classList.toggle('open');
-    menuBtn.setAttribute('aria-expanded', String(open));
-  });
-  nav.querySelectorAll('a').forEach(a=>{
-    a.addEventListener('click', ()=>{
-      nav.classList.remove('open');
-      menuBtn.setAttribute('aria-expanded','false');
-    });
-  });
+/* ============================
+   3D Scroll Story (NEW IDEA)
+   ============================ */
+const canvas = document.getElementById('c');
+const scene = new THREE.Scene();
+
+const renderer = new THREE.WebGLRenderer({ canvas, antialias:true, alpha:true });
+renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
+renderer.setSize(innerWidth, innerHeight);
+
+const camera = new THREE.PerspectiveCamera(45, innerWidth/innerHeight, 0.1, 100);
+camera.position.set(0, 0.2, 6.5);
+
+const light1 = new THREE.DirectionalLight(0x56ccf2, 1.2);
+light1.position.set(3, 4, 2);
+scene.add(light1);
+
+const light2 = new THREE.DirectionalLight(0x2f80ed, 0.9);
+light2.position.set(-3, 2, 3);
+scene.add(light2);
+
+scene.add(new THREE.AmbientLight(0xffffff, 0.35));
+
+/* Portal ring (different from previous “logo card” idea) */
+const ringGeo = new THREE.TorusGeometry(1.4, 0.18, 32, 220);
+const ringMat = new THREE.MeshStandardMaterial({
+  color: 0x2f80ed,
+  metalness: 0.55,
+  roughness: 0.25,
+  emissive: 0x071a3a,
+  emissiveIntensity: 0.55
+});
+const ring = new THREE.Mesh(ringGeo, ringMat);
+scene.add(ring);
+
+/* Inner glass disc */
+const discGeo = new THREE.CircleGeometry(1.05, 64);
+const discMat = new THREE.MeshPhysicalMaterial({
+  color: 0x56ccf2,
+  transparent: true,
+  opacity: 0.10,
+  roughness: 0.1,
+  metalness: 0.0,
+  transmission: 0.9,
+  thickness: 0.6,
+  clearcoat: 1,
+  clearcoatRoughness: 0.15
+});
+const disc = new THREE.Mesh(discGeo, discMat);
+disc.position.z = -0.05;
+scene.add(disc);
+
+/* Floating “signal cubes” */
+const cubes = [];
+const cubeMat = new THREE.MeshStandardMaterial({ color:0x35f0c2, metalness:.25, roughness:.35 });
+for(let i=0;i<18;i++){
+  const g = new THREE.BoxGeometry(0.12,0.12,0.12);
+  const m = new THREE.Mesh(g, cubeMat);
+  m.position.set((Math.random()-0.5)*4, (Math.random()-0.5)*2.4, (Math.random()-0.5)*2.2);
+  m.rotation.set(Math.random()*Math.PI, Math.random()*Math.PI, 0);
+  scene.add(m);
+  cubes.push(m);
 }
 
-/* 3D Parallax control room tilt (desktop only) */
-(() => {
-  const stage = document.getElementById('stage');
-  const holo  = document.getElementById('holo');
-  if(!stage || !holo) return;
+/* Scroll mapping to “scenes” */
+const wrap = document.getElementById('wrap');
+function scrollT(){
+  const max = wrap.scrollHeight - innerHeight;
+  return max>0 ? scrollY / max : 0;
+}
 
-  const isTouch = matchMedia('(pointer: coarse)').matches;
-  const reduce  = matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if(isTouch || reduce) return;
+/* Text scenes */
+const cards = [document.getElementById('s0'),document.getElementById('s1'),document.getElementById('s2'),document.getElementById('s3')];
+function setScene(t){
+  // 4 scenes over 0..1
+  const idx = Math.min(3, Math.max(0, Math.floor(t*4)));
+  cards.forEach((c,i)=>c.classList.toggle('on', i===idx));
+}
+setScene(0);
 
-  const clamp = (n,min,max)=>Math.max(min,Math.min(max,n));
+/* Animate */
+let clock = new THREE.Clock();
+function animate(){
+  const t = scrollT();
+  setScene(t);
 
-  stage.addEventListener('mousemove', (e) => {
-    const r = stage.getBoundingClientRect();
-    const x = (e.clientX - r.left) / r.width - 0.5;
-    const y = (e.clientY - r.top) / r.height - 0.5;
+  // Ring evolves with scroll (story)
+  ring.rotation.y = t * Math.PI * 2.2;
+  ring.rotation.x = 0.35 + Math.sin(t*Math.PI)*0.25;
+  ring.scale.setScalar(1 + Math.sin(t*Math.PI)*0.18);
 
-    const rotY = clamp(x * 10, -8, 8);
-    const rotX = clamp(-y * 10, -8, 8);
+  disc.rotation.z = t * Math.PI * 1.6;
 
-    // Tilt whole stage slightly
-    stage.style.transform = `rotateX(${rotX/2}deg) rotateY(${rotY/2}deg)`;
+  // Camera path changes (feel like “chapters”)
+  camera.position.z = 6.5 - t*2.6;
+  camera.position.y = 0.2 + Math.sin(t*Math.PI)*0.25;
+  camera.lookAt(0,0,0);
 
-    // Move hologram with depth
-    holo.style.transform =
-      `translate(-50%,-54%) rotateX(${rotX}deg) rotateY(${rotY}deg) translateY(-10px)`;
+  // Ambient motion
+  const time = clock.getElapsedTime();
+  cubes.forEach((m,i)=>{
+    m.rotation.x += 0.006 + i*0.00002;
+    m.rotation.y += 0.007 + i*0.00002;
+    m.position.y += Math.sin(time*0.8 + i)*0.0008;
   });
 
-  stage.addEventListener('mouseleave', () => {
-    stage.style.transform = '';
-    holo.style.transform = '';
-  });
-})();
+  renderer.render(scene, camera);
+  requestAnimationFrame(animate);
+}
+animate();
+
+addEventListener('resize', ()=>{
+  renderer.setSize(innerWidth, innerHeight);
+  camera.aspect = innerWidth/innerHeight;
+  camera.updateProjectionMatrix();
+});
 </script>
 </body>
 </html>
