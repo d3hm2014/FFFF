@@ -1,21 +1,10 @@
 <!doctype html>
 <html lang="ar" dir="rtl">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>فيصل للدعاية والإعلان | وكالة اتصالية للشركات والجهات</title>
-<meta name="description" content="فيصل للدعاية والإعلان — حلول اتصالية وإعلانية للشركات والجهات داخل المملكة. تخطيط، تنفيذ، وقياس أثر بمستوى الشركات الكبرى." />
-
-<!-- Open Graph / Social Media -->
-<meta property="og:type" content="website" />
-<meta property="og:title" content="فيصل للدعاية والإعلان | وكالة اتصالية للشركات والجهات" />
-<meta property="og:description" content="حلول اتصالية وإعلانية للشركات والجهات داخل المملكة. تخطيط، تنفيذ، وقياس أثر بمستوى الشركات الكبرى." />
-<meta property="og:url" content="https://faisal-ads.sa" />
-<meta property="og:image" content="https://faisal-ads.sa/og-image.jpg" />
-<meta name="twitter:card" content="summary_large_image" />
-
-<!-- Canonical -->
-<link rel="canonical" href="https://faisal-ads.sa" />
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>فيصل للدعاية والإعلان | 3D Command Center</title>
+<meta name="description" content="فيصل للدعاية والإعلان — موقع 3D بأسلوب شركات كبرى: لوحة قيادة، حوكمة، حملات، وقياس أثر.">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -23,500 +12,431 @@
 
 <style>
 :root{
-  --bg:#060B18;
-  --bg2:#050A14;
-  --card:rgba(255,255,255,.04);
-  --card2:rgba(255,255,255,.06);
-  --text:#F3F6FF;
-  --muted:rgba(243,246,255,.74);
-  --line:rgba(243,246,255,.10);
+  --bg:#030712;
+  --bg2:#050B18;
+  --txt:#F4F7FF;
+  --mut:rgba(244,247,255,.72);
+  --line:rgba(244,247,255,.10);
 
-  --navy:#0B1B3A;
   --blue:#2F80ED;
-  --sky:#56CCF2;
-  --ice:#BCEBFF;
+  --cyan:#56CCF2;
+  --teal:#35F0C2;
+  --glow:rgba(86,204,242,.18);
 
   --radius:22px;
-  --shadow:0 18px 55px rgba(0,0,0,.48);
-  --shadowSoft:0 12px 30px rgba(0,0,0,.25);
+  --shadow:0 20px 60px rgba(0,0,0,.55);
+  --shadow2:0 12px 28px rgba(0,0,0,.28);
 
-  --max:1180px;
+  --max:1200px;
 }
 
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{
   margin:0;
-  font-family:"Cairo", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-  color:var(--text);
+  font-family:"Cairo",system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+  color:var(--txt);
   background:
-    radial-gradient(1100px 650px at 80% 0%, rgba(86,204,242,.18), transparent 60%),
-    radial-gradient(900px 550px at 10% 5%, rgba(47,128,237,.16), transparent 60%),
-    radial-gradient(650px 420px at 55% 30%, rgba(188,235,255,.08), transparent 55%),
-    linear-gradient(180deg, var(--bg), var(--bg2));
+    radial-gradient(1000px 600px at 70% 0%, var(--glow), transparent 60%),
+    radial-gradient(800px 520px at 10% 10%, rgba(47,128,237,.16), transparent 60%),
+    radial-gradient(700px 450px at 50% 45%, rgba(53,240,194,.08), transparent 55%),
+    linear-gradient(180deg,var(--bg),var(--bg2));
   overflow-x:hidden;
-}
-body.loading{overflow:hidden}
-body.loading::before{
-  content:"";
-  position:fixed;
-  inset:0;
-  background:var(--bg);
-  z-index:9999;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  animation:fadeOut 0.5s ease 0.3s forwards;
-}
-body.loading::after{
-  content:"جاري التحميل...";
-  position:fixed;
-  top:50%;
-  left:50%;
-  transform:translate(-50%,-50%);
-  z-index:10000;
-  color:var(--text);
-  font-weight:900;
-  animation:fadeOut 0.5s ease 0.3s forwards;
-}
-@keyframes fadeOut{
-  to{opacity:0;pointer-events:none}
 }
 
 a{color:inherit;text-decoration:none}
-.container{max-width:var(--max);margin:0 auto;padding:0 18px}
-.muted{color:var(--muted)}
-hr.sep{border:0;border-top:1px solid var(--line);margin:18px 0}
+.container{max-width:var(--max);margin:auto;padding:0 18px}
 
-/* --- Top bar / Header --- */
+/* Header */
 header{
   position:sticky;top:0;z-index:50;
   backdrop-filter: blur(12px);
-  background: rgba(5,10,20,.62);
+  background: rgba(3,7,18,.62);
   border-bottom:1px solid var(--line);
 }
-.header-inner{
-  display:flex;align-items:center;justify-content:space-between;
-  gap:14px;padding:14px 0;
+.hbar{
+  display:flex;align-items:center;justify-content:space-between;gap:14px;
+  padding:14px 0;
 }
-.brand{
-  display:flex;align-items:center;gap:12px;min-width:240px;
-}
+.brand{display:flex;align-items:center;gap:12px}
 .brand .mark{
   width:42px;height:42px;border-radius:16px;
-  background: linear-gradient(135deg, var(--blue), var(--sky));
-  box-shadow: var(--shadowSoft);
+  background:linear-gradient(135deg,var(--blue),var(--cyan));
+  box-shadow:var(--shadow2);
   position:relative;overflow:hidden;
 }
-.brand .mark::after{
-  content:"";position:absolute;inset:-25%;
-  background: radial-gradient(circle at 30% 30%, rgba(255,255,255,.34), transparent 45%);
-  transform: rotate(18deg);
+.brand .mark:after{
+  content:"";position:absolute;inset:-30%;
+  background:radial-gradient(circle at 30% 30%, rgba(255,255,255,.35), transparent 45%);
+  transform:rotate(20deg);
 }
-.brand h1{margin:0;font-size:1.06rem;font-weight:900;letter-spacing:.2px}
-.brand small{display:block;margin-top:3px;color:var(--muted);font-weight:800}
+.brand b{display:block;font-weight:950;letter-spacing:.2px}
+.brand small{display:block;color:var(--mut);font-weight:850;margin-top:2px}
 
-.nav{
-  display:flex;align-items:center;gap:6px;flex-wrap:wrap;justify-content:flex-end;
-}
+.nav{display:flex;gap:8px;align-items:center;flex-wrap:wrap;justify-content:flex-end}
 .nav a{
   padding:10px 12px;border-radius:16px;
-  color:var(--muted);font-weight:900;
-  transition:all 0.2s ease;
+  color:var(--mut);font-weight:950
 }
-.nav a:hover{background:rgba(255,255,255,.05);color:var(--text)}
+.nav a:hover{background:rgba(255,255,255,.05);color:var(--txt)}
 .btn{
   display:inline-flex;align-items:center;justify-content:center;
   padding:12px 16px;border-radius:16px;
-  background: linear-gradient(135deg, var(--blue), var(--sky));
-  color:#041023;font-weight:900;border:0;cursor:pointer;
-  box-shadow: 0 14px 35px rgba(47,128,237,.18);
-  transition:all 0.2s ease;
+  background:linear-gradient(135deg,var(--blue),var(--cyan));
+  color:#041022;font-weight:950;border:0;cursor:pointer;
+  box-shadow:0 14px 35px rgba(47,128,237,.18);
 }
-.btn:hover{filter:brightness(1.03);transform:translateY(-1px)}
 .btn.ghost{
-  background:transparent;color:var(--text);
-  border:1px solid rgba(86,204,242,.35);box-shadow:none;
+  background:transparent;color:var(--txt);
+  border:1px solid rgba(86,204,242,.35);
+  box-shadow:none;
 }
-.btn.ghost:hover{border-color:rgba(86,204,242,.65);transform:translateY(-1px)}
-.menu{
-  display:none;background:transparent;border:1px solid var(--line);
-  padding:10px;border-radius:16px;cursor:pointer;
-  transition:all 0.2s ease;
-}
-.menu:hover{border-color:rgba(86,204,242,.5)}
-.menu span{display:block;width:18px;height:2px;background:var(--text);margin:4px 0;border-radius:2px}
+.menu{display:none;background:transparent;border:1px solid var(--line);border-radius:16px;padding:10px;cursor:pointer}
+.menu span{display:block;width:18px;height:2px;background:var(--txt);margin:4px 0;border-radius:2px}
 
-/* --- Hero (big-company feel) --- */
-.hero{
-  padding:64px 0 26px;
-  position:relative;
+/* Hero layout */
+.hero{padding:56px 0 22px;position:relative}
+.heroGrid{
+  display:grid;
+  grid-template-columns:1.05fr .95fr;
+  gap:16px;
+  align-items:stretch;
 }
-.hero::before{
-  content:"";
-  position:absolute;inset:-140px -80px auto -80px;height:520px;
-  background: radial-gradient(closest-side at 50% 30%, rgba(86,204,242,.14), transparent 65%);
-  filter: blur(12px);
-  pointer-events:none;
-}
-.hero-grid{
-  display:grid;grid-template-columns:1.1fr .9fr;
-  gap:18px;align-items:stretch;
-}
-.badge{
+
+.kicker{
   display:inline-flex;align-items:center;gap:10px;
   padding:9px 12px;border-radius:999px;
   border:1px solid rgba(86,204,242,.28);
-  background: rgba(86,204,242,.07);
-  color:rgba(243,246,255,.82);
-  font-weight:900;
+  background:rgba(86,204,242,.07);
+  color:rgba(244,247,255,.82);
+  font-weight:950;
   width:fit-content;
 }
-.badge .dot{
+.kicker .dot{
   width:8px;height:8px;border-radius:50%;
-  background:linear-gradient(135deg,var(--blue),var(--sky));
-  box-shadow: 0 0 0 6px rgba(86,204,242,.08);
-  animation:pulse 2s ease-in-out infinite;
+  background:linear-gradient(135deg,var(--blue),var(--cyan));
+  box-shadow:0 0 0 6px rgba(86,204,242,.08);
 }
-@keyframes pulse{
-  0%,100%{opacity:1;transform:scale(1)}
-  50%{opacity:0.7;transform:scale(1.1)}
-}
-.h-title{
+
+.hTitle{
   margin:14px 0 10px;
-  font-size:2.55rem;line-height:1.13;font-weight:950;
+  font-size:2.55rem;
+  line-height:1.12;
+  font-weight:980;
   letter-spacing:.2px;
 }
-.h-sub{
-  margin:0 0 18px;max-width:62ch;
-  color:var(--muted);font-size:1.08rem;line-height:1.95;font-weight:700;
+.hSub{
+  margin:0 0 16px;
+  color:var(--mut);
+  font-size:1.08rem;
+  line-height:1.95;
+  font-weight:750;
+  max-width:64ch;
 }
-.cta{display:flex;gap:12px;flex-wrap:wrap;margin:18px 0 14px}
-.trust-row{
-  display:flex;gap:10px;flex-wrap:wrap;margin-top:10px
-}
+.cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:16px}
+
+.miniRow{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
 .pill{
   padding:8px 10px;border-radius:999px;
-  border:1px solid rgba(243,246,255,.12);
-  background: rgba(255,255,255,.03);
-  color:var(--muted);font-weight:900;font-size:.92rem;
+  border:1px solid rgba(244,247,255,.12);
+  background:rgba(255,255,255,.03);
+  color:var(--mut);
+  font-weight:950;
+  font-size:.92rem;
 }
-.pill strong{color:var(--text)}
-.card{
-  border:1px solid var(--line);
-  background: rgba(255,255,255,.035);
-  border-radius: var(--radius);
-  box-shadow: var(--shadow);
-  padding:16px;
-}
-.card.soft{box-shadow:none;background:rgba(255,255,255,.03)}
+.pill strong{color:var(--txt)}
 
-/* Right hero: "creative but corporate" */
-.hero-visual{
-  position:relative;
+/* 3D Command Center */
+.center{
   border:1px solid rgba(86,204,242,.22);
+  border-radius:28px;
   background:
-    radial-gradient(circle at 20% 15%, rgba(86,204,242,.16), transparent 50%),
-    radial-gradient(circle at 85% 65%, rgba(47,128,237,.16), transparent 55%),
-    linear-gradient(180deg, rgba(11,27,58,.55), rgba(255,255,255,.02));
-  border-radius: 26px;
-  padding:16px;
+    radial-gradient(circle at 20% 15%, rgba(86,204,242,.18), transparent 50%),
+    radial-gradient(circle at 85% 70%, rgba(47,128,237,.18), transparent 55%),
+    linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
+  box-shadow:var(--shadow);
   overflow:hidden;
+  position:relative;
+  padding:14px;
 }
-.hero-visual::after{
-  content:"";position:absolute;inset:-40%;
-  background: radial-gradient(circle at 50% 50%, rgba(188,235,255,.10), transparent 55%);
-  filter: blur(16px);
-  pointer-events:none;
-}
-.visual-top{
+
+/* Grid inside (like control room) */
+.centerTop{
   display:flex;align-items:center;justify-content:space-between;gap:10px;
   margin-bottom:12px;
 }
-.visual-top .mini{
-  display:flex;gap:8px;align-items:center;color:var(--muted);font-weight:900;font-size:.95rem
+.centerTop .status{
+  display:flex;align-items:center;gap:10px;
+  color:var(--mut);
+  font-weight:950;
+  font-size:.95rem;
 }
-.mini .chip{
+.status .led{
   width:10px;height:10px;border-radius:50%;
-  background: linear-gradient(135deg,var(--blue),var(--sky));
-  box-shadow: 0 0 0 6px rgba(86,204,242,.08);
+  background:linear-gradient(135deg,var(--teal),var(--cyan));
+  box-shadow:0 0 0 7px rgba(53,240,194,.08);
 }
-.logo3d-stage{display:grid;gap:12px}
-.logo3d-card{
+.centerTop .mode{
+  color:var(--mut);
+  font-weight:950;
+  font-size:.92rem;
+  border:1px solid rgba(244,247,255,.12);
+  background:rgba(255,255,255,.03);
+  padding:8px 10px;border-radius:999px;
+}
+
+/* 3D stage */
+.stage{
   position:relative;
-  transform-style:preserve-3d;
-  border-radius: 22px;
-  background: rgba(255,255,255,.04);
-  border:1px solid rgba(243,246,255,.12);
-  box-shadow: var(--shadowSoft);
-  will-change: transform;
-  animation: floatY 6.5s ease-in-out infinite;
+  perspective: 1200px;
+  height: 330px;
+  border-radius:24px;
   overflow:hidden;
-  min-height:200px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
 }
-.logo3d-card::before{
-  content:"";position:absolute;inset:-40%;
-  background: linear-gradient(120deg, transparent 40%, rgba(255,255,255,.14), transparent 60%);
-  transform: translateX(-10%) rotate(10deg);
-  animation: shine 6s ease-in-out infinite;
+.stage::before{
+  content:"";
+  position:absolute;inset:-40%;
+  background:
+    conic-gradient(from 160deg, rgba(86,204,242,.18), transparent 35%, rgba(47,128,237,.18), transparent 70%, rgba(53,240,194,.12));
+  filter: blur(20px);
+  opacity:.8;
   pointer-events:none;
 }
-.logo3d-img{
+.gridLines{
+  position:absolute;inset:0;
+  background:
+    linear-gradient(to right, rgba(244,247,255,.06) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(244,247,255,.05) 1px, transparent 1px);
+  background-size: 34px 34px;
+  mask-image: radial-gradient(circle at 50% 40%, rgba(0,0,0,1), rgba(0,0,0,.25) 60%, transparent 78%);
+  opacity:.6;
+  pointer-events:none;
+}
+
+/* Floating hologram card (logo) */
+.holo{
+  position:absolute;left:50%;top:50%;
+  transform-style: preserve-3d;
+  width:min(360px, 92%);
+  translate:-50% -54%;
+  border-radius:26px;
+  border:1px solid rgba(244,247,255,.14);
+  background: rgba(10,18,40,.35);
+  box-shadow: var(--shadow2);
+  overflow:hidden;
+  will-change: transform;
+  animation: drift 7s ease-in-out infinite;
+}
+.holo::after{
+  content:"";
+  position:absolute;inset:-35%;
+  background: linear-gradient(120deg, transparent 42%, rgba(255,255,255,.16), transparent 60%);
+  transform: translateX(-18%) rotate(12deg);
+  animation: sweep 6.2s ease-in-out infinite;
+  pointer-events:none;
+}
+.holo img{
   width:100%;
   display:block;
-  border-radius: 18px;
-  transform: translateZ(26px);
-  filter: drop-shadow(0 24px 38px rgba(0,0,0,.38));
+  transform: translateZ(30px);
+  filter: drop-shadow(0 26px 44px rgba(0,0,0,.45));
 }
-.logo-placeholder{
-  width:120px;
-  height:120px;
-  border-radius:20px;
-  background:linear-gradient(135deg, var(--blue), var(--sky));
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-size:2.5rem;
-  font-weight:900;
-  color:#041023;
-  box-shadow:0 20px 40px rgba(47,128,237,.3);
+
+/* 3D base plate */
+.plate{
+  position:absolute;left:50%;bottom:18px;
+  width:min(520px, 94%);
+  height:110px;
+  translate:-50% 0;
+  border-radius:26px;
+  border:1px solid rgba(86,204,242,.20);
+  background: linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
+  transform: rotateX(70deg);
+  transform-origin: center;
+  box-shadow: 0 18px 55px rgba(0,0,0,.35);
 }
-.visual-kpis{
-  display:grid;grid-template-columns:repeat(3,1fr);gap:10px;
+.ring{
+  position:absolute;inset:14px;
+  border-radius:999px;
+  border:1px solid rgba(53,240,194,.22);
+  box-shadow: inset 0 0 0 1px rgba(86,204,242,.12);
+  background: radial-gradient(circle at 50% 50%, rgba(86,204,242,.14), transparent 55%);
 }
-.kpi{
-  border:1px solid rgba(243,246,255,.10);
+.ring::after{
+  content:"";
+  position:absolute;inset:-2px;
+  border-radius:999px;
+  border:1px dashed rgba(244,247,255,.14);
+  opacity:.7;
+  animation: spin 10s linear infinite;
+}
+
+/* Micro panels */
+.panels{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:10px;
+  margin-top:12px;
+}
+.panel{
+  border:1px solid rgba(244,247,255,.10);
   background: rgba(255,255,255,.03);
-  border-radius: 18px;
+  border-radius:18px;
   padding:12px;
 }
-.kpi strong{display:block;font-size:1.05rem}
-.kpi span{display:block;margin-top:4px;color:var(--muted);font-weight:900;font-size:.92rem}
+.panel b{display:block;font-weight:980}
+.panel span{display:block;margin-top:4px;color:var(--mut);font-weight:950;font-size:.92rem}
 
-@keyframes floatY{
-  0%,100%{transform: perspective(1100px) rotateX(0deg) rotateY(0deg) translateY(0)}
-  50%{transform: perspective(1100px) rotateX(1.2deg) rotateY(-1.4deg) translateY(-10px)}
-}
-@keyframes shine{
-  0%,100%{opacity:.22; transform: translateX(-12%) rotate(10deg)}
-  50%{opacity:.45; transform: translateX(12%) rotate(10deg)}
-}
-
-/* --- Sections --- */
+/* Sections */
 .section{padding:56px 0}
 .section.alt{
-  background: linear-gradient(180deg, rgba(255,255,255,.025), rgba(255,255,255,.01));
   border-top:1px solid var(--line);
   border-bottom:1px solid var(--line);
+  background: linear-gradient(180deg, rgba(255,255,255,.025), rgba(255,255,255,.01));
 }
-.head{margin-bottom:18px}
-.head h2{margin:0 0 6px;font-size:1.8rem;font-weight:950}
-.head p{margin:0;color:var(--muted);font-weight:750;line-height:1.9}
+.head{margin-bottom:16px}
+.head h2{margin:0 0 6px;font-size:1.8rem;font-weight:980}
+.head p{margin:0;color:var(--mut);font-weight:780;line-height:1.9}
 
-.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
-.grid2{display:grid;grid-template-columns:1.1fr .9fr;gap:14px}
-.tile{
-  border:1px solid rgba(243,246,255,.10);
+.grid3{
+  display:grid;grid-template-columns:repeat(3,1fr);
+  gap:14px;
+}
+.card{
+  border:1px solid rgba(244,247,255,.10);
   background: rgba(255,255,255,.03);
-  border-radius: var(--radius);
+  border-radius:22px;
   padding:16px;
-  box-shadow: var(--shadowSoft);
-  transition:all 0.3s ease;
+  box-shadow: var(--shadow2);
 }
-.tile:hover{
-  border-color:rgba(86,204,242,.3);
-  transform:translateY(-2px);
-  box-shadow: 0 20px 40px rgba(0,0,0,.3);
-}
-.tile h3{margin:0 0 8px;font-weight:950}
-.tile p{margin:0;color:var(--muted);line-height:1.9;font-weight:700}
-.tile ul{margin:10px 0 0;padding:0 18px;color:var(--muted);line-height:1.95;font-weight:750}
+.card h3{margin:0 0 8px;font-weight:980}
+.card p{margin:0;color:var(--mut);line-height:1.9;font-weight:760}
+.card ul{margin:10px 0 0;padding:0 18px;color:var(--mut);line-height:1.95;font-weight:780}
 
-.icon{
-  width:42px;height:42px;border-radius:16px;
-  background: rgba(86,204,242,.09);
-  border:1px solid rgba(86,204,242,.22);
-  display:flex;align-items:center;justify-content:center;
-  margin-bottom:10px;
+.steps{
+  display:grid;grid-template-columns:repeat(2,1fr);
+  gap:12px;
 }
-.icon svg{width:22px;height:22px;fill:rgba(243,246,255,.86)}
-
-.steps{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
 .step{
   display:flex;gap:12px;align-items:flex-start;
-  border:1px solid rgba(243,246,255,.10);
+  border:1px solid rgba(244,247,255,.10);
   background: rgba(255,255,255,.03);
-  border-radius: var(--radius);
+  border-radius:22px;
   padding:14px;
-  transition:all 0.3s ease;
-}
-.step:hover{
-  border-color:rgba(86,204,242,.3);
-  transform:translateY(-2px);
 }
 .step .num{
   width:36px;height:36px;border-radius:16px;
   background: rgba(86,204,242,.09);
   border:1px solid rgba(86,204,242,.22);
   display:flex;align-items:center;justify-content:center;
-  font-weight:950;
+  font-weight:980;
 }
-.step h3{margin:0 0 6px;font-weight:950}
-.step p{margin:0;color:var(--muted);line-height:1.9;font-weight:750}
+.step b{display:block;font-weight:980;margin-bottom:6px}
+.step p{margin:0;color:var(--mut);line-height:1.9;font-weight:780}
 
-/* --- Proof / Testimonials --- */
-.quote{
-  border:1px solid rgba(86,204,242,.22);
-  background: rgba(86,204,242,.06);
-  border-radius: var(--radius);
+/* Contact */
+.contact{
+  display:grid;grid-template-columns:1fr 1fr;gap:14px;align-items:start;
+}
+.box{
+  border:1px solid rgba(244,247,255,.10);
+  background: rgba(255,255,255,.03);
+  border-radius:22px;
   padding:16px;
 }
-.quote p{margin:0;color:rgba(243,246,255,.86);line-height:2;font-weight:800}
-.quote .who{margin-top:10px;color:var(--muted);font-weight:950}
-
-/* --- Contact --- */
-.contact{
-  display:grid;grid-template-columns:1fr 1fr;gap:14px;align-items:start
-}
-.info{display:grid;gap:10px}
-.info .item{
-  border:1px solid rgba(243,246,255,.10);
-  background: rgba(255,255,255,.03);
-  border-radius: var(--radius);
+.kv{display:grid;gap:10px;margin-top:10px}
+.kv .item{
+  border:1px solid rgba(244,247,255,.10);
+  background: rgba(0,0,0,.14);
+  border-radius:18px;
   padding:12px;
-  transition:all 0.2s ease;
 }
-.info .item:hover{
-  border-color:rgba(86,204,242,.3);
-}
-.label{color:var(--muted);font-weight:950;font-size:.9rem}
-.value{display:block;margin-top:6px;font-weight:950}
-form{display:grid;gap:10px;margin-top:8px}
-label span{display:block;margin-bottom:6px;color:var(--muted);font-weight:950}
+.label{color:var(--mut);font-weight:950;font-size:.9rem}
+.value{display:block;margin-top:6px;font-weight:980}
+
+form{display:grid;gap:10px;margin-top:6px}
+label span{display:block;margin-bottom:6px;color:var(--mut);font-weight:950}
 input,select,textarea{
   width:100%;
-  border:1px solid rgba(243,246,255,.12);
+  border:1px solid rgba(244,247,255,.12);
   background: rgba(0,0,0,.18);
-  color:var(--text);
+  color:var(--txt);
   border-radius:16px;
   padding:12px;
   outline:none;
   font-family:inherit;
-  font-weight:750;
-  transition:all 0.2s ease;
+  font-weight:780;
 }
-input:focus,select:focus,textarea:focus{
-  border-color:rgba(86,204,242,.55);
-  background:rgba(0,0,0,.25);
-}
-.note{font-size:.92rem;color:var(--muted);line-height:1.9;font-weight:750;margin:0}
-.success-message{
-  display:none;
-  padding:14px;
-  border-radius:16px;
-  background:rgba(86,204,242,.1);
-  border:1px solid rgba(86,204,242,.3);
-  color:var(--text);
-  font-weight:900;
-  text-align:center;
-  margin-top:10px;
-}
-.success-message.show{display:block;animation:slideIn 0.3s ease}
-@keyframes slideIn{
-  from{opacity:0;transform:translateY(-10px)}
-  to{opacity:1;transform:translateY(0)}
-}
+input:focus,select:focus,textarea:focus{border-color:rgba(86,204,242,.55)}
+.note{margin:0;color:var(--mut);font-weight:780;line-height:1.9;font-size:.92rem}
 
-/* --- Footer --- */
+/* Footer */
 footer{
   border-top:1px solid var(--line);
   background: rgba(0,0,0,.16);
   padding:22px 0;
 }
-.footer-inner{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
-.footer-links{display:flex;gap:10px;flex-wrap:wrap}
-.footer-links a{
-  color:var(--muted);font-weight:950;padding:8px 10px;border-radius:16px;
-  transition:all 0.2s ease;
+.footerInner{
+  display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;
 }
-.footer-links a:hover{background:rgba(255,255,255,.05);color:var(--text)}
-
-/* --- Floating back to top --- */
+.links{display:flex;gap:10px;flex-wrap:wrap}
+.links a{
+  color:var(--mut);font-weight:980;
+  padding:8px 10px;border-radius:16px;
+}
+.links a:hover{background:rgba(255,255,255,.05);color:var(--txt)}
 .top{
   position:fixed;left:16px;bottom:16px;
   width:44px;height:44px;border-radius:16px;
-  border:1px solid rgba(243,246,255,.12);
+  border:1px solid rgba(244,247,255,.12);
   background: rgba(255,255,255,.06);
   display:flex;align-items:center;justify-content:center;
-  box-shadow: var(--shadowSoft);
-  font-weight:950;
-  opacity:0;
-  pointer-events:none;
-  transition:all 0.3s ease;
-}
-.top.show{opacity:1;pointer-events:all}
-.top:hover{
-  border-color:rgba(86,204,242,.5);
-  transform:translateY(-2px);
+  box-shadow: var(--shadow2);
+  font-weight:980;
 }
 
-/* --- Responsive --- */
+/* Animations */
+@keyframes drift{
+  0%,100%{transform: translate(-50%,-54%) rotateX(0deg) rotateY(0deg) translateY(0)}
+  50%{transform: translate(-50%,-54%) rotateX(1.3deg) rotateY(-1.6deg) translateY(-10px)}
+}
+@keyframes sweep{
+  0%,100%{opacity:.22; transform: translateX(-18%) rotate(12deg)}
+  50%{opacity:.48; transform: translateX(18%) rotate(12deg)}
+}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+/* Responsive */
 @media (max-width:980px){
   .menu{display:inline-block}
   .nav{
     position:absolute;top:66px;left:18px;right:18px;
     display:none;flex-direction:column;gap:8px;
-    background: rgba(5,10,20,.95);
+    background: rgba(3,7,18,.95);
     border:1px solid var(--line);
-    border-radius: 18px;
-    padding:10px;
+    border-radius:18px;padding:10px;
   }
   .nav.open{display:flex}
-  .hero-grid,.grid3,.grid2,.steps,.contact{grid-template-columns:1fr}
-  .visual-kpis{grid-template-columns:1fr}
-  .h-title{font-size:2.05rem}
+  .heroGrid,.grid3,.steps,.contact{grid-template-columns:1fr}
+  .panels{grid-template-columns:1fr}
+  .stage{height:320px}
+  .hTitle{font-size:2.05rem}
 }
 @media (prefers-reduced-motion: reduce){
-  *{animation:none !important;transition:none !important}
+  .holo{animation:none}
+  .holo::after{animation:none}
+  .ring::after{animation:none}
 }
 </style>
-
-<!-- Schema.org Markup -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Organization",
-  "name": "فيصل للدعاية والإعلان",
-  "url": "https://faisal-ads.sa",
-  "logo": "https://faisal-ads.sa/logo.jpg",
-  "description": "وكالة اتصالية وإعلانية للشركات والجهات داخل المملكة العربية السعودية",
-  "address": {
-    "@type": "PostalAddress",
-    "addressLocality": "الرياض",
-    "addressCountry": "SA"
-  },
-  "contactPoint": {
-    "@type": "ContactPoint",
-    "telephone": "+966-50-000-0000",
-    "contactType": "customer service",
-    "areaServed": "SA",
-    "availableLanguage": "ar"
-  },
-  "sameAs": []
-}
-</script>
 </head>
 
-<body class="loading">
+<body>
 <header>
-  <div class="container header-inner">
+  <div class="container hbar">
     <a class="brand" href="#top" aria-label="فيصل للدعاية والإعلان">
       <span class="mark" aria-hidden="true"></span>
       <span>
-        <h1>فيصل للدعاية والإعلان</h1>
+        <b>فيصل للدعاية والإعلان</b>
         <small>الرياض • نخدم السعودية بالكامل</small>
       </span>
     </a>
@@ -527,8 +447,7 @@ footer{
 
     <nav id="nav" class="nav">
       <a href="#services">الخدمات</a>
-      <a href="#method">منهجية العمل</a>
-      <a href="#proof">نماذج أثر</a>
+      <a href="#method">المنهجية</a>
       <a href="#governance">الحوكمة</a>
       <a class="btn" href="#contact">اطلب عرضًا</a>
     </nav>
@@ -538,13 +457,13 @@ footer{
 <main id="top">
   <!-- HERO -->
   <section class="hero">
-    <div class="container hero-grid">
+    <div class="container heroGrid">
       <div>
-        <div class="badge"><span class="dot"></span> ستايل شركات كبرى • مناسب للجهات</div>
-        <h2 class="h-title">اتصال مؤسسي وإعلان…<br>بمنطق "نتيجة" مو "منشور"</h2>
-        <p class="h-sub">
-          نشتغل كذراع اتصالي للجهات والشركات: تخطيط واضح، تنفيذ منضبط، ومؤشرات أداء قابلة للتتبع.
-          التصميم إبداعي؟ نعم. لكن تحت السيطرة — عشان ما نضحك على أنفسنا.
+        <div class="kicker"><span class="dot"></span> فكرة جديدة: 3D Command Center</div>
+        <h1 class="hTitle">وكالة اتصالية تعمل<br>بعقلية “غرفة عمليات”</h1>
+        <p class="hSub">
+          بدل “بوستات”، نشتغل بنظام تشغيل: خطة، تنفيذ، قياس أثر، وتوصيات تحسين.
+          مخرجات موثقة تصلح للعروض الفنية، وتناسب الشركات الكبرى.
         </p>
 
         <div class="cta">
@@ -553,30 +472,37 @@ footer{
           <a class="btn ghost" href="#method">كيف نشتغل؟</a>
         </div>
 
-        <div class="trust-row">
+        <div class="miniRow">
           <span class="pill"><strong>KPIs</strong> واضحة</span>
           <span class="pill"><strong>SLA</strong> واستجابة</span>
           <span class="pill">حوكمة واعتمادات</span>
-          <span class="pill">تقارير أسبوعية/شهرية</span>
+          <span class="pill">تقارير دورية</span>
         </div>
       </div>
 
-      <aside class="hero-visual" aria-label="واجهة العرض">
-        <div class="visual-top">
-          <div class="mini"><span class="chip"></span> عرض مؤسسي بتأثير 3D خفيف</div>
-          <div class="mini muted">v2 • محسّن</div>
+      <!-- 3D Center -->
+      <aside class="center" aria-label="3D Command Center">
+        <div class="centerTop">
+          <div class="status"><span class="led"></span> النظام يعمل • عرض تفاعلي 3D</div>
+          <div class="mode">Corporate / Government</div>
         </div>
 
-        <div class="logo3d-stage">
-          <div class="logo3d-card" id="logoCard">
-            <div class="logo-placeholder">ف</div>
+        <div class="stage" id="stage">
+          <div class="gridLines" aria-hidden="true"></div>
+
+          <div class="plate" aria-hidden="true">
+            <div class="ring"></div>
           </div>
 
-          <div class="visual-kpis">
-            <div class="kpi"><strong>قياس أثر</strong><span>لوحات مؤشرات</span></div>
-            <div class="kpi"><strong>تحسين مستمر</strong><span>اختبارات وتعلّم</span></div>
-            <div class="kpi"><strong>حوكمة</strong><span>توثيق واعتماد</span></div>
+          <div class="holo" id="holo">
+            <img src="logo.jpg" alt="شعار فيصل للدعاية والإعلان">
           </div>
+        </div>
+
+        <div class="panels">
+          <div class="panel"><b>تشغيل</b><span>تقويم + اعتماد + تنفيذ</span></div>
+          <div class="panel"><b>قياس أثر</b><span>Dashboard + تقارير</span></div>
+          <div class="panel"><b>تحسين</b><span>A/B + توصيات</span></div>
         </div>
       </aside>
     </div>
@@ -591,35 +517,213 @@ footer{
       </div>
 
       <div class="grid3">
-        <div class="tile">
-          <div class="icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24"><path d="M4 19h16v2H4v-2zm2-2V3h12v14H6zm2-2h8V5H8v10z"/></svg>
-          </div>
+        <div class="card">
           <h3>استراتيجية واتصال مؤسسي</h3>
-          <p>رسائل، نبرة، خارطة أصحاب مصلحة، وخطط اتصالية قابلة للتنفيذ.</p>
+          <p>رسائل، نبرة، وخطط اتصالية قابلة للتنفيذ مع إطار قياس واضح.</p>
           <ul>
             <li>خطة سنوية/ربع سنوية</li>
-            <li>إطار KPIs</li>
-            <li>إدارة أزمات عند الحاجة</li>
+            <li>تعريف KPIs</li>
+            <li>خارطة أصحاب المصلحة</li>
           </ul>
         </div>
 
-        <div class="tile">
-          <div class="icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24"><path d="M3 5h18v2H3V5zm0 6h18v2H3v-2zm0 6h18v2H3v-2z"/></svg>
-          </div>
+        <div class="card">
           <h3>إدارة المحتوى والمنصات</h3>
-          <p>تقويم، كتابة، تصميم، نشر، وإدارة مجتمع بنظام اعتماد واضح.</p>
+          <p>تقويم محتوى + كتابة + تصميم + نشر + إدارة مجتمع وفق اعتماد.</p>
           <ul>
-            <li>تقويم محتوى شهري</li>
             <li>قوالب مؤسسية</li>
             <li>مراجعة قبل النشر</li>
+            <li>سجل تغييرات</li>
           </ul>
         </div>
 
-        <div class="tile">
-          <div class="icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24"><path d="M4 4h16v16H4V4zm2 2v12h12V6H6zm2 9h8v2H8v-2zm0-4h8v2H8v-2z"/></svg>
-          </div>
+        <div class="card">
           <h3>حملات رقمية مدفوعة</h3>
-          <p>إعل
+          <p>إعلانات بتركيز على “النتيجة” مع تتبع وتحسين مستمر.</p>
+          <ul>
+            <li>Google / Meta / X / Snap / TikTok</li>
+            <li>UTM + Pixels</li>
+            <li>تقارير تفصيلية</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>إنتاج مرئي وإبداع</h3>
+          <p>هوية حملة + موشن + فيديوهات قصيرة برسالة واضحة.</p>
+          <ul>
+            <li>Key Visual</li>
+            <li>Shorts / Motion</li>
+            <li>مكتبة أصول</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>مؤثرون وإدارة سمعة</h3>
+          <p>اختيار وتقييم وتوثيق، ومراقبة سمعة بخطة.</p>
+          <ul>
+            <li>تقييم مؤثرين</li>
+            <li>إدارة عقود</li>
+            <li>Share of Voice</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>تقارير وقياس أثر</h3>
+          <p>لوحات مؤشرات + تقرير أسبوعي تنفيذي + تقرير شهري توصيات.</p>
+          <ul>
+            <li>Dashboard</li>
+            <li>تحليل محتوى</li>
+            <li>خطة تحسين</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- METHOD -->
+  <section id="method" class="section alt">
+    <div class="container">
+      <div class="head">
+        <h2>المنهجية</h2>
+        <p>طريقة تشغيل واضحة — مو ارتجال.</p>
+      </div>
+
+      <div class="steps">
+        <div class="step"><div class="num">1</div><div><b>تحليل وتشخيص</b><p>أهداف، جمهور، قنوات، ومؤشرات نجاح.</p></div></div>
+        <div class="step"><div class="num">2</div><div><b>خطة تشغيل</b><p>تقويم + حملات + اعتماد + ميزانيات.</p></div></div>
+        <div class="step"><div class="num">3</div><div><b>تنفيذ مضبوط</b><p>إنتاج + نشر + إعلانات + ضبط جودة.</p></div></div>
+        <div class="step"><div class="num">4</div><div><b>قياس وتحسين</b><p>KPIs + تقارير + توصيات + A/B.</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GOVERNANCE -->
+  <section id="governance" class="section">
+    <div class="container">
+      <div class="head">
+        <h2>الحوكمة والامتثال</h2>
+        <p>قسم يطمّن الجهات: إجراءات واضحة، سرية، وملكية فكرية.</p>
+      </div>
+
+      <div class="grid3">
+        <div class="card"><h3>السرية والخصوصية</h3><p>التزام بحماية بيانات الجهة ومخرجاتها.</p></div>
+        <div class="card"><h3>الملكية الفكرية</h3><p>المخرجات تعود للعميل حسب العقد.</p></div>
+        <div class="card"><h3>SLA وإدارة الطلبات</h3><p>زمن استجابة محدد وآلية اعتماد واضحة.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="section alt">
+    <div class="container">
+      <div class="head">
+        <h2>طلب عرض / تواصل</h2>
+        <p>بيانات مؤقتة الآن — نستبدلها لاحقًا.</p>
+      </div>
+
+      <div class="contact">
+        <div class="box">
+          <b style="font-weight:980">بيانات التواصل</b>
+          <div class="kv">
+            <div class="item"><span class="label">الهاتف</span><a class="value" href="tel:+966500000000">+966 50 000 0000</a></div>
+            <div class="item"><span class="label">البريد</span><a class="value" href="mailto:hello@faisal-ads.sa">hello@faisal-ads.sa</a></div>
+            <div class="item"><span class="label">المقر</span><span class="value">الرياض — نخدم السعودية بالكامل</span></div>
+          </div>
+          <p class="note" style="margin-top:10px">ملاحظة: GitHub Pages لا يرسل بريد مباشرة. استخدم Formspree أو Google Forms.</p>
+        </div>
+
+        <div class="box">
+          <b style="font-weight:980">نموذج الطلب</b>
+          <form action="https://formspree.io/f/xxxxxxxx" method="POST">
+            <label><span>الاسم</span><input name="name" required placeholder="اسمك الكامل"></label>
+            <label><span>الجهة / الشركة</span><input name="company" placeholder="اختياري"></label>
+            <label><span>البريد</span><input name="email" type="email" required placeholder="name@company.com"></label>
+            <label><span>نوع الخدمة</span>
+              <select name="service">
+                <option>استراتيجية واتصال مؤسسي</option>
+                <option>إدارة محتوى ومنصات</option>
+                <option>حملات رقمية مدفوعة</option>
+                <option>إنتاج مرئي وإبداع</option>
+                <option>تقارير وقياس أثر</option>
+                <option>أخرى</option>
+              </select>
+            </label>
+            <label><span>تفاصيل الطلب</span><textarea name="message" rows="5" required placeholder="اكتب المطلوب، المدة، وأي ملاحظات"></textarea></label>
+            <button class="btn" type="submit">إرسال</button>
+            <p class="note">غيّر xxxxxxxx برابط Formspree الخاص بك.</p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container footerInner">
+      <div>
+        <b style="font-weight:980">فيصل للدعاية والإعلان</b>
+        <div style="color:var(--mut);font-weight:900">3D Command Center • Corporate/Gov</div>
+      </div>
+      <div class="links">
+        <a href="#services">الخدمات</a>
+        <a href="#method">المنهجية</a>
+        <a href="#contact">تواصل</a>
+      </div>
+    </div>
+  </footer>
+
+  <a class="top" href="#top" aria-label="العودة للأعلى">↑</a>
+</main>
+
+<script>
+/* Mobile menu */
+const menuBtn = document.querySelector('.menu');
+const nav = document.getElementById('nav');
+if(menuBtn && nav){
+  menuBtn.addEventListener('click', () => {
+    const open = nav.classList.toggle('open');
+    menuBtn.setAttribute('aria-expanded', String(open));
+  });
+  nav.querySelectorAll('a').forEach(a=>{
+    a.addEventListener('click', ()=>{
+      nav.classList.remove('open');
+      menuBtn.setAttribute('aria-expanded','false');
+    });
+  });
+}
+
+/* 3D Parallax control room tilt (desktop only) */
+(() => {
+  const stage = document.getElementById('stage');
+  const holo  = document.getElementById('holo');
+  if(!stage || !holo) return;
+
+  const isTouch = matchMedia('(pointer: coarse)').matches;
+  const reduce  = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(isTouch || reduce) return;
+
+  const clamp = (n,min,max)=>Math.max(min,Math.min(max,n));
+
+  stage.addEventListener('mousemove', (e) => {
+    const r = stage.getBoundingClientRect();
+    const x = (e.clientX - r.left) / r.width - 0.5;
+    const y = (e.clientY - r.top) / r.height - 0.5;
+
+    const rotY = clamp(x * 10, -8, 8);
+    const rotX = clamp(-y * 10, -8, 8);
+
+    // Tilt whole stage slightly
+    stage.style.transform = `rotateX(${rotX/2}deg) rotateY(${rotY/2}deg)`;
+
+    // Move hologram with depth
+    holo.style.transform =
+      `translate(-50%,-54%) rotateX(${rotX}deg) rotateY(${rotY}deg) translateY(-10px)`;
+  });
+
+  stage.addEventListener('mouseleave', () => {
+    stage.style.transform = '';
+    holo.style.transform = '';
+  });
+})();
+</script>
+</body>
+</html>
