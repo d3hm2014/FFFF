@@ -3,16 +3,17 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>فيصل للدعاية والإعلان | تجربة 3D</title>
+<title>فيصل للدعاية والإعلان | 3D Story</title>
 <meta name="description" content="تجربة 3D تفاعلية لوكالة فيصل للدعاية والإعلان: قصة تمرير، مشاهد، ورسائل مركزة." />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+
 <style>
   :root{
     --bg:#020611; --txt:#F3F6FF; --mut:rgba(243,246,255,.74);
-    --blue:#2F80ED; --cyan:#56CCF2; --line:rgba(243,246,255,.10);
-    --card:rgba(255,255,255,.06); --shadow:0 18px 60px rgba(0,0,0,.55);
+    --blue:#2F80ED; --cyan:#56CCF2; --teal:#35F0C2; --line:rgba(243,246,255,.10);
+    --shadow:0 18px 60px rgba(0,0,0,.55);
   }
   *{box-sizing:border-box}
   body{
@@ -22,18 +23,10 @@
                linear-gradient(180deg,#020611,#050A18);
     color:var(--txt);
   }
-  /* Canvas fullscreen */
-  #wrap{
-    position:relative; height: 520vh; /* سكروول طويل للمشاهد */
-  }
-  canvas{
-    position:sticky; top:0; width:100%; height:100vh; display:block;
-  }
-  /* Overlay story */
-  .hud{
-    position:sticky; top:0;
-    height:100vh; pointer-events:none;
-  }
+  #wrap{ position:relative; height: 560vh; }
+  canvas{ position:sticky; top:0; width:100%; height:100vh; display:block; }
+
+  .hud{ position:sticky; top:0; height:100vh; pointer-events:none; }
   .topbar{
     position:absolute; top:14px; left:16px; right:16px;
     display:flex; justify-content:space-between; align-items:center; gap:12px;
@@ -50,9 +43,8 @@
   }
   .brand b{display:block;font-weight:950}
   .brand small{display:block;color:var(--mut);font-weight:850;margin-top:2px}
-  .cta{
-    display:flex;gap:10px;flex-wrap:wrap;justify-content:flex-end;
-  }
+
+  .controls{display:flex;gap:10px;flex-wrap:wrap;justify-content:flex-end;align-items:center}
   .btn{
     border:0; cursor:pointer; font-family:inherit;
     padding:10px 14px; border-radius:16px; font-weight:950;
@@ -62,12 +54,28 @@
     background:transparent; color:var(--txt);
     border:1px solid rgba(86,204,242,.35);
   }
+  .mode{
+    display:flex;gap:8px;align-items:center;
+    border:1px solid rgba(243,246,255,.12);
+    background:rgba(255,255,255,.03);
+    border-radius:999px;
+    padding:6px;
+  }
+  .mode button{
+    pointer-events:auto;
+    border:0; cursor:pointer; font-family:inherit;
+    padding:7px 10px;border-radius:999px;
+    background:transparent;color:var(--mut);font-weight:950;
+  }
+  .mode button.on{
+    background:rgba(86,204,242,.16);
+    color:var(--txt);
+    box-shadow:0 10px 18px rgba(0,0,0,.25);
+  }
 
   .scene{
-    position:absolute; right:16px; left:16px;
-    bottom:22px;
-    display:grid; gap:10px;
-    max-width: 760px;
+    position:absolute; right:16px; left:16px; bottom:22px;
+    display:grid; gap:10px; max-width: 780px;
     pointer-events:none;
   }
   .card{
@@ -78,7 +86,7 @@
     box-shadow: var(--shadow);
     transform: translateY(14px);
     opacity:0;
-    transition: opacity .4s ease, transform .4s ease;
+    transition: opacity .35s ease, transform .35s ease;
   }
   .card.on{opacity:1; transform: translateY(0)}
   .kicker{
@@ -95,17 +103,9 @@
   }
   h1{margin:10px 0 6px; font-size:2.25rem; line-height:1.15; font-weight:980;}
   p{margin:0; color:var(--mut); line-height:1.95; font-weight:750;}
-  .mini{
-    display:flex;gap:10px;flex-wrap:wrap;margin-top:10px;
-    color:var(--mut); font-weight:900; font-size:.92rem;
-  }
-  .tag{
-    padding:7px 10px;border-radius:999px;
-    border:1px solid rgba(243,246,255,.12);
-    background:rgba(255,255,255,.03);
-  }
+  .mini{display:flex;gap:10px;flex-wrap:wrap;margin-top:10px;color:var(--mut);font-weight:900;font-size:.92rem}
+  .tag{padding:7px 10px;border-radius:999px;border:1px solid rgba(243,246,255,.12);background:rgba(255,255,255,.03)}
 
-  /* Small hint */
   .hint{
     position:absolute; left:50%; top:88vh; translate:-50% 0;
     color:rgba(243,246,255,.65);
@@ -118,7 +118,8 @@
 
   @media (max-width:900px){
     h1{font-size:1.85rem}
-    #wrap{height: 560vh;}
+    #wrap{height: 610vh;}
+    .controls{gap:8px}
   }
 </style>
 </head>
@@ -133,10 +134,15 @@
         <div class="mark" aria-hidden="true"></div>
         <div>
           <b>فيصل للدعاية والإعلان</b>
-          <small>تجربة 3D • الرياض • نخدم السعودية بالكامل</small>
+          <small>3D Story • الرياض • نخدم السعودية بالكامل</small>
         </div>
       </div>
-      <div class="cta">
+
+      <div class="controls">
+        <div class="mode" aria-label="اختيار الوضع">
+          <button id="mCorp" class="on" type="button">Corporate</button>
+          <button id="mShow" type="button">Showcase</button>
+        </div>
         <a class="btn ghost" href="#end">الخدمات</a>
         <a class="btn" href="#end">اطلب عرضًا</a>
       </div>
@@ -146,20 +152,20 @@
 
     <div class="scene" aria-live="polite">
       <div class="card" id="s0">
-        <div class="kicker"><span class="dot"></span> فكرة مختلفة بالكامل</div>
-        <h1>موقع “قصة” — مو صفحة أقسام</h1>
-        <p>أنت تسحب سكرول… والتجربة تتحرك 3D. الرسالة واضحة: وكالة تشغيل ونتائج، مو زينة.</p>
+        <div class="kicker"><span class="dot"></span> فكرة جديدة تمامًا</div>
+        <h1>قصة 3D تتبدل مع السكرول</h1>
+        <p>التجربة هي الرسالة: شغل تشغيل ونتائج — مو صفحة تقليدية.</p>
         <div class="mini">
+          <span class="tag">3D حقيقي</span>
           <span class="tag">Corporate-ready</span>
-          <span class="tag">3D محسوب</span>
-          <span class="tag">قابل للمناقصات</span>
+          <span class="tag">مناسب للجهات</span>
         </div>
       </div>
 
       <div class="card" id="s1">
         <div class="kicker"><span class="dot"></span> المشهد 1</div>
         <h1>غرفة عمليات للاتصال</h1>
-        <p>خطة → تشغيل → قياس أثر. كل شيء يتوثق ويُقاس وينتج قرار.</p>
+        <p>خطة → تشغيل → قياس أثر. كل شيء يتوثق، ويطلع قرار.</p>
         <div class="mini">
           <span class="tag">KPIs</span><span class="tag">Dashboard</span><span class="tag">تقارير</span>
         </div>
@@ -168,7 +174,7 @@
       <div class="card" id="s2">
         <div class="kicker"><span class="dot"></span> المشهد 2</div>
         <h1>حملات “نتيجة” مو “منشور”</h1>
-        <p>UTM + تتبع + تحسين مستمر. الهدف: تحويل الإنفاق إلى أثر ملموس.</p>
+        <p>UTM + تتبع + تحسين. الفلوس تشتغل، مو تتبخر.</p>
         <div class="mini">
           <span class="tag">Google</span><span class="tag">Meta</span><span class="tag">A/B</span>
         </div>
@@ -176,8 +182,8 @@
 
       <div class="card" id="s3">
         <div class="kicker"><span class="dot"></span> المشهد 3</div>
-        <h1>حوكمة تُطمّن الجهات</h1>
-        <p>اعتمادات، SLA، سرية، وسجل تغييرات. هذا اللي يخلي الترسية سهلة.</p>
+        <h1>حوكمة تطمّن اللجان</h1>
+        <p>اعتمادات، SLA، سرية، وسجل تغييرات. هذا اللي يفرق.</p>
         <div class="mini">
           <span class="tag">Approvals</span><span class="tag">SLA</span><span class="tag">Compliance</span>
         </div>
@@ -202,113 +208,196 @@
   </div>
 </div>
 
-<!-- Three.js from CDN -->
 <script src="https://unpkg.com/three@0.160.0/build/three.min.js"></script>
 <script>
 /* ============================
-   3D Scroll Story (NEW IDEA)
+   3D Scroll Story + Logo Texture + Modes
+   شرط: وجود logo.jpg بجانب index.html
    ============================ */
+
 const canvas = document.getElementById('c');
-const scene = new THREE.Scene();
+const scene  = new THREE.Scene();
 
 const renderer = new THREE.WebGLRenderer({ canvas, antialias:true, alpha:true });
 renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
 renderer.setSize(innerWidth, innerHeight);
 
-const camera = new THREE.PerspectiveCamera(45, innerWidth/innerHeight, 0.1, 100);
-camera.position.set(0, 0.2, 6.5);
+const camera = new THREE.PerspectiveCamera(45, innerWidth/innerHeight, 0.1, 120);
+camera.position.set(0, 0.15, 7.2);
 
-const light1 = new THREE.DirectionalLight(0x56ccf2, 1.2);
-light1.position.set(3, 4, 2);
-scene.add(light1);
+/* Lights */
+const keyLight = new THREE.DirectionalLight(0x56ccf2, 1.25);
+keyLight.position.set(3.2, 4.2, 2.5);
+scene.add(keyLight);
 
-const light2 = new THREE.DirectionalLight(0x2f80ed, 0.9);
-light2.position.set(-3, 2, 3);
-scene.add(light2);
+const fillLight = new THREE.DirectionalLight(0x2f80ed, 0.95);
+fillLight.position.set(-3.5, 2.2, 3.0);
+scene.add(fillLight);
 
-scene.add(new THREE.AmbientLight(0xffffff, 0.35));
+const rimLight = new THREE.DirectionalLight(0x35f0c2, 0.55);
+rimLight.position.set(0.0, 3.0, -3.0);
+scene.add(rimLight);
 
-/* Portal ring (different from previous “logo card” idea) */
-const ringGeo = new THREE.TorusGeometry(1.4, 0.18, 32, 220);
+scene.add(new THREE.AmbientLight(0xffffff, 0.32));
+
+/* Portal ring */
+const ringGeo = new THREE.TorusGeometry(1.55, 0.20, 36, 240);
 const ringMat = new THREE.MeshStandardMaterial({
   color: 0x2f80ed,
-  metalness: 0.55,
-  roughness: 0.25,
-  emissive: 0x071a3a,
-  emissiveIntensity: 0.55
+  metalness: 0.62,
+  roughness: 0.22,
+  emissive: 0x061a3a,
+  emissiveIntensity: 0.85
 });
 const ring = new THREE.Mesh(ringGeo, ringMat);
 scene.add(ring);
 
-/* Inner glass disc */
-const discGeo = new THREE.CircleGeometry(1.05, 64);
+/* Glass disc behind */
+const discGeo = new THREE.CircleGeometry(1.12, 72);
 const discMat = new THREE.MeshPhysicalMaterial({
   color: 0x56ccf2,
   transparent: true,
   opacity: 0.10,
-  roughness: 0.1,
+  roughness: 0.08,
   metalness: 0.0,
-  transmission: 0.9,
-  thickness: 0.6,
+  transmission: 0.95,
+  thickness: 0.8,
   clearcoat: 1,
-  clearcoatRoughness: 0.15
+  clearcoatRoughness: 0.10
 });
 const disc = new THREE.Mesh(discGeo, discMat);
-disc.position.z = -0.05;
+disc.position.z = -0.08;
 scene.add(disc);
+
+/* === NEW: Logo badge (texture from logo.jpg) === */
+const loader = new THREE.TextureLoader();
+let logoBadge = null;
+
+loader.load(
+  "logo.jpg",
+  (tex) => {
+    tex.colorSpace = THREE.SRGBColorSpace;
+    tex.anisotropy = Math.min(8, renderer.capabilities.getMaxAnisotropy());
+    tex.wrapS = tex.wrapT = THREE.ClampToEdgeWrapping;
+
+    const badgeGeo = new THREE.CircleGeometry(0.74, 72);
+    const badgeMat = new THREE.MeshPhysicalMaterial({
+      map: tex,
+      transparent: true,
+      opacity: 1,
+      roughness: 0.15,
+      metalness: 0.05,
+      transmission: 0.35,   // يعطي إحساس “زجاج”
+      thickness: 0.5,
+      clearcoat: 1,
+      clearcoatRoughness: 0.12
+    });
+
+    logoBadge = new THREE.Mesh(badgeGeo, badgeMat);
+    logoBadge.position.z = 0.28;   // قدام الحلقة
+    scene.add(logoBadge);
+  },
+  undefined,
+  () => {
+    // لو فشل تحميل الصورة: لا نكسر التجربة
+    console.warn("تعذر تحميل logo.jpg — تأكد أنه بجانب index.html وبنفس الاسم.");
+  }
+);
 
 /* Floating “signal cubes” */
 const cubes = [];
 const cubeMat = new THREE.MeshStandardMaterial({ color:0x35f0c2, metalness:.25, roughness:.35 });
-for(let i=0;i<18;i++){
+for(let i=0;i<22;i++){
   const g = new THREE.BoxGeometry(0.12,0.12,0.12);
   const m = new THREE.Mesh(g, cubeMat);
-  m.position.set((Math.random()-0.5)*4, (Math.random()-0.5)*2.4, (Math.random()-0.5)*2.2);
+  m.position.set((Math.random()-0.5)*4.6, (Math.random()-0.5)*2.6, (Math.random()-0.5)*2.4);
   m.rotation.set(Math.random()*Math.PI, Math.random()*Math.PI, 0);
   scene.add(m);
   cubes.push(m);
 }
 
-/* Scroll mapping to “scenes” */
+/* Scroll mapping */
 const wrap = document.getElementById('wrap');
 function scrollT(){
   const max = wrap.scrollHeight - innerHeight;
-  return max>0 ? scrollY / max : 0;
+  return max > 0 ? scrollY / max : 0;
 }
 
 /* Text scenes */
-const cards = [document.getElementById('s0'),document.getElementById('s1'),document.getElementById('s2'),document.getElementById('s3')];
+const cards = [
+  document.getElementById('s0'),
+  document.getElementById('s1'),
+  document.getElementById('s2'),
+  document.getElementById('s3')
+];
 function setScene(t){
-  // 4 scenes over 0..1
   const idx = Math.min(3, Math.max(0, Math.floor(t*4)));
   cards.forEach((c,i)=>c.classList.toggle('on', i===idx));
 }
 setScene(0);
 
+/* Modes */
+let mode = "corp"; // corp | show
+const mCorp = document.getElementById('mCorp');
+const mShow = document.getElementById('mShow');
+
+function setMode(next){
+  mode = next;
+  mCorp.classList.toggle('on', mode==="corp");
+  mShow.classList.toggle('on', mode==="show");
+
+  if(mode==="corp"){
+    ringMat.emissiveIntensity = 0.75;
+    keyLight.intensity = 1.15;
+    fillLight.intensity = 0.90;
+    rimLight.intensity = 0.45;
+  }else{
+    ringMat.emissiveIntensity = 1.25;
+    keyLight.intensity = 1.35;
+    fillLight.intensity = 1.05;
+    rimLight.intensity = 0.65;
+  }
+}
+mCorp.addEventListener('click', ()=>setMode("corp"));
+mShow.addEventListener('click', ()=>setMode("show"));
+
 /* Animate */
-let clock = new THREE.Clock();
+const clock = new THREE.Clock();
 function animate(){
   const t = scrollT();
   setScene(t);
 
-  // Ring evolves with scroll (story)
-  ring.rotation.y = t * Math.PI * 2.2;
-  ring.rotation.x = 0.35 + Math.sin(t*Math.PI)*0.25;
-  ring.scale.setScalar(1 + Math.sin(t*Math.PI)*0.18);
+  const time = clock.getElapsedTime();
 
-  disc.rotation.z = t * Math.PI * 1.6;
+  // “Story” motion
+  ring.rotation.y = t * Math.PI * 2.4 + Math.sin(time*0.15)*0.08;
+  ring.rotation.x = 0.32 + Math.sin(t*Math.PI)*0.24;
+  const pulse = 1 + Math.sin(t*Math.PI)*0.20;
+  ring.scale.setScalar(pulse);
 
-  // Camera path changes (feel like “chapters”)
-  camera.position.z = 6.5 - t*2.6;
-  camera.position.y = 0.2 + Math.sin(t*Math.PI)*0.25;
+  disc.rotation.z = t * Math.PI * 1.75;
+  disc.material.opacity = (mode==="corp") ? 0.10 : 0.14;
+
+  // Logo badge motion (if loaded)
+  if(logoBadge){
+    logoBadge.rotation.z = -t * Math.PI * 0.7;
+    logoBadge.position.y = Math.sin(time*0.85)*0.03;
+    // Showcase يعطيها نبض ولمعة أعلى
+    logoBadge.material.clearcoatRoughness = (mode==="corp") ? 0.12 : 0.06;
+    logoBadge.material.transmission = (mode==="corp") ? 0.35 : 0.55;
+  }
+
+  // Camera path (chapters)
+  camera.position.z = 7.2 - t*3.0;
+  camera.position.y = 0.15 + Math.sin(t*Math.PI)*0.22;
   camera.lookAt(0,0,0);
 
-  // Ambient motion
-  const time = clock.getElapsedTime();
+  // Ambient cubes
   cubes.forEach((m,i)=>{
-    m.rotation.x += 0.006 + i*0.00002;
-    m.rotation.y += 0.007 + i*0.00002;
-    m.position.y += Math.sin(time*0.8 + i)*0.0008;
+    const s = (mode==="corp") ? 1 : 1.25;
+    m.rotation.x += (0.006 + i*0.00002) * s;
+    m.rotation.y += (0.007 + i*0.00002) * s;
+    m.position.y += Math.sin(time*0.85 + i)*0.00085 * s;
   });
 
   renderer.render(scene, camera);
