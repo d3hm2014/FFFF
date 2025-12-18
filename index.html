@@ -23,49 +23,68 @@
                linear-gradient(180deg,#020611,#050A18);
     color:var(--txt);
   }
-  #wrap{ position:relative; height: 560vh; }
-  canvas{ position:sticky; top:0; width:100%; height:100vh; display:block; }
+
+  /* مساحة سكرول كافية للمشاهد */
+  #wrap{ position:relative; height: 600vh; }
+
+  canvas{
+    position:sticky; top:0;
+    width:100%; height:100vh; display:block;
+  }
 
   .hud{ position:sticky; top:0; height:100vh; pointer-events:none; }
+
+  /* Topbar: منع التداخل */
   .topbar{
     position:absolute; top:14px; left:16px; right:16px;
-    display:flex; justify-content:space-between; align-items:center; gap:12px;
+    display:flex; justify-content:space-between; align-items:flex-start; gap:12px;
     padding:12px 14px; border:1px solid var(--line); border-radius:18px;
     background:rgba(2,6,17,.55); backdrop-filter:blur(10px);
     box-shadow:0 10px 28px rgba(0,0,0,.35);
     pointer-events:auto;
+    flex-wrap:wrap;                 /* يسمح بالالتفاف بدل التداخل */
   }
-  .brand{display:flex;align-items:center;gap:12px}
+  .brand{display:flex;align-items:center;gap:12px;min-width:240px}
   .mark{
     width:42px;height:42px;border-radius:16px;
     background:linear-gradient(135deg,var(--blue),var(--cyan));
     box-shadow:0 12px 30px rgba(0,0,0,.35);
+    flex:0 0 auto;
   }
   .brand b{display:block;font-weight:950}
   .brand small{display:block;color:var(--mut);font-weight:850;margin-top:2px}
 
-  .controls{display:flex;gap:10px;flex-wrap:wrap;justify-content:flex-end;align-items:center}
+  .controls{
+    display:flex; gap:10px; flex-wrap:wrap;
+    justify-content:flex-end; align-items:center;
+    margin-inline-start:auto;
+  }
+
   .btn{
     border:0; cursor:pointer; font-family:inherit;
     padding:10px 14px; border-radius:16px; font-weight:950;
     background:linear-gradient(135deg,var(--blue),var(--cyan)); color:#041022;
+    white-space:nowrap;
   }
   .btn.ghost{
     background:transparent; color:var(--txt);
     border:1px solid rgba(86,204,242,.35);
   }
+
   .mode{
-    display:flex;gap:8px;align-items:center;
+    display:flex; gap:6px; align-items:center;
     border:1px solid rgba(243,246,255,.12);
     background:rgba(255,255,255,.03);
     border-radius:999px;
     padding:6px;
+    flex:0 0 auto;
   }
   .mode button{
     pointer-events:auto;
     border:0; cursor:pointer; font-family:inherit;
     padding:7px 10px;border-radius:999px;
     background:transparent;color:var(--mut);font-weight:950;
+    white-space:nowrap;
   }
   .mode button.on{
     background:rgba(86,204,242,.16);
@@ -73,10 +92,13 @@
     box-shadow:0 10px 18px rgba(0,0,0,.25);
   }
 
+  /* كروت المشاهد: منع التغطية */
   .scene{
-    position:absolute; right:16px; left:16px; bottom:22px;
-    display:grid; gap:10px; max-width: 780px;
+    position:absolute; right:16px; left:16px; bottom:18px;
+    display:grid; gap:10px;
+    max-width: 820px;
     pointer-events:none;
+    padding-bottom: max(0px, env(safe-area-inset-bottom));
   }
   .card{
     border:1px solid var(--line);
@@ -86,7 +108,7 @@
     box-shadow: var(--shadow);
     transform: translateY(14px);
     opacity:0;
-    transition: opacity .35s ease, transform .35s ease;
+    transition: opacity .28s ease, transform .28s ease;
   }
   .card.on{opacity:1; transform: translateY(0)}
   .kicker{
@@ -101,7 +123,7 @@
     background:linear-gradient(135deg,var(--blue),var(--cyan));
     box-shadow:0 0 0 6px rgba(86,204,242,.08);
   }
-  h1{margin:10px 0 6px; font-size:2.25rem; line-height:1.15; font-weight:980;}
+  h1{margin:10px 0 6px; font-size:2.2rem; line-height:1.15; font-weight:980;}
   p{margin:0; color:var(--mut); line-height:1.95; font-weight:750;}
   .mini{display:flex;gap:10px;flex-wrap:wrap;margin-top:10px;color:var(--mut);font-weight:900;font-size:.92rem}
   .tag{padding:7px 10px;border-radius:999px;border:1px solid rgba(243,246,255,.12);background:rgba(255,255,255,.03)}
@@ -114,12 +136,36 @@
     background:rgba(2,6,17,.45);
     padding:10px 12px;border-radius:999px;
     backdrop-filter:blur(10px);
+    transition: opacity .25s ease, transform .25s ease;
   }
+  .hint.hide{opacity:0; transform:translateY(10px);}
 
+  /* نهاية الصفحة */
+  #end{
+    height:100vh; display:flex; align-items:center;
+    padding:24px 16px;
+  }
+  .endBox{
+    max-width:1200px; margin:auto;
+    border:1px solid var(--line); background:rgba(255,255,255,.04);
+    border-radius:22px; padding:18px; box-shadow:var(--shadow);
+  }
+  .endBox h2{margin:0 0 6px;font-weight:980}
+  .endBox .row{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
+
+  /* ريسبونسف: حل تزاحم الأزرار + خفض أحجام النص */
   @media (max-width:900px){
-    h1{font-size:1.85rem}
-    #wrap{height: 610vh;}
-    .controls{gap:8px}
+    #wrap{height: 640vh;}
+    h1{font-size:1.8rem}
+    .brand{min-width:unset; flex:1 1 260px}
+    .controls{justify-content:flex-start; width:100%}
+    .scene{bottom:12px}
+    .hint{top:86vh}
+  }
+  @media (max-width:520px){
+    .btn{padding:9px 12px}
+    .mode{width:100%; justify-content:space-between}
+    .scene{max-width:unset}
   }
 </style>
 </head>
@@ -148,7 +194,7 @@
       </div>
     </div>
 
-    <div class="hint">اسحب للأسفل ⟵ القصة تتحرك</div>
+    <div class="hint" id="hint">اسحب للأسفل ⟵ القصة تتحرك</div>
 
     <div class="scene" aria-live="polite">
       <div class="card" id="s0">
@@ -191,29 +237,29 @@
     </div>
   </div>
 
-  <div id="end" style="height:100vh;display:flex;align-items:center">
-    <div class="container" style="width:100%">
-      <div style="border:1px solid var(--line);background:rgba(255,255,255,.04);border-radius:22px;padding:18px;box-shadow:var(--shadow)">
-        <h2 style="margin:0 0 6px;font-weight:980">الخدمات بسرعة</h2>
-        <p style="margin:0;color:var(--mut);line-height:1.9;font-weight:760">
-          استراتيجية واتصال مؤسسي • إدارة محتوى • حملات مدفوعة • إنتاج مرئي • سمعة ومؤثرين • قياس أثر.
-        </p>
-        <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:12px">
-          <a class="btn" href="mailto:hello@faisal-ads.sa">hello@faisal-ads.sa</a>
-          <a class="btn ghost" href="tel:+966500000000">+966 50 000 0000</a>
-        </div>
-        <p style="margin:10px 0 0;color:var(--mut);font-weight:750">* البيانات مؤقتة. نعدلها لاحقًا.</p>
+  <div id="end">
+    <div class="endBox">
+      <h2>الخدمات بسرعة</h2>
+      <p style="margin:0;color:var(--mut);line-height:1.9;font-weight:760">
+        استراتيجية واتصال مؤسسي • إدارة محتوى • حملات مدفوعة • إنتاج مرئي • سمعة ومؤثرين • قياس أثر.
+      </p>
+      <div class="row">
+        <a class="btn" href="mailto:hello@faisal-ads.sa">hello@faisal-ads.sa</a>
+        <a class="btn ghost" href="tel:+966500000000">+966 50 000 0000</a>
       </div>
+      <p style="margin:10px 0 0;color:var(--mut);font-weight:750">* البيانات مؤقتة. نعدلها لاحقًا.</p>
     </div>
   </div>
 </div>
 
 <script src="https://unpkg.com/three@0.160.0/build/three.min.js"></script>
 <script>
-/* ============================
-   3D Scroll Story + Logo Texture + Modes
-   شرط: وجود logo.jpg بجانب index.html
-   ============================ */
+/* 3D Scroll Story — نسخة مُصلحة:
+   - Scroll smoothing (lerp)
+   - تقليل “النطّات”
+   - ضبط كثافة الأجسام على الموبايل
+   - إخفاء Hint بعد بداية التمرير
+*/
 
 const canvas = document.getElementById('c');
 const scene  = new THREE.Scene();
@@ -226,15 +272,15 @@ const camera = new THREE.PerspectiveCamera(45, innerWidth/innerHeight, 0.1, 120)
 camera.position.set(0, 0.15, 7.2);
 
 /* Lights */
-const keyLight = new THREE.DirectionalLight(0x56ccf2, 1.25);
+const keyLight = new THREE.DirectionalLight(0x56ccf2, 1.15);
 keyLight.position.set(3.2, 4.2, 2.5);
 scene.add(keyLight);
 
-const fillLight = new THREE.DirectionalLight(0x2f80ed, 0.95);
+const fillLight = new THREE.DirectionalLight(0x2f80ed, 0.90);
 fillLight.position.set(-3.5, 2.2, 3.0);
 scene.add(fillLight);
 
-const rimLight = new THREE.DirectionalLight(0x35f0c2, 0.55);
+const rimLight = new THREE.DirectionalLight(0x35f0c2, 0.45);
 rimLight.position.set(0.0, 3.0, -3.0);
 scene.add(rimLight);
 
@@ -247,12 +293,12 @@ const ringMat = new THREE.MeshStandardMaterial({
   metalness: 0.62,
   roughness: 0.22,
   emissive: 0x061a3a,
-  emissiveIntensity: 0.85
+  emissiveIntensity: 0.75
 });
 const ring = new THREE.Mesh(ringGeo, ringMat);
 scene.add(ring);
 
-/* Glass disc behind */
+/* Glass disc */
 const discGeo = new THREE.CircleGeometry(1.12, 72);
 const discMat = new THREE.MeshPhysicalMaterial({
   color: 0x56ccf2,
@@ -269,7 +315,7 @@ const disc = new THREE.Mesh(discGeo, discMat);
 disc.position.z = -0.08;
 scene.add(disc);
 
-/* === NEW: Logo badge (texture from logo.jpg) === */
+/* Logo badge (texture from logo.jpg) */
 const loader = new THREE.TextureLoader();
 let logoBadge = null;
 
@@ -278,36 +324,32 @@ loader.load(
   (tex) => {
     tex.colorSpace = THREE.SRGBColorSpace;
     tex.anisotropy = Math.min(8, renderer.capabilities.getMaxAnisotropy());
-    tex.wrapS = tex.wrapT = THREE.ClampToEdgeWrapping;
-
     const badgeGeo = new THREE.CircleGeometry(0.74, 72);
     const badgeMat = new THREE.MeshPhysicalMaterial({
       map: tex,
-      transparent: true,
-      opacity: 1,
       roughness: 0.15,
       metalness: 0.05,
-      transmission: 0.35,   // يعطي إحساس “زجاج”
+      transmission: 0.35,
       thickness: 0.5,
       clearcoat: 1,
       clearcoatRoughness: 0.12
     });
-
     logoBadge = new THREE.Mesh(badgeGeo, badgeMat);
-    logoBadge.position.z = 0.28;   // قدام الحلقة
+    logoBadge.position.z = 0.28;
     scene.add(logoBadge);
   },
   undefined,
-  () => {
-    // لو فشل تحميل الصورة: لا نكسر التجربة
-    console.warn("تعذر تحميل logo.jpg — تأكد أنه بجانب index.html وبنفس الاسم.");
-  }
+  () => console.warn("تعذر تحميل logo.jpg — تأكد أنه بجانب index.html وبنفس الاسم.")
 );
 
-/* Floating “signal cubes” */
+/* Cubes: خفف عددها على الموبايل */
+const isTouch = matchMedia('(pointer: coarse)').matches;
+const reduce  = matchMedia('(prefers-reduced-motion: reduce)').matches;
+const cubeCount = (isTouch || reduce) ? 10 : 18;
+
 const cubes = [];
 const cubeMat = new THREE.MeshStandardMaterial({ color:0x35f0c2, metalness:.25, roughness:.35 });
-for(let i=0;i<22;i++){
+for(let i=0;i<cubeCount;i++){
   const g = new THREE.BoxGeometry(0.12,0.12,0.12);
   const m = new THREE.Mesh(g, cubeMat);
   m.position.set((Math.random()-0.5)*4.6, (Math.random()-0.5)*2.6, (Math.random()-0.5)*2.4);
@@ -316,28 +358,30 @@ for(let i=0;i<22;i++){
   cubes.push(m);
 }
 
-/* Scroll mapping */
-const wrap = document.getElementById('wrap');
-function scrollT(){
-  const max = wrap.scrollHeight - innerHeight;
-  return max > 0 ? scrollY / max : 0;
-}
-
-/* Text scenes */
-const cards = [
-  document.getElementById('s0'),
-  document.getElementById('s1'),
-  document.getElementById('s2'),
-  document.getElementById('s3')
-];
+/* Scenes UI */
+const cards = [s0,s1,s2,s3];
 function setScene(t){
   const idx = Math.min(3, Math.max(0, Math.floor(t*4)));
   cards.forEach((c,i)=>c.classList.toggle('on', i===idx));
 }
-setScene(0);
+
+/* Hint hide after scroll */
+const hint = document.getElementById('hint');
+
+/* Smooth scroll value */
+const wrap = document.getElementById('wrap');
+function rawScrollT(){
+  const max = wrap.scrollHeight - innerHeight;
+  return max > 0 ? scrollY / max : 0;
+}
+let tNow = 0;          // smoothed
+let tTarget = 0;       // raw
+const damp = 0.08;     // كلما قلّت = أهدى (0.06-0.12 ممتاز)
+
+function lerp(a,b,t){ return a + (b-a)*t; }
 
 /* Modes */
-let mode = "corp"; // corp | show
+let mode = "corp";
 const mCorp = document.getElementById('mCorp');
 const mShow = document.getElementById('mShow');
 
@@ -350,12 +394,12 @@ function setMode(next){
     ringMat.emissiveIntensity = 0.75;
     keyLight.intensity = 1.15;
     fillLight.intensity = 0.90;
-    rimLight.intensity = 0.45;
+    rimLight.intensity  = 0.45;
   }else{
-    ringMat.emissiveIntensity = 1.25;
-    keyLight.intensity = 1.35;
-    fillLight.intensity = 1.05;
-    rimLight.intensity = 0.65;
+    ringMat.emissiveIntensity = 1.15;
+    keyLight.intensity = 1.30;
+    fillLight.intensity = 1.00;
+    rimLight.intensity  = 0.60;
   }
 }
 mCorp.addEventListener('click', ()=>setMode("corp"));
@@ -364,40 +408,43 @@ mShow.addEventListener('click', ()=>setMode("show"));
 /* Animate */
 const clock = new THREE.Clock();
 function animate(){
-  const t = scrollT();
-  setScene(t);
+  tTarget = rawScrollT();
+  tNow = lerp(tNow, tTarget, damp);
+
+  // UI
+  setScene(tNow);
+  if(tTarget > 0.02) hint.classList.add('hide'); else hint.classList.remove('hide');
 
   const time = clock.getElapsedTime();
 
-  // “Story” motion
-  ring.rotation.y = t * Math.PI * 2.4 + Math.sin(time*0.15)*0.08;
-  ring.rotation.x = 0.32 + Math.sin(t*Math.PI)*0.24;
-  const pulse = 1 + Math.sin(t*Math.PI)*0.20;
+  // Motion: استعمل tNow بدل tTarget (سلاسة)
+  ring.rotation.y = tNow * Math.PI * 2.4 + Math.sin(time*0.15)*0.06;
+  ring.rotation.x = 0.32 + Math.sin(tNow*Math.PI)*0.22;
+
+  const pulse = 1 + Math.sin(tNow*Math.PI)*0.16;
   ring.scale.setScalar(pulse);
 
-  disc.rotation.z = t * Math.PI * 1.75;
+  disc.rotation.z = tNow * Math.PI * 1.75;
   disc.material.opacity = (mode==="corp") ? 0.10 : 0.14;
 
-  // Logo badge motion (if loaded)
   if(logoBadge){
-    logoBadge.rotation.z = -t * Math.PI * 0.7;
-    logoBadge.position.y = Math.sin(time*0.85)*0.03;
-    // Showcase يعطيها نبض ولمعة أعلى
+    logoBadge.rotation.z = -tNow * Math.PI * 0.7;
+    logoBadge.position.y = Math.sin(time*0.85)*0.025;
     logoBadge.material.clearcoatRoughness = (mode==="corp") ? 0.12 : 0.06;
     logoBadge.material.transmission = (mode==="corp") ? 0.35 : 0.55;
   }
 
-  // Camera path (chapters)
-  camera.position.z = 7.2 - t*3.0;
-  camera.position.y = 0.15 + Math.sin(t*Math.PI)*0.22;
+  // Camera path smoother
+  camera.position.z = 7.2 - tNow*3.0;
+  camera.position.y = 0.15 + Math.sin(tNow*Math.PI)*0.20;
   camera.lookAt(0,0,0);
 
-  // Ambient cubes
+  // Cubes (خفف الحركة على corp)
+  const s = (mode==="corp") ? 0.9 : 1.15;
   cubes.forEach((m,i)=>{
-    const s = (mode==="corp") ? 1 : 1.25;
-    m.rotation.x += (0.006 + i*0.00002) * s;
-    m.rotation.y += (0.007 + i*0.00002) * s;
-    m.position.y += Math.sin(time*0.85 + i)*0.00085 * s;
+    m.rotation.x += (0.0048 + i*0.00002) * s;
+    m.rotation.y += (0.0052 + i*0.00002) * s;
+    m.position.y += Math.sin(time*0.85 + i)*0.00065 * s;
   });
 
   renderer.render(scene, camera);
